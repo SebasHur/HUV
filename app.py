@@ -91,13 +91,13 @@ with row2_3:
     Grouped_Age_gender['Age'] = Grouped_Age_gender['Age'].replace(',','-',regex=True)
     Grouped_Age_gender['Age'] = Grouped_Age_gender['Age'].replace('\(','',regex=True)
     Grouped_Age_gender['Age'] = Grouped_Age_gender['Age'].replace(']','',regex=True)
-    fig, _ = plt.subplots( figsize=(15,5))
-    ax1 = sns.barplot(x='M', y='Age', data=Grouped_Age_gender, palette="Blues")
-    ax2 = sns.barplot(x='F', y='Age', data=Grouped_Age_gender, palette="Greens")
-    plt.title("Population pyramid for Patients")
-    plt.xlabel("Female / Male")
-    plt.xticks(ticks=[-3000,-2000, -1000, 0, 1000, 2000,3000],labels=['3000','2000', '1000', '0', '1000', '2000','3000']);
-    st.plotly_chart(fig)
+    # fig, _ = plt.subplots( figsize=(15,5))
+    # ax1 = sns.barplot(x='M', y='Age', data=Grouped_Age_gender, palette="Blues")
+    # ax2 = sns.barplot(x='F', y='Age', data=Grouped_Age_gender, palette="Greens")
+    # plt.title("Population pyramid for Patients")
+    # plt.xlabel("Female / Male")
+    # plt.xticks(ticks=[-3000,-2000, -1000, 0, 1000, 2000,3000],labels=['3000','2000', '1000', '0', '1000', '2000','3000']);
+    # st.plotly_chart(fig)
 
 
 
