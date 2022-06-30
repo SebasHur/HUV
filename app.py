@@ -46,7 +46,15 @@ with row1_2:
 #import df
 data1_unique = pd.read_csv('facturas unicas.csv',sep=",")
 st.dataframe(data1_unique.head(10))
+
+#graficos
+st.write('Distribucion Por Genero')
+fig = px.sunburst(data1_unique, path=['año factura fiscal', 'genero - sexo'], 
+             title='Patient Gender')
+fig.update_traces(textinfo="label+percent parent")
+st.plotly_chart(fig)
 #Select/Multiple Select
+
 
 my_lang = ['Python','TESTING','Sql']
 choice = st.selectbox('Lenguaje',my_lang)
