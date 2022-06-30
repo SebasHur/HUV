@@ -58,11 +58,11 @@ with row2_1:
         st.header(PatientsAll)
     elif Female is True:
         st.subheader('TOTAL PATIENTS')
-        PatiensFemale = data1_unique[data1_unique['genero - sexo']=='F']['numero de identificacion del paciente'].nunique()
+        PatientsFemale = data1_unique[data1_unique['genero - sexo']=='F']['numero de identificacion del paciente'].nunique()
         st.header(PatientsFemale)
     elif Male is True:
         st.subheader('TOTAL PATIENTS')
-        PatiensMale = data1_unique[data1_unique['genero - sexo']=='M']['numero de identificacion del paciente'].nunique()
+        PatientsMale = data1_unique[data1_unique['genero - sexo']=='M']['numero de identificacion del paciente'].nunique()
         st.header(PatientsMale)
 
 
