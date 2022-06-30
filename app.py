@@ -3,8 +3,8 @@ import streamlit.components.v1 as stc
 from PIL import Image
 from xml.dom.xmlbuilder import Options
 
-# import numpy as np
-# import pandas as pd
+import numpy as np
+import pandas as pd
 # import pprint
 # import seaborn as sns
 # import matplotlib.pyplot as plt
