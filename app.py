@@ -55,9 +55,9 @@ with row2_1:
     if (Female is True and Male is True) or (Female is False and Male is False):
         st.write('TOTAL PATIENTS')
         PatientsAll = data1_unique['numero de identificacion del paciente'].nunique()
-        st.write(PatientsAll)
+        st.header(PatientsAll)
     if Male == 'hombre':
-        st.write('yeap')
+        st.header('yeap')
 
     
 #graficos
