@@ -52,9 +52,9 @@ with row2_1:
     # a = st.radio('Gender',('M','F'))
     Female = st.checkbox('mujer')
     Male = st.checkbox('hombre')
-    if Female == mujer:
+    if Female == 'mujer':
         st.write('lo lograste')
-    if Male == hombre:
+    if Male == 'hombre':
         st.write('yeap')
 
     
