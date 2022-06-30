@@ -45,14 +45,19 @@ with row1_2:
 
 #import df
 data1_unique = pd.read_csv('facturas unicas.csv',sep=",")
-st.dataframe(data1_unique.head(10))
 
+# Primera Linea
+row2_1, row2_2, row2_3, row2_4 = st.columns((2,2,2,2))
+with row2_1:
+    st.checkbox('Male')
+    st.checkbox('Female')
 #graficos
-st.write('Distribucion Por Genero')
-fig = px.sunburst(data1_unique, path=['año factura fiscal', 'genero - sexo'], 
-             title='Patient Gender')
-fig.update_traces(textinfo="label+percent parent")
-st.plotly_chart(fig)
+with row2_4:
+    st.write('Distribucion Por Genero')
+    fig = px.sunburst(data1_unique, path=['año factura fiscal', 'genero - sexo'], 
+                title='Patient Gender')
+    fig.update_traces(textinfo="label+percent parent")
+    st.plotly_chart(fig)
 #Select/Multiple Select
 
 
