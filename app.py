@@ -51,6 +51,8 @@ row2_1, row2_2, row2_3, row2_4 = st.columns((2,1,1,4))
 with row2_1:
     st.checkbox('Male')
     st.checkbox('Female')
+    if st.checkbox('Male'):
+        st.text('selecciono HOmbre')
 #graficos
 with row2_4:
     # st.write('Distribucion Por Genero')
