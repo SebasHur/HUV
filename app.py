@@ -8,7 +8,7 @@ img1 = Image.open('logo2.png')
 st.set_page_config(page_title='Hospital Universitario',page_icon = img1, layout='wide',initial_sidebar_state='collapsed')
 
 #Titulo 
-stc.html("<table style="background:#2F5496;border-collapse:collapse;border:none;">
+stc.html("""<table style="background:#2F5496;border-collapse:collapse;border:none;">
             <tbody>
                 <tr>
                     <td style="width: 450.8pt;border: 1pt solid windowtext;padding: 0cm 5.4pt;vertical-align: top;">
@@ -16,7 +16,7 @@ stc.html("<table style="background:#2F5496;border-collapse:collapse;border:none;
                     </td>
                 </tr>
             </tbody>
-        </table>")
+        </table>""")    
 
 #Select/Multiple Select
 
