@@ -1,21 +1,19 @@
+from xml.dom.xmlbuilder import Options
 import streamlit as st
-from PIL import Image
-#El boton destremlit debe ser lo primero
-img = Image.open('logo.png')
-#Method 1
-st.set_page_config(page_title='Hospital Universitario',
-         page_icon = img, layout='wide',
-       initial_sidebar_state='collapsed')
 
+#Select/Multiple Select
 
+my_lang = ['Python','R','Sql']
+choice = st.selectbox('Lenguaje',my_lang)
+st.write('Selecciono{}'.format(choice))
 
+#multiple selections
+spoken_lang = ('Ingles','Español','Portugues')
+my_spoken = st.multiselect('Spoken Lang', spoken_lang, default='Ingles')
 
+#slider
+#numeros
+age = st.slider('Age',1,100,5)
+#todos los datos
 
-
-def main():
-    """All code goes here""" 
-    st.title('Hello Streamlit Lovers')
-    st.sidebar.success('Menu')
-
-if __name__ == '__main__':
-    main()
+color = st.select_slider('Escoge Color', options=['amarillo','azul', 'rojo'])
