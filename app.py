@@ -1,7 +1,7 @@
 from subprocess import _TXT
 
 
-!pip install -r requirements.txt 
+pip install -r requirements.txt 
 
 from xml.dom.xmlbuilder import Options
 import streamlit as st
