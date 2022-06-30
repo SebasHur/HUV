@@ -1,3 +1,12 @@
 wordcloud
 statsmodels
 plotly
+pandas
+pprint
+seaborn
+matplotlib
+json
+worldcloud
+nltk
+scipy
+statsmodels
