@@ -1,7 +1,7 @@
 from gettext import install
 
 
-pip install seaborn
+install seaborn
 
 import streamlit as st
 import streamlit.components.v1 as stc
