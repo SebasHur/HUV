@@ -47,7 +47,7 @@ with row1_2:
 data1_unique = pd.read_csv('facturas unicas.csv',sep=",")
 
 # Primera Linea
-row2_1, row2_2, row2_3, row2_4 = st.columns((2,1,1,4))
+row2_1, row2_2, row2_3, row2_4 = st.columns((2,3,2,2))
 with row2_1:
     # a = st.radio('Gender',('M','F'))
     Female = st.checkbox('FEMALE')
@@ -68,10 +68,9 @@ with row2_1:
 
     
 #graficos
-with row2_4:
-    # st.write('Distribucion Por Genero')
-    fig = px.sunburst(data1_unique, path=['año factura fiscal', 'genero - sexo'], 
-                title='Patient Gender')
+with row2_2:
+    st.write('GENDERS BY YEAR')
+    fig = px.sunburst(data1_unique, path=['año factura fiscal', 'genero - sexo'])
     fig.update_traces(textinfo="label+percent parent")
     st.plotly_chart(fig)
 #Select/Multiple Select
