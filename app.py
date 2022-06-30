@@ -43,7 +43,7 @@ with row1_2:
 
 #import df
 data1_unique = pd.read_csv('facturas unicas.csv',sep=",")
-# st.dataframe(data1_unique)
+st.dataframe(data1_unique.head(10))
 #Select/Multiple Select
 
 my_lang = ['Python','TESTING','Sql']
