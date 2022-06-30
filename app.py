@@ -42,8 +42,7 @@ with row1_2:
         </table>""")
 
 #import df
-# data1_unique = pd.read_csv('facturas unicas.csv',sep=",", 
-#                  header = True, error_bad_lines=False, index_col=False)
+data1_unique = pd.read_csv('facturas unicas.csv',sep=",")
 # st.dataframe(data1_unique)
 #Select/Multiple Select
 
