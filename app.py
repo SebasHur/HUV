@@ -49,27 +49,26 @@ data1_unique = pd.read_csv('facturas unicas.csv',sep=",")
 # Primera Linea
 row2_1, row2_2, row2_3, row2_4 = st.columns((2,2,2,2))
 
-with st.form(key='form1'):
-    with row2_1:
-            # a = st.radio('Gender',('M','F'))
-        Female = st.checkbox('FEMALE')
-        Male = st.checkbox('MALE')
-        if (Female is True and Male is True) or (Female is False and Male is False):
-            st.subheader('TOTAL PATIENTS')
-            PatientsAll = data1_unique['numero de identificacion del paciente'].nunique()
-            st.header(PatientsAll)
-            st.subheader('NUMBER OF INVOICES')
-            InvoicesAll = data1_unique['Numero factura fiscal'].nunique()
-            st.header(InvoicesAll)
-        elif Female is True:
-            st.subheader('TOTAL PATIENTS')
-            PatientsFemale = data1_unique[data1_unique['genero - sexo']=='F']['numero de identificacion del paciente'].nunique()
-            st.header(PatientsFemale)
-            st.subheader('NUMBER OF INVOICES')
-            InvoicesAll = data1_unique[data1_unique['genero - sexo']=='F']['Numero factura fiscal'].nunique()
-            st.header(InvoicesAll)
-        elif Male is True:
-            new_func(data1_unique)
+with row2_1:
+        # a = st.radio('Gender',('M','F'))
+    Female = st.checkbox('FEMALE')
+    Male = st.checkbox('MALE')
+    if (Female is True and Male is True) or (Female is False and Male is False):
+        st.subheader('TOTAL PATIENTS')
+        PatientsAll = data1_unique['numero de identificacion del paciente'].nunique()
+        st.header(PatientsAll)
+        st.subheader('NUMBER OF INVOICES')
+        InvoicesAll = data1_unique['Numero factura fiscal'].nunique()
+        st.header(InvoicesAll)
+    elif Female is True:
+        st.subheader('TOTAL PATIENTS')
+        PatientsFemale = data1_unique[data1_unique['genero - sexo']=='F']['numero de identificacion del paciente'].nunique()
+        st.header(PatientsFemale)
+        st.subheader('NUMBER OF INVOICES')
+        InvoicesAll = data1_unique[data1_unique['genero - sexo']=='F']['Numero factura fiscal'].nunique()
+        st.header(InvoicesAll)
+    elif Male is True:
+        new_func(data1_unique)
 
 
 
