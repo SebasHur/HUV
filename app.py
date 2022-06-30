@@ -6,10 +6,12 @@ from xml.dom.xmlbuilder import Options
 import numpy as np
 import pandas as pd
 import plotly.express as px
+import seaborn as sns
+import matplotlib.pyplot as plt
 
 # import pprint
 # import seaborn as sns
-# import matplotlib.pyplot as plt
+
 # import json
 
 # import plotly.graph_objects as go
@@ -73,20 +75,31 @@ with row2_1:
         st.subheader('UNIQUE PATIENTS')
         InvoicesAll = data1_unique[data1_unique['genero - sexo']=='M']['Numero factura fiscal'].nunique()
         st.header(InvoicesAll)
-
-
-
-
-
-
-    
 #graficos
 with row2_2:
     st.write('GENDERS BY YEAR')
     fig = px.sunburst(data1_unique, path=['año factura fiscal', 'genero - sexo'])
     fig.update_traces(textinfo="label+percent parent")
     st.plotly_chart(fig)
-#Select/Multiple Select
+
+with row2_3:
+    Gender_Age = data1_unique[['genero - sexo','Age']]
+    age_groups = pd.cut(Gender_Age['Age'], bins=[0,5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90,95,np.inf])
+    Grouped_Age_gender = pd.crosstab(age_groups, Gender_Age['genero - sexo']).reset_index()
+    Grouped_Age_gender['F'] = Grouped_Age_gender['F'] * -1
+    Grouped_Age_gender['Age'] = Grouped_Age_gender['Age'].astype(str)
+    Grouped_Age_gender['Age'] = Grouped_Age_gender['Age'].replace(',','-',regex=True)
+    Grouped_Age_gender['Age'] = Grouped_Age_gender['Age'].replace('\(','',regex=True)
+    Grouped_Age_gender['Age'] = Grouped_Age_gender['Age'].replace(']','',regex=True)
+    fig, _ = plt.subplots( figsize=(15,5))
+    ax1 = sns.barplot(x='M', y='Age', data=Grouped_Age_gender, palette="Blues")
+    ax2 = sns.barplot(x='F', y='Age', data=Grouped_Age_gender, palette="Greens")
+    plt.title("Population pyramid for Patients")
+    plt.xlabel("Female / Male")
+    plt.xticks(ticks=[-3000,-2000, -1000, 0, 1000, 2000,3000],labels=['3000','2000', '1000', '0', '1000', '2000','3000']);
+    st.plotly_chart(fig)
+
+
 
 
 my_lang = ['Python','TESTING','Sql']
