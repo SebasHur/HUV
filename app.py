@@ -1,8 +1,10 @@
 import streamlit as st
 import streamlit.components.v1 as stc
 from PIL import Image
-import numpy as np
-import pandas as pd
+from xml.dom.xmlbuilder import Options
+
+# import numpy as np
+# import pandas as pd
 # import pprint
 # import seaborn as sns
 # import matplotlib.pyplot as plt
@@ -16,7 +18,7 @@ import pandas as pd
 # from scipy import stats
 # import scipy
 # import statsmodels.api as sm
-from xml.dom.xmlbuilder import Options
+
 
 
 #Nombre de la Pagina
@@ -40,9 +42,9 @@ with row1_2:
         </table>""")
 
 #import df
-data1_unique = pd.read_csv('facturas unicas.csv',sep=",", 
-                 header = True, error_bad_lines=False, index_col=False)
-st.dataframe(data1_unique)
+# data1_unique = pd.read_csv('facturas unicas.csv',sep=",", 
+#                  header = True, error_bad_lines=False, index_col=False)
+# st.dataframe(data1_unique)
 #Select/Multiple Select
 
 my_lang = ['Python','TESTING','Sql']
