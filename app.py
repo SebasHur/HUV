@@ -49,8 +49,8 @@ data1_unique = pd.read_csv('facturas unicas.csv',sep=",")
 # Primera Linea
 row2_1, row2_2, row2_3, row2_4 = st.columns((2,1,1,4))
 with row2_1:
-    a = st.checkbox(('M','F'))
-    
+    a = st.radio(('M','F'))
+
     
 #graficos
 with row2_4:
