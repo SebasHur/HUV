@@ -48,6 +48,7 @@ data1_unique = pd.read_csv('facturas unicas.csv',sep=",")
 
 # Primera Linea
 row2_1, row2_2, row2_3, row2_4 = st.columns((2,2,2,2))
+
 with st.form(key='form1'):
     with row2_1:
     # a = st.radio('Gender',('M','F'))
@@ -68,12 +69,10 @@ with st.form(key='form1'):
         InvoicesAll = data1_unique[data1_unique['genero - sexo']=='F']['Numero factura fiscal'].nunique()
         st.header(InvoicesAll)
     elif Male is True:
-        st.subheader('TOTAL PATIENTS')
-        PatientsMale = data1_unique[data1_unique['genero - sexo']=='M']['numero de identificacion del paciente'].nunique()
-        st.header(PatientsMale)
-        st.subheader('NUMBER OF INVOICES')
-        InvoicesAll = data1_unique[data1_unique['genero - sexo']=='M']['Numero factura fiscal'].nunique()
-        st.header(InvoicesAll)
+        new_func(data1_unique)
+
+
+
 
 
     
