@@ -1,10 +1,27 @@
+from subprocess import _TXT
+
+
+!pip install -r requirements.txt 
+
 from xml.dom.xmlbuilder import Options
 import streamlit as st
 import streamlit.components.v1 as stc
 from PIL import Image
-import pandas as pd
 import numpy as np
+import pandas as pd
+import pprint
+import seaborn as sns
+import matplotlib.pyplot as plt
+import json
 import plotly.express as px
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
+from wordcloud import WordCloud
+from nltk import word_tokenize
+import nltk
+from scipy import stats
+import scipy
+import statsmodels.api as sm
 
 
 #Nombre de la Pagina
