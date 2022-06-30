@@ -56,14 +56,23 @@ with row2_1:
         st.subheader('TOTAL PATIENTS')
         PatientsAll = data1_unique['numero de identificacion del paciente'].nunique()
         st.header(PatientsAll)
+        st.subheader('NUMBER OF INVOICES')
+        InvoicesAll = data1_unique['Numero factura fiscal'].nunique()
+        st.header(InvoicesAll)
     elif Female is True:
         st.subheader('TOTAL PATIENTS')
         PatientsFemale = data1_unique[data1_unique['genero - sexo']=='F']['numero de identificacion del paciente'].nunique()
         st.header(PatientsFemale)
+        st.subheader('NUMBER OF INVOICES')
+        InvoicesAll = data1_unique[data1_unique['genero - sexo']=='F']['Numero factura fiscal'].nunique()
+        st.header(InvoicesAll)
     elif Male is True:
         st.subheader('TOTAL PATIENTS')
         PatientsMale = data1_unique[data1_unique['genero - sexo']=='M']['numero de identificacion del paciente'].nunique()
         st.header(PatientsMale)
+        st.subheader('NUMBER OF INVOICES')
+        InvoicesAll = data1_unique[data1_unique['genero - sexo']=='M']['Numero factura fiscal'].nunique()
+        st.header(InvoicesAll)
 
 
     
