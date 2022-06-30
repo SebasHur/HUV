@@ -3,8 +3,8 @@ import streamlit as st
 from PIL import Image
 
 #Nombre de la Pagina
-img = Image.open('logo2.png')
-st.set_page_config(page_title='Hospital Universitario', layout='wide',initial_sidebar_state='collapsed')
+img1 = Image.open('logo2.png')
+st.set_page_config(page_title='Hospital Universitario',page_icon = img1, layout='wide',initial_sidebar_state='collapsed')
 
 #Select/Multiple Select
 
