@@ -5,11 +5,13 @@ from xml.dom.xmlbuilder import Options
 
 import numpy as np
 import pandas as pd
+import plotly.express as px
+
 # import pprint
 # import seaborn as sns
 # import matplotlib.pyplot as plt
 # import json
-# import plotly.express as px
+
 # import plotly.graph_objects as go
 # from plotly.subplots import make_subplots
 # from wordcloud import WordCloud
