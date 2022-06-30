@@ -48,7 +48,8 @@ data1_unique = pd.read_csv('facturas unicas.csv',sep=",")
 
 # Primera Linea
 row2_1, row2_2, row2_3, row2_4 = st.columns((2,2,2,2))
-with row2_1:
+with st.form(key='form1'):
+    with row2_1:
     # a = st.radio('Gender',('M','F'))
     Female = st.checkbox('FEMALE')
     Male = st.checkbox('MALE')
