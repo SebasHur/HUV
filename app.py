@@ -47,13 +47,13 @@ with row1_2:
 data1_unique = pd.read_csv('facturas unicas.csv',sep=",")
 
 # Primera Linea
-row2_1, row2_2, row2_3, row2_4 = st.columns((2,2,2,2))
+row2_1, row2_2, row2_3, row2_4 = st.columns((2,1,1,4))
 with row2_1:
     st.checkbox('Male')
     st.checkbox('Female')
 #graficos
 with row2_4:
-    st.write('Distribucion Por Genero')
+    # st.write('Distribucion Por Genero')
     fig = px.sunburst(data1_unique, path=['año factura fiscal', 'genero - sexo'], 
                 title='Patient Gender')
     fig.update_traces(textinfo="label+percent parent")
