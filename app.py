@@ -51,8 +51,11 @@ row2_1, row2_2, row2_3, row2_4 = st.columns((1,2,1,1))
 
 with row2_1:
         # a = st.radio('Gender',('M','F'))
-    Female = st.checkbox('FEMALE')
-    Male = st.checkbox('MALE')
+    row2_1_1, row2_1_2 = st.columns(1,1)
+    with row2_1_1:
+        Female = st.checkbox('FEMALE')
+    with row2_1_2:
+        Male = st.checkbox('MALE')
     if (Female is True and Male is True) or (Female is False and Male is False):
         st.subheader('TOTAL VISITS')
         PatientsAll = data1_unique['numero de identificacion del paciente'].nunique()
