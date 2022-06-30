@@ -51,7 +51,7 @@ row2_1, row2_2, row2_3, row2_4 = st.columns((1,2,1,1))
 
 with row2_1:
         # a = st.radio('Gender',('M','F'))
-    row2_1_1, row2_1_2 = st.columns(1,1)
+    row2_1_1, row2_1_2 = st.columns((1,1))
     with row2_1_1:
         Female = st.checkbox('FEMALE')
     with row2_1_2:
