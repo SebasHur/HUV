@@ -82,7 +82,7 @@ with row2_2:
     fig.update_traces(textinfo="label+percent parent")
     st.plotly_chart(fig)
 
-with row2_3:
+# with row2_3:
     # Gender_Age = data1_unique[['genero - sexo','Age']]
     # age_groups = pd.cut(Gender_Age['Age'], bins=[0,5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90,95,np.inf])
     # Grouped_Age_gender = pd.crosstab(age_groups, Gender_Age['genero - sexo']).reset_index()
