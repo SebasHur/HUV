@@ -50,10 +50,10 @@ data1_unique = pd.read_csv('facturas unicas.csv',sep=",")
 row2_1, row2_2, row2_3, row2_4 = st.columns((2,1,1,4))
 with row2_1:
     # a = st.radio('Gender',('M','F'))
-    Female = st.checkbox('mujer')
-    Male = st.checkbox('hombre')
-    if Female is True:
-        st.write('lo lograste')
+    Female = st.checkbox('FEMALE')
+    Male = st.checkbox('MALE')
+    if (Female is True and Male is True) or (Female is False and Male is False):
+        st.write('Patient Data')
     if Male == 'hombre':
         st.write('yeap')
 
