@@ -1,12 +1,2 @@
-wordcloud
-statsmodels
-plotly
+numpy
 pandas
-pprint
-seaborn
-matplotlib
-json
-worldcloud
-nltk
-scipy
-statsmodels
