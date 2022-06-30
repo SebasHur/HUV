@@ -1,9 +1,3 @@
-from subprocess import _TXT
-
-
-pip install -r requirements.txt 
-
-from xml.dom.xmlbuilder import Options
 import streamlit as st
 import streamlit.components.v1 as stc
 from PIL import Image
@@ -22,6 +16,7 @@ import nltk
 from scipy import stats
 import scipy
 import statsmodels.api as sm
+from xml.dom.xmlbuilder import Options
 
 
 #Nombre de la Pagina
