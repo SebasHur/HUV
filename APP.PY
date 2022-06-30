@@ -1,7 +1,7 @@
 import streamlit as st
 from PIL import Image
 #El boton destremlit debe ser lo primero
-img = Image.open('data/logo2.png')
+img = Image.open('logo.png')
 #Method 1
 st.set_page_config(page_title='Hospital Universitario',
          page_icon = img, layout='wide',
