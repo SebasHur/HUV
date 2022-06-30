@@ -2,6 +2,10 @@ from xml.dom.xmlbuilder import Options
 import streamlit as st
 import streamlit.components.v1 as stc
 from PIL import Image
+import pandas as pd
+import numpy as np
+import plotly.express as px
+
 
 #Nombre de la Pagina
 img1 = Image.open('logo2.png')
@@ -23,6 +27,10 @@ with row1_2:
             </tbody>
         </table>""")
 
+#import df
+data1_unique = pd.read_csv('facturas unicas.csv',sep=",", 
+                 header = True, error_bad_lines=False, index_col=False)
+st.dataframe(data1_unique)
 #Select/Multiple Select
 
 my_lang = ['Python','TESTING','Sql']
