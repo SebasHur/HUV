@@ -8,7 +8,7 @@ st.set_page_config(page_title='Hospital Universitario',page_icon = img1, layout=
 
 #Select/Multiple Select
 
-my_lang = ['Python','R','Sql']
+my_lang = ['Python','TESTING','Sql']
 choice = st.selectbox('Lenguaje',my_lang)
 st.write('Selecciono{}'.format(choice))
 
