@@ -1,5 +1,9 @@
 from xml.dom.xmlbuilder import Options
 import streamlit as st
+from PIL import Image
+
+#Nombre de la Pagina
+st.set_page_config(page_title='Hospital Universitario', layout='wide',initial_sidebar_state='collapsed')
 
 #Select/Multiple Select
 
