@@ -53,11 +53,18 @@ with row2_1:
     Female = st.checkbox('FEMALE')
     Male = st.checkbox('MALE')
     if (Female is True and Male is True) or (Female is False and Male is False):
-        st.write('TOTAL PATIENTS')
+        st.subheader('TOTAL PATIENTS')
         PatientsAll = data1_unique['numero de identificacion del paciente'].nunique()
         st.header(PatientsAll)
-    if Male == 'hombre':
-        st.header('yeap')
+    elif Female is True:
+        st.subheader('TOTAL PATIENTS')
+        PatiensFemale = data1_unique[data1_unique['genero - sexo']=='F']['numero de identificacion del paciente'].nunique()
+        st.header(PatientsFemale)
+    elif Male is True:
+        st.subheader('TOTAL PATIENTS')
+        PatiensMale = data1_unique[data1_unique['genero - sexo']=='M']['numero de identificacion del paciente'].nunique()
+        st.header(PatientsMale)
+
 
     
 #graficos
