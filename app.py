@@ -74,6 +74,9 @@ with row2_1:
         st.subheader('TOTAL VISITS')
         InvoicesAll = data1_unique[data1_unique['genero - sexo']=='F']['Numero factura fiscal'].nunique()
         st.header(InvoicesAll)
+        st.subheader('AVERAGE DAYS')
+        st.header(round(data1_unique.groupby('genero - sexo')['Hosp_Days'].get_group('F').mean(),2))
+       
     elif Male is True:
         st.subheader('UNIQUE PATIENTS')
         PatientsFemale = data1_unique[data1_unique['genero - sexo']=='M']['numero de identificacion del paciente'].nunique()
@@ -81,6 +84,8 @@ with row2_1:
         st.subheader('TOTAL VISITS')
         InvoicesAll = data1_unique[data1_unique['genero - sexo']=='M']['Numero factura fiscal'].nunique()
         st.header(InvoicesAll)
+        st.subheader('AVERAGE DAYS')
+        st.header(round(data1_unique.groupby('genero - sexo')['Hosp_Days'].get_group('M').mean(),2))
 #graficos
 with row2_2:
     st.header('GENDERS BY YEAR')
