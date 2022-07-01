@@ -288,7 +288,7 @@ elif choice == 'EDA':
             <tbody>
                 <tr>
                     <td style="width: 1450.8pt; border-collapse: collapse;background: rgb(84, 172, 210);padding: 0cm 5.4pt;vertical-align: top;">
-                        <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style="color:white;">AGE DISTRIBUTION BY GENDER</span></p>
+                        <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style="color:white;">AGE DISTRIBUTION BY GENDER</span>
                     </td>
                 </tr>
             </tbody>
