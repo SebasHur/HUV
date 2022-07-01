@@ -121,7 +121,7 @@ elif choice == 'EDA':
             </tbody>
         </table>
         <p><br></p>''',height=50)
-        Gender1 = st.radio(label = False , options=('FEMALE','MALE','BOTH'))
+        Gender1 = st.radio(label = '', options=('FEMALE','MALE','BOTH'))
         # Male = st.checkbox('MALE',key='MALE')
     with row2_2:
         stc.html('''<table style="border-collapse:collapse;border:none;">
