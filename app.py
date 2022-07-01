@@ -100,17 +100,17 @@ with row2_3:
     a = 10
     if (Female is True and Male is True) or (Female is False and Male is False):
         DX_total = data1_unique.groupby('cie10 egrdin').size().to_frame(name='count').reset_index().sort_values(['count'], ascending=False).head(a)
-        fig1 = px.histogram(DX_total, x='cie10 egrdin', y='count')
+        fig1 = px.funnel(DX_total, x='cie10 egrdin', y='count')
         fig1.update_layout(font_size=7)
         st.plotly_chart(fig1, use_container_width=True)
     elif Female is True:
         DX_Mujeres = Mujeres.groupby('cie10 egrdin').size().to_frame(name='count').reset_index().sort_values(['count'], ascending=False).head(a)
-        fig1 = px.histogram(DX_Mujeres, x='cie10 egrdin', y='count')
+        fig1 = px.funnel(DX_Mujeres, x='cie10 egrdin', y='count')
         fig1.update_layout(font_size=7)
         st.plotly_chart(fig1, use_container_width=True)
     elif Male is True:
         DX_Hombres = Hombres.groupby('cie10 egrdin').size().to_frame(name='count').reset_index().sort_values(['count'], ascending=False).head(a)
-        fig1 = px.histogram(DX_Hombres, x='cie10 egrdin', y='count')
+        fig1 = px.funnel(DX_Hombres, x='cie10 egrdin', y='count')
         fig1.update_layout(font_size=7)
         st.plotly_chart(fig1, use_container_width=True)
 
