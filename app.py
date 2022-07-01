@@ -42,7 +42,20 @@ menu = ['HOME','EDA','PREDICTION','ABOUT']
 choice = st.sidebar.selectbox('MENU',menu)
 #Titulo 
 if choice == 'HOME':
-    pass
+    row1_1, row1_2 = st.columns((1, 6))
+    img2 = Image.open('logo.png')
+    with row1_1:
+        st.image(img2, caption=None, width=None, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
+    with row1_2:
+        stc.html("""<table style="background: rgb(47, 84, 150); border-collapse: collapse; border: none; margin-right: calc(3%); width: 97%;">
+                <tbody>
+                    <tr>
+                        <td style="width: 450.8pt;border: 1pt solid windowtext;background: rgb(142, 170, 219);padding: 0cm 5.4pt;vertical-align: top;">
+                            <p style="text-align: center;"><span style='font-size: 24px; font-family: "Arial Black", sans-serif; color: white;'><strong>HOSPITAL UNIVERSITARIO DEL VALLE</strong></span></p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>""")
 elif choice == 'EDA':
     row1_1, row1_2 = st.columns((1, 6))
     img2 = Image.open('logo.png')
@@ -59,48 +72,56 @@ elif choice == 'EDA':
                 </tbody>
             </table>""")
     # Primera Linea
-    row2_1, row2_2, row2_3 = st.columns((1,2,2))
+    row2_1, row2_2, row2_3, row2_4 = st.columns((1,1,1,1))
 
     with row2_1:
         Female = st.checkbox('FEMALE')
         Male = st.checkbox('MALE')
+    with row2_2:
         if (Female is True and Male is True) or (Female is False and Male is False):
             st.subheader('UNIQUE PATIENTS')
             PatientsAll = data1_unique['numero de identificacion del paciente'].nunique()
             st.header(PatientsAll)
-            st.subheader('TOTAL VISITS')
-            InvoicesAll = data1_unique['Numero factura fiscal'].nunique()
-            st.header(InvoicesAll)
-            st.subheader('AVERAGE DAYS')
-            st.header(round(data1_unique.groupby('genero - sexo')['Hosp_Days'].get_group('M').append(data1_unique.groupby('genero - sexo')['Hosp_Days'].get_group('F')).mean(),2))
-            
         elif Female is True:
             st.subheader('UNIQUE PATIENTS')
             PatientsFemale = data1_unique[data1_unique['genero - sexo']=='F']['numero de identificacion del paciente'].nunique()
             st.header(PatientsFemale)
-            st.subheader('TOTAL VISITS')
-            InvoicesAll = data1_unique[data1_unique['genero - sexo']=='F']['Numero factura fiscal'].nunique()
-            st.header(InvoicesAll)
-            st.subheader('AVERAGE DAYS')
-            st.header(round(data1_unique.groupby('genero - sexo')['Hosp_Days'].get_group('F').mean(),2))
-        
         elif Male is True:
             st.subheader('UNIQUE PATIENTS')
             PatientsFemale = data1_unique[data1_unique['genero - sexo']=='M']['numero de identificacion del paciente'].nunique()
             st.header(PatientsFemale)
+    with row2_3:
+        if (Female is True and Male is True) or (Female is False and Male is False):
+            st.subheader('TOTAL VISITS')
+            InvoicesAll = data1_unique['Numero factura fiscal'].nunique()
+            st.header(InvoicesAll)
+        elif Female is True:
+            st.subheader('TOTAL VISITS')
+            InvoicesAll = data1_unique[data1_unique['genero - sexo']=='F']['Numero factura fiscal'].nunique()
+            st.header(InvoicesAll)
+        elif Male is True:
             st.subheader('TOTAL VISITS')
             InvoicesAll = data1_unique[data1_unique['genero - sexo']=='M']['Numero factura fiscal'].nunique()
             st.header(InvoicesAll)
+    with row2_4:
+        if (Female is True and Male is True) or (Female is False and Male is False):
+            st.subheader('AVERAGE DAYS')
+            st.header(round(data1_unique.groupby('genero - sexo')['Hosp_Days'].get_group('M').append(data1_unique.groupby('genero - sexo')['Hosp_Days'].get_group('F')).mean(),2))  
+        elif Female is True:
+            st.subheader('AVERAGE DAYS')
+            st.header(round(data1_unique.groupby('genero - sexo')['Hosp_Days'].get_group('F').mean(),2))
+        elif Male is True:
             st.subheader('AVERAGE DAYS')
             st.header(round(data1_unique.groupby('genero - sexo')['Hosp_Days'].get_group('M').mean(),2))
     #graficos
-    with row2_2:
+    row3_1, row3_2, row3_3 = st.columns((1,1,1))
+    with row3_1:
         st.header('GENDERS BY YEAR')
         fig = px.sunburst(data1_unique, path=['año factura fiscal', 'genero - sexo'])
         fig.update_traces(textinfo="label+percent parent")
         st.plotly_chart(fig, use_container_width=True)
         
-    with row2_3:
+    with row3_2:
         st.header('TOP 5 ENTRANCE DIAGNOSIS')
         a = 5
         if (Female is True and Male is True) or (Female is False and Male is False):
@@ -122,9 +143,35 @@ elif choice == 'EDA':
             fig1.update_layout(font_size=14)
             st.plotly_chart(fig1, use_container_width=True)
 elif choice == 'PREDICTION':
-    pass
+    row1_1, row1_2 = st.columns((1, 6))
+    img2 = Image.open('logo.png')
+    with row1_1:
+        st.image(img2, caption=None, width=None, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
+    with row1_2:
+        stc.html("""<table style="background: rgb(47, 84, 150); border-collapse: collapse; border: none; margin-right: calc(3%); width: 97%;">
+                <tbody>
+                    <tr>
+                        <td style="width: 450.8pt;border: 1pt solid windowtext;background: rgb(142, 170, 219);padding: 0cm 5.4pt;vertical-align: top;">
+                            <p style="text-align: center;"><span style='font-size: 24px; font-family: "Arial Black", sans-serif; color: white;'><strong>HOSPITAL UNIVERSITARIO DEL VALLE</strong></span></p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>""")
 elif choice == 'ABOUT':
-    pass 
+    row1_1, row1_2 = st.columns((1, 6))
+    img2 = Image.open('logo.png')
+    with row1_1:
+        st.image(img2, caption=None, width=None, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
+    with row1_2:
+        stc.html("""<table style="background: rgb(47, 84, 150); border-collapse: collapse; border: none; margin-right: calc(3%); width: 97%;">
+                <tbody>
+                    <tr>
+                        <td style="width: 450.8pt;border: 1pt solid windowtext;background: rgb(142, 170, 219);padding: 0cm 5.4pt;vertical-align: top;">
+                            <p style="text-align: center;"><span style='font-size: 24px; font-family: "Arial Black", sans-serif; color: white;'><strong>HOSPITAL UNIVERSITARIO DEL VALLE</strong></span></p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>""") 
 
 # with row2_3:
     # Gender_Age = data1_unique[['genero - sexo','Age']]
