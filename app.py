@@ -1,3 +1,5 @@
+$ pip install -r requirements.txt
+
 import streamlit as st
 import streamlit.components.v1 as stc
 from PIL import Image
@@ -55,24 +57,24 @@ with row2_1:
     Female = st.checkbox('FEMALE')
     Male = st.checkbox('MALE')
     if (Female is True and Male is True) or (Female is False and Male is False):
-        st.subheader('TOTAL VISITS')
+        st.subheader('UNIQUE PATIENTS')
         PatientsAll = data1_unique['numero de identificacion del paciente'].nunique()
         st.header(PatientsAll)
-        st.subheader('UNIQUE PATIENTS')
+        st.subheader('TOTAL VISITS')
         InvoicesAll = data1_unique['Numero factura fiscal'].nunique()
         st.header(InvoicesAll)
     elif Female is True:
-        st.subheader('TOTAL VISITS')
+        st.subheader('UNIQUE PATIENTS')
         PatientsFemale = data1_unique[data1_unique['genero - sexo']=='F']['numero de identificacion del paciente'].nunique()
         st.header(PatientsFemale)
-        st.subheader('UNIQUE PATIENTS')
+        st.subheader('TOTAL VISITS')
         InvoicesAll = data1_unique[data1_unique['genero - sexo']=='F']['Numero factura fiscal'].nunique()
         st.header(InvoicesAll)
     elif Male is True:
-        st.subheader('TOTAL VISITS')
+        st.subheader('UNIQUE PATIENTS')
         PatientsFemale = data1_unique[data1_unique['genero - sexo']=='M']['numero de identificacion del paciente'].nunique()
         st.header(PatientsFemale)
-        st.subheader('UNIQUE PATIENTS')
+        st.subheader('TOTAL VISITS')
         InvoicesAll = data1_unique[data1_unique['genero - sexo']=='M']['Numero factura fiscal'].nunique()
         st.header(InvoicesAll)
 #graficos
