@@ -121,7 +121,7 @@ elif choice == 'EDA':
             <tbody>
                 <tr>
                     <td style="width: 450.8pt; border: 1pt solid windowtext; background: rgb(26, 188, 156); padding: 0cm 5.4pt; vertical-align: middle; text-align: justify;">
-                        <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style="color:black;">NUMBER OF PATIENTS</span></p>
+                        <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:27px;font-family:"Calibri",sans-serif;text-align:center;'><span style="color:black;">NUMBER OF PATIENTS</span></p>
                     </td>
                 </tr>
             </tbody>
