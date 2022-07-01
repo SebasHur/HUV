@@ -47,6 +47,10 @@ with row1_2:
 #import df
 data1_unique = pd.read_csv('facturas unicas.csv',sep=",")
 
+#Creacion colummas
+data1_unique[['fecha actividad','fecha ingreso','fecha egreso','Fecha de nacimiento']] = data1_unique[['fecha actividad','fecha ingreso','fecha egreso','Fecha de nacimiento']].apply(pd.to_datetime,format='%Y/%m/%d' ,errors='coerce')
+data1_unique['Hosp_Days'] = (data1_unique['fecha egreso'] - data1_unique['fecha ingreso'])/np.timedelta64(1,'D')
+
 # Primera Linea
 row2_1, row2_2, row2_3, row2_4 = st.columns((1,2,1,1))
 
@@ -60,6 +64,7 @@ with row2_1:
         st.subheader('TOTAL VISITS')
         InvoicesAll = data1_unique['Numero factura fiscal'].nunique()
         st.header(InvoicesAll)
+        st.header('AVERAGE DAYS')
     elif Female is True:
         st.subheader('UNIQUE PATIENTS')
         PatientsFemale = data1_unique[data1_unique['genero - sexo']=='F']['numero de identificacion del paciente'].nunique()
@@ -76,7 +81,7 @@ with row2_1:
         st.header(InvoicesAll)
 #graficos
 with row2_2:
-    st.write('GENDERS BY YEAR')
+    st.header('GENDERS BY YEAR')
     fig = px.sunburst(data1_unique, path=['año factura fiscal', 'genero - sexo'])
     fig.update_traces(textinfo="label+percent parent")
     st.plotly_chart(fig, use_container_width=True)
