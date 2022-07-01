@@ -132,10 +132,10 @@ elif choice == 'EDA':
             st.header(f'{PatientsAll:,}')
         elif Female is True:
             PatientsFemale = data1_unique[data1_unique['genero - sexo']=='F']['numero de identificacion del paciente'].nunique()
-            st.header(PatientsFemale)
+            st.header(f'{PatientsFemale:,}')
         elif Male is True:
             PatientsFemale = data1_unique[data1_unique['genero - sexo']=='M']['numero de identificacion del paciente'].nunique()
-            st.header(PatientsFemale)
+            st.header(f'{PatientsFemale:,}')
     with row2_3:
         stc.html('''<table style="border-collapse:collapse;border:none;">
                     <tbody>
@@ -149,13 +149,13 @@ elif choice == 'EDA':
                 <p><br></p>''',height=50)
         if (Female is True and Male is True) or (Female is False and Male is False):
             InvoicesAll = data1_unique['Numero factura fiscal'].nunique()
-            st.header(InvoicesAll)
+            st.header(f'{InvoicesAll:,}')
         elif Female is True:
             InvoicesAll = data1_unique[data1_unique['genero - sexo']=='F']['Numero factura fiscal'].nunique()
-            st.header(InvoicesAll)
+            st.header(f'{InvoicesAll:,}')
         elif Male is True:
             InvoicesAll = data1_unique[data1_unique['genero - sexo']=='M']['Numero factura fiscal'].nunique()
-            st.header(InvoicesAll)
+            st.header(f'{InvoicesAll:,}')
     with row2_4:
         stc.html('''<table style="border-collapse:collapse;border:none;">
                 <tbody>
@@ -168,11 +168,11 @@ elif choice == 'EDA':
             </table>
             <p><br></p>''',height=50)
         if (Female is True and Male is True) or (Female is False and Male is False):
-            st.header(round(data1_unique.groupby('genero - sexo')['Hosp_Days'].get_group('M').append(data1_unique.groupby('genero - sexo')['Hosp_Days'].get_group('F')).mean(),2))  
+            st.header(f'{round(data1_unique.groupby('genero - sexo')['Hosp_Days'].get_group('M').append(data1_unique.groupby('genero - sexo')['Hosp_Days'].get_group('F')).mean(),2):,}')  
         elif Female is True:
-            st.header(round(data1_unique.groupby('genero - sexo')['Hosp_Days'].get_group('F').mean(),2))
+            st.header(f'{round(data1_unique.groupby('genero - sexo')['Hosp_Days'].get_group('F').mean(),2):,}')
         elif Male is True:
-            st.header(round(data1_unique.groupby('genero - sexo')['Hosp_Days'].get_group('M').mean(),2))
+            st.header(f'{round(data1_unique.groupby('genero - sexo')['Hosp_Days'].get_group('M').mean(),2):,}')
     #graficos
     row3_1, row3_2, row3_3 = st.columns((1,1,1))
     with row3_1:
