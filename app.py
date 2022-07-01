@@ -231,7 +231,7 @@ elif choice == 'EDA':
             Ingreso = data1_unique.groupby('cie10 egrdin').size().to_frame(name='count').reset_index().sort_values(['count'], ascending=False)
             Ingreso_top = Ingreso.head(5)
             fig = px.histogram(Ingreso_top, x='cie10 egrdin', y='count',title='ENTRANCE DIAGNOSIS')
-            fig.update_layout(font_size=7)
+            fig.update_layout(font_size=10)
             # fig.show()
             st.plotly_chart(fig, use_container_width=True)
         elif Female is True:
