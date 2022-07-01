@@ -55,7 +55,7 @@ data1_unique['Hosp_Days'] = (data1_unique['fecha egreso'] - data1_unique['fecha 
 row2_1, row2_2, row2_3, row2_4 = st.columns((1,2,1,1))
 
 with row2_1:
-    Female = st.checkbox('MUJER')
+    Female = st.checkbox('FEMALE')
     Male = st.checkbox('MALE')
     if (Female is True and Male is True) or (Female is False and Male is False):
         st.subheader('UNIQUE PATIENTS')
@@ -64,7 +64,9 @@ with row2_1:
         st.subheader('TOTAL VISITS')
         InvoicesAll = data1_unique['Numero factura fiscal'].nunique()
         st.header(InvoicesAll)
-        st.header('AVERAGE DAYS')
+        st.subheader('AVERAGE DAYS')
+        st.header(data1_unique.groupby('genero - sexo').get_group('F')['Hosp_Days'].mean())
+        
     elif Female is True:
         st.subheader('UNIQUE PATIENTS')
         PatientsFemale = data1_unique[data1_unique['genero - sexo']=='F']['numero de identificacion del paciente'].nunique()
