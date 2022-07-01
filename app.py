@@ -290,13 +290,14 @@ elif choice == 'ABOUT':
     
     with row3_1:
         st.image('jose.png', width=size_image_us)
-        stc.html('''<p style="text-align: center;"><span style='font-family: "Comic Sans MS", sans-serif;'>MANUEL FIGUEREDO</span></p>
-                <p style="text-align: center;"><span style='font-family: "Comic Sans MS", sans-serif;'>MATHEMATICS</span></p>''')
+        stc.html('''<p style="text-align: center;"><span style='font-family: "Comic Sans MS", sans-serif;'>JOSE LUIS GOMEZ</span></p>
+                <p style="text-align: center;"><span style='font-family: "Comic Sans MS", sans-serif;'>PETROLEUM ENGINEER</span></p>''')
+        
     
     with row3_2:
         st.image('manuel.png', width=size_image_us)
-        stc.html('''<p style="text-align: center;"><span style='font-family: "Comic Sans MS", sans-serif;'>JOSE LUIS GOMEZ</span></p>
-                <p style="text-align: center;"><span style='font-family: "Comic Sans MS", sans-serif;'>PETROLEUM ENGINEER</span></p>''')
+        stc.html('''<p style="text-align: center;"><span style='font-family: "Comic Sans MS", sans-serif;'>MANUEL FIGUEREDO</span></p>
+                <p style="text-align: center;"><span style='font-family: "Comic Sans MS", sans-serif;'></span></p>''')
     
     with row3_3:
         st.image('simon.png', width=size_image_us)
