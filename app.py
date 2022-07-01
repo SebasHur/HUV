@@ -113,16 +113,22 @@ elif choice == 'EDA':
         Female = st.checkbox('FEMALE')
         Male = st.checkbox('MALE')
     with row2_2:
+        stc.html('''<table style="border-collapse:collapse;border:none;">
+            <tbody>
+                <tr>
+                    <td style="width: 450.8pt;border: 1pt solid windowtext;background: rgb(180, 198, 231);padding: 0cm 5.4pt;vertical-align: top;">
+                        <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style="font-size:27px;color:black;">NUMBER OF PATIENTS</span></p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>''', height = 40)
         if (Female is True and Male is True) or (Female is False and Male is False):
-            st.subheader('UNIQUE PATIENTS')
             PatientsAll = data1_unique['numero de identificacion del paciente'].nunique()
             st.header(PatientsAll)
         elif Female is True:
-            st.subheader('UNIQUE PATIENTS')
             PatientsFemale = data1_unique[data1_unique['genero - sexo']=='F']['numero de identificacion del paciente'].nunique()
             st.header(PatientsFemale)
         elif Male is True:
-            st.subheader('UNIQUE PATIENTS')
             PatientsFemale = data1_unique[data1_unique['genero - sexo']=='M']['numero de identificacion del paciente'].nunique()
             st.header(PatientsFemale)
     with row2_3:
