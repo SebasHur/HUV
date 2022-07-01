@@ -39,7 +39,7 @@ Hombres = data1_unique.groupby('genero - sexo').get_group('M')
 
 #Sidebar Menu
 menu = ['HOME','EDA','PREDICTION','ABOUT']
-choice = st.sidebar.selectbox('MENU',menu)
+choice = st.sidebar.selectbox('MENU',menu, disabled=True)
 #Titulo 
 if choice == 'HOME':
     row1_1, row1_2 = st.columns((1, 6))
@@ -56,7 +56,7 @@ if choice == 'HOME':
                     </tr>
                 </tbody>
             </table>""")
-    stc.html('''<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'>The University Hospital del Valle must attend a large population of victims of trauma; only 7081 in 2012. This population generates a high cost for the health system, so the hospital is interested in knowing this population and its behavior over the last 5 years. It is expected to know the costs that these generate to the health system and to be able to create proposals of programs for the promotion and prevention of violence.</p>
+    stc.html('''<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'>The University Hospital del Valle must attend a large population of victims of trauma; only 7081 in 2012. This population generates a high cost for the health system, so the hospital is interested in knowing this population and its behavior over the last 5 years. It is expected to know the costs that these generate to the health system and take decisions base on the trauma population.</p>
                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'><span style="font-size:32px;line-height:107%;color:#00B050;">SIDEBAR MENU</span></p>
                 <div style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>
                     <ul style="margin-bottom:0cm;list-style-type: disc;">
