@@ -108,7 +108,7 @@ elif choice == 'EDA':
                     </td>
                 </tr>
             </tbody>
-        </table>''',height=40)
+        </table>''',height=50)
         Female = st.checkbox('FEMALE')
         Male = st.checkbox('MALE')
     with row2_2:
@@ -120,7 +120,7 @@ elif choice == 'EDA':
                     </td>
                 </tr>
             </tbody>
-        </table>''', height = 40)
+        </table>''', height = 50)
         if (Female is True and Male is True) or (Female is False and Male is False):
             PatientsAll = data1_unique['numero de identificacion del paciente'].nunique()
             st.header(PatientsAll)
@@ -139,7 +139,7 @@ elif choice == 'EDA':
                     </td>
                 </tr>
             </tbody>
-        </table>''',height=40)
+        </table>''',height=50)
         if (Female is True and Male is True) or (Female is False and Male is False):
             InvoicesAll = data1_unique['Numero factura fiscal'].nunique()
             st.header(InvoicesAll)
@@ -158,7 +158,7 @@ elif choice == 'EDA':
                     </td>
                 </tr>
             </tbody>
-        </table>''',height=40)
+        </table>''',height=50)
         if (Female is True and Male is True) or (Female is False and Male is False):
             st.header(round(data1_unique.groupby('genero - sexo')['Hosp_Days'].get_group('M').append(data1_unique.groupby('genero - sexo')['Hosp_Days'].get_group('F')).mean(),2))  
         elif Female is True:
@@ -176,7 +176,7 @@ elif choice == 'EDA':
                     </td>
                 </tr>
             </tbody>
-        </table>''',height=40)
+        </table>''',height=50)
         fig = px.sunburst(data1_unique, path=['año factura fiscal', 'genero - sexo'])
         fig.update_traces(textinfo="label+percent parent")
         st.plotly_chart(fig, use_container_width=True)
@@ -186,11 +186,11 @@ elif choice == 'EDA':
             <tbody>
                 <tr>
                     <td style="width: 450.8pt;border: 1pt solid windowtext;background: rgb(180, 198, 231);padding: 0cm 5.4pt;vertical-align: top;">
-                        <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style="font-size:27px;color:black;">TOP 5 ENTRANCE DIAGNOSE/span></p>
+                        <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style="font-size:27px;color:black;">TOP 5 ENTRANCE DIAGNOSE</span></p>
                     </td>
                 </tr>
             </tbody>
-        </table>''',height=40)
+        </table>''',height=50)
         a = 5
         if (Female is True and Male is True) or (Female is False and Male is False):
             DX_total = data1_unique.groupby('cie10 egrdin').size().to_frame(name='count').reset_index().sort_values(['count'], ascending=False).head(a)
