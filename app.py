@@ -274,7 +274,7 @@ elif choice == 'ABOUT':
     row2_1, row2_2, row2_3= st.columns(3)
     row3_1, row3_2, row3_3= st.columns(3)
     with row2_1:
-        st.image('arley.png')
+        st.image('arley.png', width=100)
     with row2_2:
         st.image('sebs.png')
     with row2_3:
