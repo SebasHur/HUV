@@ -111,7 +111,7 @@ elif choice == 'EDA':
             </tbody>
         </table>
         <p><br></p>''',height=50)
-        Female = st.checkbox('FEMALE',key='FEMALE')
+        Female = st.checkbox('FEMALE 🙋‍♀️',key='FEMALE')
         Male = st.checkbox('MALE',key='MALE')
         # if Female is True:
         #     st.session_state['MALE'] = False
