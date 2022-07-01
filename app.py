@@ -121,7 +121,7 @@ elif choice == 'EDA':
             <tbody>
                 <tr>
                     <td style="width: 450.8pt; border: 1pt solid windowtext; background: rgb(26, 188, 156); padding: 0cm 5.4pt; vertical-align: middle; text-align: justify;">
-                        <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:27px;font-family:"Calibri",sans-serif;text-align:center;'><span style="color:black;">NUMBER OF PATIENTS</span></p>
+                        <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:27px;font-family:"Calibri",sans-serif;text-align:center;'><span style="color:black;">PATIENTS</span></p>
                     </td>
                 </tr>
             </tbody>
@@ -141,7 +141,7 @@ elif choice == 'EDA':
                     <tbody>
                         <tr>
                             <td style="width: 450.8pt; border: 1pt solid windowtext; background: rgb(84, 172, 210); padding: 0cm 5.4pt; vertical-align: middle; text-align: justify;">
-                                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style="font-size:27px;color:black;">NUMBER OF VISITS</span></p>
+                                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:27px;font-family:"Calibri",sans-serif;text-align:center;'><span style="color:black;">VISITS</span></p>
                             </td>
                         </tr>
                     </tbody>
@@ -161,7 +161,7 @@ elif choice == 'EDA':
                 <tbody>
                     <tr>
                         <td style="width: 450.8pt; border: 1pt solid windowtext; background: rgb(44, 130, 201); padding: 0cm 5.4pt; vertical-align: middle; text-align: justify;">
-                            <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style="font-size:27px;color:black;">AVERAGE CLINIC DAYS</span></p>
+                            <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:27px;font-family:"Calibri",sans-serif;text-align:center;'><span style="color:black;">CLINIC DAYS AVERAGE</span></p>
                         </td>
                     </tr>
                 </tbody>
@@ -177,8 +177,8 @@ elif choice == 'EDA':
         stc.html('''<table style="border-collapse:collapse;border:none;">
                     <tbody>
                         <tr>
-                            <td style="width: 450.8pt; border: 1pt solid windowtext; background: rgb(147, 101, 184); padding: 0cm 5.4pt; vertical-align: middle; text-align: justify;">
-                                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style="font-size:27px;color:black;">AVERAGE INVOICE</span></p>
+                            <td style="width: 450.8pt; border: 1pt solid windowtext; background: rgb(44, 130, 201); padding: 0cm 5.4pt; vertical-align: middle; text-align: justify;">
+                                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:27px;font-family:"Calibri",sans-serif;text-align:center;'><span style="color:black;">INVOICE AVERAGE</span></p>
                             </td>
                         </tr>
                     </tbody>
@@ -201,12 +201,13 @@ elif choice == 'EDA':
         stc.html('''<table style="border-collapse:collapse;border:none;">
             <tbody>
                 <tr>
-                    <td style="width: 450.8pt;border: 1pt solid windowtext;background: rgb(180, 198, 231);padding: 0cm 5.4pt;vertical-align: top;">
-                        <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style="font-size:27px;color:black;">GENDERS BY YEAR</span></p>
+                    <td style="width: 450.8pt; border: 1pt solid windowtext; background: rgb(84, 172, 210); padding: 0cm 5.4pt; vertical-align: middle; text-align: justify;">
+                        <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:27px;font-family:"Calibri",sans-serif;text-align:center;'><span style="color:black;">TOP 5 ENTRACE DIAGNOSE</span></p>
                     </td>
                 </tr>
             </tbody>
-        </table>''',height=50)
+        </table>
+        <p><br></p>''',height=50)
         fig = px.sunburst(data1_unique, path=['año factura fiscal', 'genero - sexo'])
         fig.update_traces(textinfo="label+percent parent")
         st.plotly_chart(fig, use_container_width=True)
