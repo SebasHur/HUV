@@ -202,6 +202,74 @@ elif choice == 'EDA':
             a = round(data1_unique.groupby('genero - sexo')['valor factura fiscal'].get_group('M').mean(),0).astype(int)
             st.header(f'{a:,}')
     #graficos
+        row4_1, row4_2 = st.columns((1,1))
+    with row4_2:
+        stc.html('''<table style="border-collapse:collapse;border:none;">
+            <tbody>
+                <tr>
+                    <td style="width: 1450.8pt; border-collapse: collapse;background: rgb(84, 172, 210);padding: 0cm 5.4pt;vertical-align: top;">
+                        <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style="font-size:27px;color:white;">PATIENTS BY YEAR AND MONTH</span></p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>''',height=50)
+        if Gender1 == 'BOTH':
+            by_month1 = data1_unique['fecha ingreso'].dt.to_period('m').value_counts().sort_index()
+            by_month1.index = pd.PeriodIndex(by_month1.index)
+            df_month = by_month1.rename_axis('month').reset_index(name='PATIENTS')
+            df_month =df_month[df_month['month']>='2018-01']
+            df_month["months"] = df_month["month"].dt.strftime('%m')
+            df_month["years"] = df_month["month"].dt.strftime('%y')
+            fig4_1 = px.line(df_month, x='months', y='PATIENTS', color='years',range_x=(0,11))
+            st.plotly_chart(fig4_1, use_container_width=True)
+        elif Gender1 == 'FEMALE':
+            by_month1 = Mujeres['fecha ingreso'].dt.to_period('m').value_counts().sort_index()
+            by_month1.index = pd.PeriodIndex(by_month1.index)
+            df_month = by_month1.rename_axis('month').reset_index(name='PATIENTS')
+            df_month =df_month[df_month['month']>='2018-01']
+            df_month["months"] = df_month["month"].dt.strftime('%m')
+            df_month["years"] = df_month["month"].dt.strftime('%y')
+            fig4_1 = px.line(df_month, x='months', y='PATIENTS', color='years',range_x=(0,11))
+            st.plotly_chart(fig4_1, use_container_width=True)
+        elif Gender1 == 'MALE':
+            by_month1 = Hombres['fecha ingreso'].dt.to_period('m').value_counts().sort_index()
+            by_month1.index = pd.PeriodIndex(by_month1.index)
+            df_month = by_month1.rename_axis('month').reset_index(name='PATIENTS')
+            df_month =df_month[df_month['month']>='2018-01']
+            df_month["months"] = df_month["month"].dt.strftime('%m')
+            df_month["years"] = df_month["month"].dt.strftime('%y')
+            fig4_1 = px.line(df_month, x='months', y='PATIENTS', color='years',range_x=(0,11))
+            st.plotly_chart(fig4_1, use_container_width=True)
+    with row4_1:
+        stc.html('''<table style="border-collapse:collapse;border:none;">
+            <tbody>
+                <tr>
+                    <td style="width: 1450.8pt; border-collapse: collapse;background: rgb(84, 172, 210);padding: 0cm 5.4pt;vertical-align: top;">
+                        <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style="font-size:27px;color:white;">TOP 5 ENTRANCE DIAGNOSE</span></p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>''',height=50)
+        a = 5
+        if Gender1 == 'BOTH':
+            DX_total = data1_unique.groupby('cie10 egrdin').size().to_frame(name='count').reset_index().sort_values(['count'], ascending=False).head(a)
+            fig1 = go.Figure(go.Funnel(y = DX_total['cie10 egrdin'],x = DX_total['count'],textposition = "inside",textinfo = "label"))
+            fig1.update_yaxes(showticklabels=False)
+            fig1.update_layout(font_size=14)
+            st.plotly_chart(fig1, use_container_width=True)
+        elif Gender1 == 'FEMALE':
+            DX_Mujeres = Mujeres.groupby('cie10 egrdin').size().to_frame(name='count').reset_index().sort_values(['count'], ascending=False).head(a)
+            fig1 = go.Figure(go.Funnel(y = DX_Mujeres['cie10 egrdin'],x = DX_Mujeres['count'],textposition = "inside",textinfo = "label"))
+            fig1.update_yaxes(showticklabels=False)
+            fig1.update_layout(font_size=14)
+            st.plotly_chart(fig1, use_container_width=True)
+        elif Gender1 == 'MALE':
+            DX_Hombres = Hombres.groupby('cie10 egrdin').size().to_frame(name='count').reset_index().sort_values(['count'], ascending=False).head(a)
+            fig1 = go.Figure(go.Funnel(y = DX_Hombres['cie10 egrdin'],x = DX_Hombres['count'],textposition = "inside",textinfo = "label"))
+            fig1.update_yaxes(showticklabels=False)
+            fig1.update_layout(font_size=14)
+            st.plotly_chart(fig1, use_container_width=True)
+
     row3_1, row3_2 = st.columns((1,2))
     with row3_1:
         stc.html('''<table style="border-collapse:collapse;border:none;">
@@ -246,74 +314,6 @@ elif choice == 'EDA':
                         )
         fig4_2.update_xaxes(tickvals=[-3000, -2000, -1000,0, 1000, 2000,3000])
         st.plotly_chart(fig4_2, use_container_width=True)
-    row4_1, row4_2 = st.columns((1,1))
-    with row4_2:
-        stc.html('''<table style="border-collapse:collapse;border:none;">
-            <tbody>
-                <tr>
-                    <td style="width: 1450.8pt; border-collapse: collapse;background: rgb(84, 172, 210);padding: 0cm 5.4pt;vertical-align: top;">
-                        <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style="font-size:27px;color:white;">PATIENTS BY YEAR AND MONTH</span></p>
-                    </td>
-                </tr>
-            </tbody>
-        </table>''',height=50)
-        if Gender1 == 'BOTH':
-            by_month1 = data1_unique['fecha ingreso'].dt.to_period('m').value_counts().sort_index()
-            by_month1.index = pd.PeriodIndex(by_month1.index)
-            df_month = by_month1.rename_axis('month').reset_index(name='PATIENTS')
-            df_month =df_month[df_month['month']>='2018-01']
-            df_month["months"] = df_month["month"].dt.strftime('%m')
-            df_month["years"] = df_month["month"].dt.strftime('%y')
-            fig4_1 = px.line(df_month, x='months', y='PATIENTS', color='years',range_x=(0,11))
-            st.plotly_chart(fig4_1, use_container_width=True)
-        elif Gender1 == 'FEMALE':
-            by_month1 = Mujeres['fecha ingreso'].dt.to_period('m').value_counts().sort_index()
-            by_month1.index = pd.PeriodIndex(by_month1.index)
-            df_month = by_month1.rename_axis('month').reset_index(name='PATIENTS')
-            df_month =df_month[df_month['month']>='2018-01']
-            df_month["months"] = df_month["month"].dt.strftime('%m')
-            df_month["years"] = df_month["month"].dt.strftime('%y')
-            fig4_1 = px.line(df_month, x='months', y='PATIENTS', color='years',range_x=(0,11))
-            st.plotly_chart(fig4_1, use_container_width=True)
-        elif Gender1 == 'MALE':
-            by_month1 = Hombres['fecha ingreso'].dt.to_period('m').value_counts().sort_index()
-            by_month1.index = pd.PeriodIndex(by_month1.index)
-            df_month = by_month1.rename_axis('month').reset_index(name='PATIENTS')
-            df_month =df_month[df_month['month']>='2018-01']
-            df_month["months"] = df_month["month"].dt.strftime('%m')
-            df_month["years"] = df_month["month"].dt.strftime('%y')
-            fig4_1 = px.line(df_month, x='months', y='PATIENTS', color='years',range_x=(0,11))
-            st.plotly_chart(fig4_1, use_container_width=True)
-
-    with row4_1:
-        stc.html('''<table style="border-collapse:collapse;border:none;">
-            <tbody>
-                <tr>
-                    <td style="width: 1450.8pt; border-collapse: collapse;background: rgb(84, 172, 210);padding: 0cm 5.4pt;vertical-align: top;">
-                        <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style="font-size:27px;color:white;">TOP 5 ENTRANCE DIAGNOSE</span></p>
-                    </td>
-                </tr>
-            </tbody>
-        </table>''',height=50)
-        a = 5
-        if Gender1 == 'BOTH':
-            DX_total = data1_unique.groupby('cie10 egrdin').size().to_frame(name='count').reset_index().sort_values(['count'], ascending=False).head(a)
-            fig1 = go.Figure(go.Funnel(y = DX_total['cie10 egrdin'],x = DX_total['count'],textposition = "inside",textinfo = "label"))
-            fig1.update_yaxes(showticklabels=False)
-            fig1.update_layout(font_size=14)
-            st.plotly_chart(fig1, use_container_width=True)
-        elif Gender1 == 'FEMALE':
-            DX_Mujeres = Mujeres.groupby('cie10 egrdin').size().to_frame(name='count').reset_index().sort_values(['count'], ascending=False).head(a)
-            fig1 = go.Figure(go.Funnel(y = DX_Mujeres['cie10 egrdin'],x = DX_Mujeres['count'],textposition = "inside",textinfo = "label"))
-            fig1.update_yaxes(showticklabels=False)
-            fig1.update_layout(font_size=14)
-            st.plotly_chart(fig1, use_container_width=True)
-        elif Gender1 == 'MALE':
-            DX_Hombres = Hombres.groupby('cie10 egrdin').size().to_frame(name='count').reset_index().sort_values(['count'], ascending=False).head(a)
-            fig1 = go.Figure(go.Funnel(y = DX_Hombres['cie10 egrdin'],x = DX_Hombres['count'],textposition = "inside",textinfo = "label"))
-            fig1.update_yaxes(showticklabels=False)
-            fig1.update_layout(font_size=14)
-            st.plotly_chart(fig1, use_container_width=True)
 
 elif choice == 'PREDICTION':
     row1_1, row1_2 = st.columns((1, 6))
