@@ -103,12 +103,13 @@ elif choice == 'EDA':
         stc.html('''<table style="border-collapse:collapse;border:none;">
             <tbody>
                 <tr>
-                    <td style="width: 450.8pt;border: 1pt solid windowtext;background: rgb(180, 198, 231);padding: 0cm 5.4pt;vertical-align: top;">
+                    <td style="width: 450.8pt; border: 1pt solid windowtext; background: rgb(97, 189, 109); padding: 0cm 5.4pt; vertical-align: middle; text-align: justify;">
                         <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style="font-size:27px;color:black;">SELECT GENDER</span></p>
                     </td>
                 </tr>
             </tbody>
-        </table>''',height=50)
+        </table>
+        <p><br></p>''',height=50)
         Female = st.checkbox('FEMALE',key='FEMALE')
         Male = st.checkbox('MALE',key='MALE')
         # if Female is True:
@@ -119,12 +120,13 @@ elif choice == 'EDA':
         stc.html('''<table style="border-collapse:collapse;border:none;">
             <tbody>
                 <tr>
-                    <td style="width: 450.8pt;border: 1pt solid windowtext;background: rgb(180, 198, 231);padding: 0cm 5.4pt;vertical-align: top;">
+                    <td style="width: 450.8pt; border: 1pt solid windowtext; background: rgb(26, 188, 156); padding: 0cm 5.4pt; vertical-align: middle; text-align: justify;">
                         <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style="font-size:27px;color:black;">NUMBER OF PATIENTS</span></p>
                     </td>
                 </tr>
             </tbody>
-        </table>''', height = 50)
+        </table>
+        <p><br></p>''', height = 50)
         if (Female is True and Male is True) or (Female is False and Male is False):
             PatientsAll = data1_unique['numero de identificacion del paciente'].nunique()
             st.header(PatientsAll)
@@ -136,14 +138,15 @@ elif choice == 'EDA':
             st.header(PatientsFemale)
     with row2_3:
         stc.html('''<table style="border-collapse:collapse;border:none;">
-            <tbody>
-                <tr>
-                    <td style="width: 450.8pt;border: 1pt solid windowtext;background: rgb(180, 198, 231);padding: 0cm 5.4pt;vertical-align: top;">
-                        <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style="font-size:27px;color:black;">NUMBER OF VISITS</span></p>
-                    </td>
-                </tr>
-            </tbody>
-        </table>''',height=50)
+                    <tbody>
+                        <tr>
+                            <td style="width: 450.8pt; border: 1pt solid windowtext; background: rgb(84, 172, 210); padding: 0cm 5.4pt; vertical-align: middle; text-align: justify;">
+                                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style="font-size:27px;color:black;">NUMBER OF VISITS</span></p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p><br></p>''',height=50)
         if (Female is True and Male is True) or (Female is False and Male is False):
             InvoicesAll = data1_unique['Numero factura fiscal'].nunique()
             st.header(InvoicesAll)
@@ -155,14 +158,15 @@ elif choice == 'EDA':
             st.header(InvoicesAll)
     with row2_4:
         stc.html('''<table style="border-collapse:collapse;border:none;">
-            <tbody>
-                <tr>
-                    <td style="width: 450.8pt;border: 1pt solid windowtext;background: rgb(180, 198, 231);padding: 0cm 5.4pt;vertical-align: top;">
-                        <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style="font-size:27px;color:black;">AVERAGE DAYS</span></p>
-                    </td>
-                </tr>
-            </tbody>
-        </table>''',height=50)
+                <tbody>
+                    <tr>
+                        <td style="width: 450.8pt; border: 1pt solid windowtext; background: rgb(44, 130, 201); padding: 0cm 5.4pt; vertical-align: middle; text-align: justify;">
+                            <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style="font-size:27px;color:black;">AVERAGE CLINIC DAYS</span></p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p><br></p>''',height=50)
         if (Female is True and Male is True) or (Female is False and Male is False):
             st.header(round(data1_unique.groupby('genero - sexo')['Hosp_Days'].get_group('M').append(data1_unique.groupby('genero - sexo')['Hosp_Days'].get_group('F')).mean(),2))  
         elif Female is True:
