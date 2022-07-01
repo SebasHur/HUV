@@ -111,10 +111,10 @@ elif choice == 'EDA':
         </table>''',height=50)
         Female = st.checkbox('FEMALE',key='FEMALE')
         Male = st.checkbox('MALE',key='MALE')
-        if Female is True:
-            st.session_state['MALE'] = False
-        if Male is True:
-            st.session_state['FEMALE'] = False
+        # if Female is True:
+        #     st.session_state['MALE'] = False
+        # if Male is True:
+        #     st.session_state['FEMALE'] = False
     with row2_2:
         stc.html('''<table style="border-collapse:collapse;border:none;">
             <tbody>
