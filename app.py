@@ -103,6 +103,7 @@ with row2_3:
         DX_total = data1_unique.groupby('cie10 egrdin').size().to_frame(name='count').reset_index().sort_values(['count'], ascending=False).head(a)
         fig1 = go.Figure(go.Funnel(y = DX_total['cie10 egrdin'],x = DX_total['count'],textposition = "inside",textinfo = "label+value"))
         fig1.update_yaxes(showticklabels=False)
+        fig.update_traces(textposition='inside', textfont_size=14)
         st.plotly_chart(fig1, use_container_width=True)
     elif Female is True:
         DX_Mujeres = Mujeres.groupby('cie10 egrdin').size().to_frame(name='count').reset_index().sort_values(['count'], ascending=False).head(a)
