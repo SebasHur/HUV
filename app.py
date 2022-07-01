@@ -122,7 +122,6 @@ elif choice == 'EDA':
         </table>
         <p><br></p>''',height=50)
         Gender1 = st.radio(label = '', options=('FEMALE','MALE','BOTH'))
-        # Male = st.checkbox('MALE',key='MALE')
     with row2_2:
         stc.html('''<table style="border-collapse:collapse;border:none;">
             <tbody>
@@ -202,7 +201,7 @@ elif choice == 'EDA':
             a = round(data1_unique.groupby('genero - sexo')['valor factura fiscal'].get_group('M').mean(),0).astype(int)
             st.header(f'{a:,}')
     #graficos
-        row4_1, row4_2 = st.columns((1,1))
+    row4_1, row4_2 = st.columns((1,1))
     with row4_2:
         stc.html('''<table style="border-collapse:collapse;border:none;">
             <tbody>
@@ -269,7 +268,6 @@ elif choice == 'EDA':
             fig1.update_yaxes(showticklabels=False)
             fig1.update_layout(font_size=14)
             st.plotly_chart(fig1, use_container_width=True)
-
     row3_1, row3_2 = st.columns((1,2))
     with row3_1:
         stc.html('''<table style="border-collapse:collapse;border:none;">
@@ -314,6 +312,7 @@ elif choice == 'EDA':
                         )
         fig4_2.update_xaxes(tickvals=[-3000, -2000, -1000,0, 1000, 2000,3000])
         st.plotly_chart(fig4_2, use_container_width=True)
+    
 
 elif choice == 'PREDICTION':
     row1_1, row1_2 = st.columns((1, 6))
