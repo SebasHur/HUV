@@ -101,15 +101,14 @@ elif choice == 'EDA':
 
     with row2_1:
         stc.html('''<table style="border-collapse:collapse;border:none;">
-                <tbody>
-                    <tr>
-                        <td style="width: 450.8pt;border: 1pt solid windowtext;background: rgb(142, 170, 219);padding: 0cm 5.4pt;vertical-align: top;">
-                            <p style="margin: 0cm; line-height: normal; font-size: 15px; font-family: Calibri, sans-serif; text-align: center;"><span style="color: black; font-size: 20px;">SELECT GENDER</span></p>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'><br></p>''',height=40)
+            <tbody>
+                <tr>
+                    <td style="width: 450.8pt;border: 1pt solid windowtext;background: rgb(180, 198, 231);padding: 0cm 5.4pt;vertical-align: top;">
+                        <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style="font-size:27px;color:black;">SELECT GENDER</span></p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>''',height=40)
         Female = st.checkbox('FEMALE')
         Male = st.checkbox('MALE')
     with row2_2:
