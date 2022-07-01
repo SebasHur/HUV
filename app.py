@@ -55,7 +55,7 @@ data1_unique['Hosp_Days'] = (data1_unique['fecha egreso'] - data1_unique['fecha 
 row2_1, row2_2, row2_3, row2_4 = st.columns((1,2,1,1))
 
 with row2_1:
-    Female = st.checkbox('FEMALE')
+    Female = st.checkbox('MUJER')
     Male = st.checkbox('MALE')
     if (Female is True and Male is True) or (Female is False and Male is False):
         st.subheader('UNIQUE PATIENTS')
