@@ -286,6 +286,7 @@ elif choice == 'ABOUT':
                     </tr>
                 </tbody>
             </table>""") 
+            stc.html('''<p style="text-align: center;"><span style="font-family: Arial, Helvetica, sans-serif; font-size: 28px; color: rgb(84, 172, 210);">TEAM 231 - CORRELATION ONE</span>&nbsp;</p><br>''')
     sp1,row2_1,sp2, row2_2,sp3, row2_3,sp4= st.columns((1,2,1,2,1,2,1))
     sp1, row3_1,sp2, row3_2,sp3, row3_3,sp4= st.columns((1,2,1,2,1,2,1))
     size_image_us = 200
