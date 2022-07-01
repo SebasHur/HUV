@@ -224,21 +224,16 @@ elif choice == 'EDA':
         </table>''',height=50)
         a = 5
         if (Female is True and Male is True) or (Female is False and Male is False):
-            # DX_total = data1_unique.groupby('cie10 egrdin').size().to_frame(name='count').reset_index().sort_values(['count'], ascending=False).head(a)
-            # fig1 = go.Figure(go.Funnelarea(y = DX_total['cie10 egrdin'],x = DX_total['count'],textposition = "inside",textinfo = "label"))
-            # fig1.update_yaxes(showticklabels=False)
-            # fig1.update_layout(font_size=10)
-            Ingreso = data1_unique.groupby('cie10 egrdin').size().to_frame(name='count').reset_index().sort_values(['count'], ascending=False)
-            Ingreso_top = Ingreso.head(5)
-            fig = px.histogram(Ingreso_top, x='cie10 egrdin', y='count',title='ENTRANCE DIAGNOSIS')
-            fig.update_layout(font_size=10)
-            # fig.show()
+            DX_total = data1_unique.groupby('cie10 egrdin').size().to_frame(name='count').reset_index().sort_values(['count'], ascending=False).head(a)
+            fig1 = go.Figure(go.Funnelarea(y = DX_total['cie10 egrdin'],x = DX_total['count'],textposition = "inside",textinfo = "label"))
+            fig1.update_yaxes(showticklabels=False)
+            fig1.update_layout(font_size=14)
             st.plotly_chart(fig, use_container_width=True)
         elif Female is True:
             DX_Mujeres = Mujeres.groupby('cie10 egrdin').size().to_frame(name='count').reset_index().sort_values(['count'], ascending=False).head(a)
             fig1 = go.Figure(go.Funnel(y = DX_Mujeres['cie10 egrdin'],x = DX_Mujeres['count'],textposition = "inside",textinfo = "label"))
             fig1.update_yaxes(showticklabels=False)
-            fig1.update_layout(font_size=10)
+            fig1.update_layout(font_size=14)
             st.plotly_chart(fig1, use_container_width=True)
         elif Male is True:
             DX_Hombres = Hombres.groupby('cie10 egrdin').size().to_frame(name='count').reset_index().sort_values(['count'], ascending=False).head(a)
