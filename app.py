@@ -90,7 +90,7 @@ elif choice == 'EDA':
         stc.html("""<table style="border-collapse:collapse;border:none;">
                     <tbody>
                         <tr>
-                            <td style="width: 450.8pt; border: 1pt solid windowtext; background: rgb(84, 172, 210); padding: 0cm 5.4pt; vertical-align: middle; text-align: justify;">
+                            <td style="border: 1pt solid windowtext; background: rgb(84, 172, 210); padding: 0cm 5.4pt; vertical-align: middle; text-align: justify;">
                                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style="font-size: 60px; color: rgb(255, 255, 255);">DEL VALLE UNIVERSITARY HOSPITAL</span></p>
                             </td>
                         </tr>
