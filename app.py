@@ -246,9 +246,9 @@ elif choice == 'EDA':
                         )
         fig4_2.update_xaxes(tickvals=[-3000, -2000, -1000,0, 1000, 2000,3000])
         st.plotly_chart(fig4_2, use_container_width=True)
-    row4_1, row4_2 = st.columns((2,1))
+    row4_1, row4_2 = st.columns((1,1))
     with row4_2:
-       stc.html('''<table style="border-collapse:collapse;border:none;">
+        stc.html('''<table style="border-collapse:collapse;border:none;">
             <tbody>
                 <tr>
                     <td style="width: 1450.8pt; border-collapse: collapse;background: rgb(84, 172, 210);padding: 0cm 5.4pt;vertical-align: top;">
@@ -257,14 +257,14 @@ elif choice == 'EDA':
                 </tr>
             </tbody>
         </table>''',height=50)
-        # by_month1 = data1_unique['fecha ingreso'].dt.to_period('m').value_counts().sort_index()
-        # by_month1.index = pd.PeriodIndex(by_month.index)
-        # df_month = by_month1.rename_axis('month').reset_index(name='PATIENTS')
-        # df_month =df_month[df_month['month']>='2018-01']
-        # df_month["months"] = df_month["month"].dt.strftime('%m')
-        # df_month["years"] = df_month["month"].dt.strftime('%y')
-        # fig4_1 = px.line(df_month, x='months', y='PATIENTS', color='years',range_x=(0,11))
-        # st.plotly_chart(fig4_1, use_container_width=True)
+        by_month1 = data1_unique['fecha ingreso'].dt.to_period('m').value_counts().sort_index()
+        by_month1.index = pd.PeriodIndex(by_month1.index)
+        df_month = by_month1.rename_axis('month').reset_index(name='PATIENTS')
+        df_month =df_month[df_month['month']>='2018-01']
+        df_month["months"] = df_month["month"].dt.strftime('%m')
+        df_month["years"] = df_month["month"].dt.strftime('%y')
+        fig4_1 = px.line(df_month, x='months', y='PATIENTS', color='years',range_x=(0,11))
+        st.plotly_chart(fig4_1, use_container_width=True)
     with row4_1:
         stc.html('''<table style="border-collapse:collapse;border:none;">
             <tbody>
