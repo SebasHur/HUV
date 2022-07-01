@@ -112,7 +112,7 @@ elif choice == 'EDA':
         Female = st.checkbox('FEMALE')
         Male = st.checkbox('MALE')
         if Female is True:
-            st.session_state['Male'] = False
+            st.session_state['MALE'] = False
         if Male is True:
             st.session_state['Female'] = False
     with row2_2:
