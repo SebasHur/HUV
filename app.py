@@ -121,7 +121,7 @@ elif choice == 'EDA':
         stc.html('''<table style="border-collapse:collapse;border:none;">
             <tbody>
                 <tr>
-                    <td style="width: 450.8pt; border: 1pt solid windowtext; background: rgb(26, 188, 156); padding: 0cm 5.4pt; vertical-align: middle; text-align: justify;">
+                    <td style="width: 1450.8pt; border-collapse: collapse; background: rgb(26, 188, 156); padding: 0cm 5.4pt; vertical-align: middle; text-align: justify;">
                         <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:27px;font-family:"Calibri",sans-serif;text-align:center;'><span style="color:black;">PATIENTS</span></p>
                     </td>
                 </tr>
@@ -141,7 +141,7 @@ elif choice == 'EDA':
         stc.html('''<table style="border-collapse:collapse;border:none;">
                     <tbody>
                         <tr>
-                            <td style="width: 450.8pt; border: 1pt solid windowtext; background: rgb(84, 172, 210); padding: 0cm 5.4pt; vertical-align: middle; text-align: justify;">
+                            <td style="width: 1450.8pt; border-collapse: collapse; background: rgb(84, 172, 210); padding: 0cm 5.4pt; vertical-align: middle; text-align: justify;">
                                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:27px;font-family:"Calibri",sans-serif;text-align:center;'><span style="color:black;">VISITS</span></p>
                             </td>
                         </tr>
@@ -161,7 +161,7 @@ elif choice == 'EDA':
         stc.html('''<table style="border-collapse:collapse;border:none;">
                 <tbody>
                     <tr>
-                        <td style="width: 450.8pt; border: 1pt solid windowtext; background: rgb(44, 130, 201); padding: 0cm 5.4pt; vertical-align: middle; text-align: justify;">
+                        <td style="width: 1450.8pt; border-collapse: collapse; background: rgb(44, 130, 201); padding: 0cm 5.4pt; vertical-align: middle; text-align: justify;">
                             <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:27px;font-family:"Calibri",sans-serif;text-align:center;'><span style="color:black;">CLINIC DAYS AVERAGE</span></p>
                         </td>
                     </tr>
@@ -178,7 +178,7 @@ elif choice == 'EDA':
         stc.html('''<table style="border-collapse:collapse;border:none;">
                     <tbody>
                         <tr>
-                            <td style="width: 450.8pt; border: 1pt solid windowtext; background: rgb(147, 101, 184); padding: 0cm 5.4pt; vertical-align: middle; text-align: justify;">
+                            <td style="width: 1450.8pt; border-collapse: collapse; background: rgb(147, 101, 184); padding: 0cm 5.4pt; vertical-align: middle; text-align: justify;">
                                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:27px;font-family:"Calibri",sans-serif;text-align:center;'><span style="color:black;">INVOICE AVERAGE</span></p>
                             </td>
                         </tr>
@@ -202,7 +202,7 @@ elif choice == 'EDA':
         stc.html('''<table style="border-collapse:collapse;border:none;">
             <tbody>
                 <tr>
-                    <td style="width: 450.8pt; border: 1pt solid windowtext; background: rgb(44, 130, 201); padding: 0cm 5.4pt; vertical-align: middle; text-align: justify;">
+                    <td style="width: 1450.8pt; border-collapse: collapse; background: rgb(44, 130, 201); padding: 0cm 5.4pt; vertical-align: middle; text-align: justify;">
                         <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:27px;font-family:"Calibri",sans-serif;text-align:center;'><span style="color:black;">GENDER BY YEAR</span></p>
                     </td>
                 </tr>
@@ -217,7 +217,7 @@ elif choice == 'EDA':
         stc.html('''<table style="border-collapse:collapse;border:none;">
             <tbody>
                 <tr>
-                    <td style="width: 1450.8pt;border: 1pt solid windowtext;background: rgb(84, 172, 210);padding: 0cm 5.4pt;vertical-align: top;">
+                    <td style="width: 1450.8pt; border-collapse: collapse;background: rgb(84, 172, 210);padding: 0cm 5.4pt;vertical-align: top;">
                         <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style="font-size:27px;color:black;">TOP 5 ENTRANCE DIAGNOSE</span></p>
                     </td>
                 </tr>
