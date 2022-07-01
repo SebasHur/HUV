@@ -1,5 +1,3 @@
-pip install -r requirements.txt
-
 import streamlit as st
 import streamlit.components.v1 as stc
 from PIL import Image
@@ -8,7 +6,7 @@ from xml.dom.xmlbuilder import Options
 import numpy as np
 import pandas as pd
 import plotly.express as px
-# import seaborn as sns
+import seaborn as sns
 # import matplotlib.pyplot as plt
 
 # import pprint
