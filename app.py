@@ -239,8 +239,7 @@ elif choice == 'EDA':
         
         # Adding Female data to the figure
         fig4_2.add_trace(go.Bar(y = y_age, x = x_F,name = 'Female', orientation = 'h'))
-        fig4_2.update_layout(title = 'Population Pyramid of Patients',
-                        title_font_size = 22, barmode = 'relative',
+        fig4_2.update_layout(barmode = 'relative',
                         bargap = 0.0, bargroupgap = 0,
                         xaxis = dict(tickvals = [-3000, -2000, -1000,0, 1000, 2000,3000],                                
                                     ticktext = ['3000', '2000', '1000', '0', '1000', '2000', '3000'])
