@@ -50,9 +50,11 @@ data1_unique = pd.read_csv('facturas unicas.csv',sep=",")
 #Creacion colummas
 data1_unique[['fecha actividad','fecha ingreso','fecha egreso','Fecha de nacimiento']] = data1_unique[['fecha actividad','fecha ingreso','fecha egreso','Fecha de nacimiento']].apply(pd.to_datetime,format='%Y/%m/%d' ,errors='coerce')
 data1_unique['Hosp_Days'] = (data1_unique['fecha egreso'] - data1_unique['fecha ingreso'])/np.timedelta64(1,'D')
+Mujeres = data1_unique.groupby('genero - sexo').get_group('F')
+Hombres = data1_unique.groupby('genero - sexo').get_group('M')
 
 # Primera Linea
-row2_1, row2_2, row2_3, row2_4 = st.columns((1,2,1,1))
+row2_1, row2_2, row2_3 = st.columns((1,2,2))
 
 with row2_1:
     Female = st.checkbox('FEMALE')
@@ -92,6 +94,14 @@ with row2_2:
     fig = px.sunburst(data1_unique, path=['año factura fiscal', 'genero - sexo'])
     fig.update_traces(textinfo="label+percent parent")
     st.plotly_chart(fig, use_container_width=True)
+    
+with row2_3:
+    if (Female is True and Male is True) or (Female is False and Male is False):
+        a = 10
+        DX_total = data1_unique.groupby('cie10 egrdin').size().to_frame(name='count').reset_index().sort_values(['count'], ascending=False).head(a)
+        fig1 = px.histogram(DX_total, x='cie10 egrdin', y='count',title='ENTRANCE DIAGNOSIS')
+        fig1.update_layout(font_size=7)
+        st.plotly_chart(fig1, use_container_width=True)
 
 # with row2_3:
     # Gender_Age = data1_unique[['genero - sexo','Age']]
