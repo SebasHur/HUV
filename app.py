@@ -35,9 +35,20 @@ data1_unique['cie10 egrdin'] = data1_unique['cie10 egrdin'].str.replace('ï¿½','Ã
 #Creacion colummas
 data1_unique[['fecha actividad','fecha ingreso','fecha egreso','Fecha de nacimiento']] = data1_unique[['fecha actividad','fecha ingreso','fecha egreso','Fecha de nacimiento']].apply(pd.to_datetime,format='%Y/%m/%d' ,errors='coerce')
 data1_unique['Hosp_Days'] = (data1_unique['fecha egreso'] - data1_unique['fecha ingreso'])/np.timedelta64(1,'D')
+data1_unique['Age'] = round((data1_unique['fecha ingreso']-data1_unique['Fecha de nacimiento'])/ np.timedelta64(1, 'Y'),0)
 Mujeres = data1_unique.groupby('genero - sexo').get_group('F')
 Hombres = data1_unique.groupby('genero - sexo').get_group('M')
 
+def Grouped_Age_gender():
+    Gender_Age = data1_unique[['genero - sexo','Age']]
+    age_groups = pd.cut(Gender_Age['Age'], bins=[0,5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90,95,np.inf])
+    Grouped_Age_gender = pd.crosstab(age_groups, Gender_Age['genero - sexo']).reset_index()
+    Grouped_Age_gender['F'] = Grouped_Age_gender['F'] * -1
+    Grouped_Age_gender['Age'] = Grouped_Age_gender['Age'].astype(str)
+    Grouped_Age_gender['Age'] = Grouped_Age_gender['Age'].replace(',','-',regex=True)
+    Grouped_Age_gender['Age'] = Grouped_Age_gender['Age'].replace('\(','',regex=True)
+    Grouped_Age_gender['Age'] = Grouped_Age_gender['Age'].replace(']','',regex=True)
+    return Grouped_Age_gender
 #Sidebar Menu
 st.sidebar.image('logo-HU_Horizontal_Azul.png')
 menu = ['HOME','EDA','PREDICTION','ABOUT']
@@ -235,7 +246,7 @@ elif choice == 'EDA':
             fig1.update_yaxes(showticklabels=False)
             fig1.update_layout(font_size=14)
             st.plotly_chart(fig1, use_container_width=True)
-    row4_1, row4_2, row4_3 = st.columns((1,1,1))
+    row4_1, row4_2 = st.columns((1,2))
     with row4_1:
        stc.html('''<table style="border-collapse:collapse;border:none;">
             <tbody>
@@ -254,6 +265,27 @@ elif choice == 'EDA':
         # df_month["years"] = df_month["month"].dt.strftime('%y')
         # fig4_1 = px.line(df_month, x='months', y='PATIENTS', color='years',range_x=(0,11))
         # st.plotly_chart(fig4_1, use_container_width=True)
+    with row4_2:
+        Grouped_Age_gender = Grouped_Age_gender()
+        y_age = Grouped_Age_gender['Age']
+        x_M = Grouped_Age_gender['M']
+        x_F = Grouped_Age_gender['F']
+        # Creating instance of the figure
+        fig4_2 = go.Figure()
+        
+        # Adding Male data to the figure
+        fig4_2.add_trace(go.Bar(y= y_age, x = x_M, name = 'Male', orientation = 'h'))
+        
+        # Adding Female data to the figure
+        fig4_2.add_trace(go.Bar(y = y_age, x = x_F,name = 'Female', orientation = 'h'))
+        fig4_2.update_layout(title = 'Population Pyramid of Patients',
+                        title_font_size = 22, barmode = 'relative',
+                        bargap = 0.0, bargroupgap = 0,
+                        xaxis = dict(tickvals = [-3000, -2000, -1000,0, 1000, 2000,3000],                                
+                                    ticktext = ['3000', '2000', '1000', '0', '1000', '2000', '3000'])
+                        )
+        fig4_2.update_xaxes(tickvals=[-3000, -2000, -1000,0, 1000, 2000,3000])
+        st.plotly_chart(fig4_2, use_container_width=True)
 
 
 elif choice == 'PREDICTION':
