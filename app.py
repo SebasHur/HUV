@@ -121,8 +121,8 @@ elif choice == 'EDA':
             </tbody>
         </table>
         <p><br></p>''',height=50)
-        Female = st.checkbox('FEMALE 🙋‍♀️',key='FEMALE')
-        Male = st.checkbox('MALE',key='MALE')
+        Gender1 = st.radio(['FEMALE','MALE','BOTH'])
+        # Male = st.checkbox('MALE',key='MALE')
     with row2_2:
         stc.html('''<table style="border-collapse:collapse;border:none;">
             <tbody>
@@ -134,13 +134,13 @@ elif choice == 'EDA':
             </tbody>
         </table>
         <p><br></p>''', height = 50)
-        if (Female is True and Male is True) or (Female is False and Male is False):
+        if Gender1 == 'BOTH':
             PatientsAll = data1_unique['numero de identificacion del paciente'].nunique()
             st.header(f'{PatientsAll:,}')
-        elif Female is True:
+        elif Gender1 == 'FEMALE':
             PatientsFemale = data1_unique[data1_unique['genero - sexo']=='F']['numero de identificacion del paciente'].nunique()
             st.header(f'{PatientsFemale:,}')
-        elif Male is True:
+        elif Gender1 == 'MALE':
             PatientsFemale = data1_unique[data1_unique['genero - sexo']=='M']['numero de identificacion del paciente'].nunique()
             st.header(f'{PatientsFemale:,}')
     with row2_3:
@@ -154,13 +154,13 @@ elif choice == 'EDA':
                     </tbody>
                 </table>
                 <p><br></p>''',height=50)
-        if (Female is True and Male is True) or (Female is False and Male is False):
+        if Gender1 == 'BOTH':
             InvoicesAll = data1_unique['Numero factura fiscal'].nunique()
             st.header(f'{InvoicesAll:,}')
-        elif Female is True:
+        elif Gender1 == 'FEMALE':
             InvoicesAll = data1_unique[data1_unique['genero - sexo']=='F']['Numero factura fiscal'].nunique()
             st.header(f'{InvoicesAll:,}')
-        elif Male is True:
+        elif Gender1 == 'MALE':
             InvoicesAll = data1_unique[data1_unique['genero - sexo']=='M']['Numero factura fiscal'].nunique()
             st.header(f'{InvoicesAll:,}')
     with row2_4:
@@ -174,11 +174,11 @@ elif choice == 'EDA':
                 </tbody>
             </table>
             <p><br></p>''',height=50)
-        if (Female is True and Male is True) or (Female is False and Male is False):
+        if Gender1 == 'BOTH':
             st.header(round(data1_unique.groupby('genero - sexo')['Hosp_Days'].get_group('M').append(data1_unique.groupby('genero - sexo')['Hosp_Days'].get_group('F')).mean(),2))  
-        elif Female is True:
+        elif Gender1 == 'FEMALE':
             st.header(round(data1_unique.groupby('genero - sexo')['Hosp_Days'].get_group('F').mean(),2))
-        elif Male is True:
+        elif Gender1 == 'MALE':
             st.header(round(data1_unique.groupby('genero - sexo')['Hosp_Days'].get_group('M').mean(),2))
     with row2_5:
         stc.html('''<table style="border-collapse:collapse;border:none;">
@@ -191,14 +191,14 @@ elif choice == 'EDA':
                     </tbody>
                 </table>
                 <p><br></p>''',height=50)
-        if (Female is True and Male is True) or (Female is False and Male is False):
+        if Gender1 == 'BOTH':
             a = round(data1_unique.groupby('genero - sexo')['valor factura fiscal'].get_group('M').append(data1_unique.groupby('genero - sexo')['valor factura fiscal'].get_group('F')).mean(),0).astype(int)
             st.header(f'{a:,}')  
-        elif Female is True:
+        elif Gender1 == 'FEMALE':
             a = round(data1_unique.groupby('genero - sexo')['valor factura fiscal'].get_group('F').mean(),0).astype(int)
             st.header(f'{a:,}')
             
-        elif Male is True:
+        elif Gender1 == 'MALE':
             a = round(data1_unique.groupby('genero - sexo')['valor factura fiscal'].get_group('M').mean(),0).astype(int)
             st.header(f'{a:,}')
     #graficos
@@ -257,7 +257,7 @@ elif choice == 'EDA':
                 </tr>
             </tbody>
         </table>''',height=50)
-        if (Female is True and Male is True) or (Female is False and Male is False):
+        if Gender1 == 'BOTH':
             by_month1 = data1_unique['fecha ingreso'].dt.to_period('m').value_counts().sort_index()
             by_month1.index = pd.PeriodIndex(by_month1.index)
             df_month = by_month1.rename_axis('month').reset_index(name='PATIENTS')
@@ -266,7 +266,7 @@ elif choice == 'EDA':
             df_month["years"] = df_month["month"].dt.strftime('%y')
             fig4_1 = px.line(df_month, x='months', y='PATIENTS', color='years',range_x=(0,11))
             st.plotly_chart(fig4_1, use_container_width=True)
-        elif Female is True:
+        elif Gender1 == 'FEMALE':
             by_month1 = Mujeres['fecha ingreso'].dt.to_period('m').value_counts().sort_index()
             by_month1.index = pd.PeriodIndex(by_month1.index)
             df_month = by_month1.rename_axis('month').reset_index(name='PATIENTS')
@@ -275,7 +275,7 @@ elif choice == 'EDA':
             df_month["years"] = df_month["month"].dt.strftime('%y')
             fig4_1 = px.line(df_month, x='months', y='PATIENTS', color='years',range_x=(0,11))
             st.plotly_chart(fig4_1, use_container_width=True)
-        elif Male is True:
+        elif Gender1 == 'MALE':
             by_month1 = Hombres['fecha ingreso'].dt.to_period('m').value_counts().sort_index()
             by_month1.index = pd.PeriodIndex(by_month1.index)
             df_month = by_month1.rename_axis('month').reset_index(name='PATIENTS')
@@ -296,19 +296,19 @@ elif choice == 'EDA':
             </tbody>
         </table>''',height=50)
         a = 5
-        if (Female is True and Male is True) or (Female is False and Male is False):
+        if Gender1 == 'BOTH':
             DX_total = data1_unique.groupby('cie10 egrdin').size().to_frame(name='count').reset_index().sort_values(['count'], ascending=False).head(a)
             fig1 = go.Figure(go.Funnel(y = DX_total['cie10 egrdin'],x = DX_total['count'],textposition = "inside",textinfo = "label"))
             fig1.update_yaxes(showticklabels=False)
             fig1.update_layout(font_size=14)
             st.plotly_chart(fig1, use_container_width=True)
-        elif Female is True:
+        elif Gender1 == 'FEMALE':
             DX_Mujeres = Mujeres.groupby('cie10 egrdin').size().to_frame(name='count').reset_index().sort_values(['count'], ascending=False).head(a)
             fig1 = go.Figure(go.Funnel(y = DX_Mujeres['cie10 egrdin'],x = DX_Mujeres['count'],textposition = "inside",textinfo = "label"))
             fig1.update_yaxes(showticklabels=False)
             fig1.update_layout(font_size=14)
             st.plotly_chart(fig1, use_container_width=True)
-        elif Male is True:
+        elif Gender1 == 'MALE':
             DX_Hombres = Hombres.groupby('cie10 egrdin').size().to_frame(name='count').reset_index().sort_values(['count'], ascending=False).head(a)
             fig1 = go.Figure(go.Funnel(y = DX_Hombres['cie10 egrdin'],x = DX_Hombres['count'],textposition = "inside",textinfo = "label"))
             fig1.update_yaxes(showticklabels=False)
