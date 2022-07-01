@@ -222,6 +222,55 @@ elif choice == 'EDA':
             <tbody>
                 <tr>
                     <td style="width: 1450.8pt; border-collapse: collapse;background: rgb(84, 172, 210);padding: 0cm 5.4pt;vertical-align: top;">
+                        <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style="font-size:27px;color:black;">AGE DISTRIBUTION BY GENDER</span></p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>''',height=50)
+        Grouped_Age_gender = Grouped_Age_gender()
+        y_age = Grouped_Age_gender['Age']
+        x_M = Grouped_Age_gender['M']
+        x_F = Grouped_Age_gender['F']
+        # Creating instance of the figure
+        fig4_2 = go.Figure()
+        
+        # Adding Male data to the figure
+        fig4_2.add_trace(go.Bar(y= y_age, x = x_M, name = 'Male', orientation = 'h'))
+        
+        # Adding Female data to the figure
+        fig4_2.add_trace(go.Bar(y = y_age, x = x_F,name = 'Female', orientation = 'h'))
+        fig4_2.update_layout(title = 'Population Pyramid of Patients',
+                        title_font_size = 22, barmode = 'relative',
+                        bargap = 0.0, bargroupgap = 0,
+                        xaxis = dict(tickvals = [-3000, -2000, -1000,0, 1000, 2000,3000],                                
+                                    ticktext = ['3000', '2000', '1000', '0', '1000', '2000', '3000'])
+                        )
+        fig4_2.update_xaxes(tickvals=[-3000, -2000, -1000,0, 1000, 2000,3000])
+        st.plotly_chart(fig4_2, use_container_width=True)
+    row4_1, row4_2 = st.columns((2,1))
+    with row4_2:
+       stc.html('''<table style="border-collapse:collapse;border:none;">
+            <tbody>
+                <tr>
+                    <td style="width: 1450.8pt; border-collapse: collapse;background: rgb(84, 172, 210);padding: 0cm 5.4pt;vertical-align: top;">
+                        <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style="font-size:27px;color:black;">PATIENTS BY YEAR AND MONTH</span></p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>''',height=50)
+        # by_month1 = data1_unique['fecha ingreso'].dt.to_period('m').value_counts().sort_index()
+        # by_month1.index = pd.PeriodIndex(by_month.index)
+        # df_month = by_month1.rename_axis('month').reset_index(name='PATIENTS')
+        # df_month =df_month[df_month['month']>='2018-01']
+        # df_month["months"] = df_month["month"].dt.strftime('%m')
+        # df_month["years"] = df_month["month"].dt.strftime('%y')
+        # fig4_1 = px.line(df_month, x='months', y='PATIENTS', color='years',range_x=(0,11))
+        # st.plotly_chart(fig4_1, use_container_width=True)
+    with row4_1:
+        stc.html('''<table style="border-collapse:collapse;border:none;">
+            <tbody>
+                <tr>
+                    <td style="width: 1450.8pt; border-collapse: collapse;background: rgb(84, 172, 210);padding: 0cm 5.4pt;vertical-align: top;">
                         <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style="font-size:27px;color:black;">TOP 5 ENTRANCE DIAGNOSE</span></p>
                     </td>
                 </tr>
@@ -246,47 +295,6 @@ elif choice == 'EDA':
             fig1.update_yaxes(showticklabels=False)
             fig1.update_layout(font_size=14)
             st.plotly_chart(fig1, use_container_width=True)
-    row4_1, row4_2 = st.columns((1,2))
-    with row4_1:
-       stc.html('''<table style="border-collapse:collapse;border:none;">
-            <tbody>
-                <tr>
-                    <td style="width: 1450.8pt; border-collapse: collapse;background: rgb(84, 172, 210);padding: 0cm 5.4pt;vertical-align: top;">
-                        <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style="font-size:27px;color:black;">PATIENTS BY YEAR AND MONTH</span></p>
-                    </td>
-                </tr>
-            </tbody>
-        </table>''',height=50)
-        # by_month1 = data1_unique['fecha ingreso'].dt.to_period('m').value_counts().sort_index()
-        # by_month1.index = pd.PeriodIndex(by_month.index)
-        # df_month = by_month1.rename_axis('month').reset_index(name='PATIENTS')
-        # df_month =df_month[df_month['month']>='2018-01']
-        # df_month["months"] = df_month["month"].dt.strftime('%m')
-        # df_month["years"] = df_month["month"].dt.strftime('%y')
-        # fig4_1 = px.line(df_month, x='months', y='PATIENTS', color='years',range_x=(0,11))
-        # st.plotly_chart(fig4_1, use_container_width=True)
-    with row4_2:
-        Grouped_Age_gender = Grouped_Age_gender()
-        y_age = Grouped_Age_gender['Age']
-        x_M = Grouped_Age_gender['M']
-        x_F = Grouped_Age_gender['F']
-        # Creating instance of the figure
-        fig4_2 = go.Figure()
-        
-        # Adding Male data to the figure
-        fig4_2.add_trace(go.Bar(y= y_age, x = x_M, name = 'Male', orientation = 'h'))
-        
-        # Adding Female data to the figure
-        fig4_2.add_trace(go.Bar(y = y_age, x = x_F,name = 'Female', orientation = 'h'))
-        fig4_2.update_layout(title = 'Population Pyramid of Patients',
-                        title_font_size = 22, barmode = 'relative',
-                        bargap = 0.0, bargroupgap = 0,
-                        xaxis = dict(tickvals = [-3000, -2000, -1000,0, 1000, 2000,3000],                                
-                                    ticktext = ['3000', '2000', '1000', '0', '1000', '2000', '3000'])
-                        )
-        fig4_2.update_xaxes(tickvals=[-3000, -2000, -1000,0, 1000, 2000,3000])
-        st.plotly_chart(fig4_2, use_container_width=True)
-
 
 elif choice == 'PREDICTION':
     row1_1, row1_2 = st.columns((1, 6))
