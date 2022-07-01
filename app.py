@@ -272,12 +272,14 @@ elif choice == 'ABOUT':
                 </tbody>
             </table>""") 
     sp1,row2_1,sp2, row2_2,sp3, row2_3,sp4= st.columns(7)
-    row3_1, row3_2, row3_3= st.columns(3)
+    sp1, row3_1,sp2, row3_2,sp3, row3_3,sp4= st.columns(7)
     size_image_us = 200
     with row2_1:
         st.image('arley.png', width=size_image_us)
     with row2_2:
         st.image('sebs.png', width=size_image_us)
+        stc.html('''<p style="text-align: center;"><span style='font-family: "Comic Sans MS", sans-serif;'>SEBASTIAN HURTADO OCHOA</span></p>
+                <p style="text-align: center;"><span style='font-family: "Comic Sans MS", sans-serif;'>INDUSTRIAL ENGINEER</span></p>''')
     with row2_3:
         st.image('sebas.png', width=size_image_us)
     with row3_1:
