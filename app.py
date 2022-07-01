@@ -51,7 +51,7 @@ if choice == 'HOME':
         stc.html("""<table style="background: rgb(47, 84, 150); border-collapse: collapse; border: none; margin-right: calc(3%); width: 97%;">
                 <tbody>
                     <tr>
-                        <td style="width: 450.8pt;border: 1pt solid windowtext;background: rgb(142, 170, 219);padding: 0cm 5.4pt;vertical-align: top;">
+                        <td style="width: 450.8pt;border: 1pt solid windowtext;background: rgb(84, 172, 210);padding: 0cm 5.4pt;vertical-align: top;">
                             <p style="text-align: center;"><span style='font-size: 24px; font-family: "Arial Black", sans-serif; color: white;'><strong>HOSPITAL UNIVERSITARIO DEL VALLE</strong></span></p>
                         </td>
                     </tr>
@@ -87,16 +87,15 @@ elif choice == 'EDA':
     with row1_1:
         st.image(img2, caption=None, width=None, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
     with row1_2:
-        stc.html("""<table style="border-collapse: collapse; border: none; margin-right: calc(1%); width: 99%;">
+        stc.html("""<table style="background: rgb(47, 84, 150); border-collapse: collapse; border: none; margin-right: calc(3%); width: 97%;">
                 <tbody>
                     <tr>
-                        <td style="width: 450.8pt; border: 1pt solid windowtext; background: rgb(84, 172, 210); padding: 0cm 5.4pt; vertical-align: middle; text-align: justify;">
-                            <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style="font-size: 48px; color: rgb(255, 255, 255);">DEL VALLE UNIVERSITARY HOSPITAL</span></p>
+                        <td style="width: 450.8pt;border: 1pt solid windowtext;background: rgb(84, 172, 210);padding: 0cm 5.4pt;vertical-align: top;">
+                            <p style="text-align: center;"><span style='font-size: 24px; font-family: "Arial Black", sans-serif; color: white;'><strong>HOSPITAL UNIVERSITARIO DEL VALLE</strong></span></p>
                         </td>
                     </tr>
                 </tbody>
-            </table>
-            <p><br></p>""")
+            </table>""")
     # Primera Linea
     row2_1, row2_2, row2_3, row2_4 = st.columns((1,1,1,1))
 
@@ -228,7 +227,7 @@ elif choice == 'PREDICTION':
         stc.html("""<table style="background: rgb(47, 84, 150); border-collapse: collapse; border: none; margin-right: calc(3%); width: 97%;">
                 <tbody>
                     <tr>
-                        <td style="width: 450.8pt;border: 1pt solid windowtext;background: rgb(142, 170, 219);padding: 0cm 5.4pt;vertical-align: top;">
+                        <td style="width: 450.8pt;border: 1pt solid windowtext;background: rgb(84, 172, 210);padding: 0cm 5.4pt;vertical-align: top;">
                             <p style="text-align: center;"><span style='font-size: 24px; font-family: "Arial Black", sans-serif; color: white;'><strong>HOSPITAL UNIVERSITARIO DEL VALLE</strong></span></p>
                         </td>
                     </tr>
@@ -243,7 +242,7 @@ elif choice == 'ABOUT':
         stc.html("""<table style="background: rgb(47, 84, 150); border-collapse: collapse; border: none; margin-right: calc(3%); width: 97%;">
                 <tbody>
                     <tr>
-                        <td style="width: 450.8pt;border: 1pt solid windowtext;background: rgb(142, 170, 219);padding: 0cm 5.4pt;vertical-align: top;">
+                        <td style="width: 450.8pt;border: 1pt solid windowtext;background: rgb(84, 172, 210);padding: 0cm 5.4pt;vertical-align: top;">
                             <p style="text-align: center;"><span style='font-size: 24px; font-family: "Arial Black", sans-serif; color: white;'><strong>HOSPITAL UNIVERSITARIO DEL VALLE</strong></span></p>
                         </td>
                     </tr>
