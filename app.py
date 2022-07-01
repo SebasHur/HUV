@@ -129,7 +129,7 @@ elif choice == 'EDA':
         <p><br></p>''', height = 50)
         if (Female is True and Male is True) or (Female is False and Male is False):
             PatientsAll = data1_unique['numero de identificacion del paciente'].nunique()
-            st.header(PatientsAll)
+            st.header(print(f'{PatientsAll:,}'))
         elif Female is True:
             PatientsFemale = data1_unique[data1_unique['genero - sexo']=='F']['numero de identificacion del paciente'].nunique()
             st.header(PatientsFemale)
