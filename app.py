@@ -121,8 +121,8 @@ elif choice == 'EDA':
             </tbody>
         </table>
         <p><br></p>''',height=50)
-        Female = st.selectbox('FEMALE 🙋‍♀️')
-        Male = st.selectbox('MALE')
+        Female = st.checkbox('FEMALE 🙋‍♀️',key='FEMALE')
+        Male = st.checkbox('MALE',key='MALE')
     with row2_2:
         stc.html('''<table style="border-collapse:collapse;border:none;">
             <tbody>
