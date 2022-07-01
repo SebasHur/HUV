@@ -97,8 +97,8 @@ with row2_2:
     st.plotly_chart(fig, use_container_width=True)
     
 with row2_3:
-    st.header('ENTRANCE DIAGNOSIS')
-    a = 10
+    st.header('TOP 5 ENTRANCE DIAGNOSIS')
+    a = 5
     if (Female is True and Male is True) or (Female is False and Male is False):
         DX_total = data1_unique.groupby('cie10 egrdin').size().to_frame(name='count').reset_index().sort_values(['count'], ascending=False).head(a)
         fig1 = go.Figure(go.Funnel(y = DX_total['cie10 egrdin'],x = DX_total['count'],textposition = "inside",textinfo = "label"))
