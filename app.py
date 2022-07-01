@@ -275,6 +275,17 @@ elif choice == 'ABOUT':
     row3_1, row3_2, row3_3= st.columns(3)
     with row2_1:
         st.image('arley.png')
+    with row2_2:
+        st.image('sebs.png')
+    with row2_3:
+        st.image('sebas.png')
+    with row3_1:
+        st.image('jose.png')
+    with row3_2:
+        st.image('manuel.png')
+    with row3_3:
+        st.image('simon.png')
+
 
 # with row2_3:
     # Gender_Age = data1_unique[['genero - sexo','Age']]
