@@ -56,14 +56,15 @@ if choice == 'HOME':
                     </tr>
                 </tbody>
             </table>""")
-    st.title('SIDEBAR MENU')
+    
     stc.html("""<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'>The University Hospital del Valle must attend a large population of victims of trauma; only 7081 in 2012. This population generates a high cost for the health system, so the hospital is interested in knowing this population and its behavior over the last 5 years. It is expected to know the costs that these generate to the health system and to be able to create proposals of programs for the promotion and prevention of violence.</p>""")
-    stc.html('''<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'><strong><span style="font-size: 20px; line-height: 107%; color: rgb(143, 170, 220);">GRAPHICAL APPROACH TO PATIENT BEHAVIOR</span></strong></p>
-            <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'>We invite you to navigate in the side menu to view the graphical statistics of the patients in our EDA. &nbsp;</p>''')
-    stc.html('''<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'><strong><span style="font-size: 20px; line-height: 107%; color: rgb(143, 170, 220);">MAKE A COST PREDICTION</span></strong></p>
-            <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'>We invite you to make a prediction of the cost of a patient by providing us with basic patient data in our prediction menu.&nbsp;</p>''')
-    stc.html('''<p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'><strong><span style="font-size: 20px; line-height: 107%; color: rgb(143, 170, 220);">MEET THE TEAM MEMBERS</span></strong></p>
-            <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'>Additionally you will be able to know who is the team behind this project by visiting our about menu.</p>''')
+    st.title('SIDEBAR MENU')
+    stc.html('''<p style='margin-top:0cm;margin-right:0cm;margin-bottom:2.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'><strong><span style="font-size: 20px; line-height: 107%; color: rgb(143, 170, 220);">GRAPHICAL APPROACH TO PATIENT BEHAVIOR</span></strong></p>
+            <p style='margin-top:0cm;margin-right:0cm;margin-bottom:4.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'>We invite you to navigate in the side menu to view the graphical statistics of the patients in our EDA. &nbsp;</p>''')
+    stc.html('''<p style='margin-top:0cm;margin-right:0cm;margin-bottom:2.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'><strong><span style="font-size: 20px; line-height: 107%; color: rgb(143, 170, 220);">MAKE A COST PREDICTION</span></strong></p>
+            <p style='margin-top:0cm;margin-right:0cm;margin-bottom:4.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'>We invite you to make a prediction of the cost of a patient by providing us with basic patient data in our prediction menu.&nbsp;</p>''')
+    stc.html('''<p style='margin-top:0cm;margin-right:0cm;margin-bottom:2.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'><strong><span style="font-size: 20px; line-height: 107%; color: rgb(143, 170, 220);">MEET THE TEAM MEMBERS</span></strong></p>
+            <p style='margin-top:0cm;margin-right:0cm;margin-bottom:4.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'>Additionally you will be able to know who is the team behind this project by visiting our about menu.</p>''')
 
 elif choice == 'EDA':
     row1_1, row1_2 = st.columns((1, 6))
