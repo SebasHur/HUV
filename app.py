@@ -196,7 +196,7 @@ elif choice == 'EDA':
             st.header(f'{a:,}')
 
     #graficos
-    row3_1, row3_2, row3_3 = st.columns((1,1,1))
+    row3_1, row3_2 = st.columns((1,2))
     with row3_1:
         stc.html('''<table style="border-collapse:collapse;border:none;">
             <tbody>
