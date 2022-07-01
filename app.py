@@ -65,7 +65,7 @@ with row2_1:
         InvoicesAll = data1_unique['Numero factura fiscal'].nunique()
         st.header(InvoicesAll)
         st.subheader('AVERAGE DAYS')
-        st.header(round(((data1_unique.groupby('genero - sexo').get_group('F')['Hosp_Days'].mean()+round(data1_unique.groupby('genero - sexo').get_group('M')['Hosp_Days'].mean())/2),2))
+        st.header(round(data1_unique.groupby('genero - sexo')['Hosp_Days'].get_group('M').append(data1_unique.groupby('genero - sexo')['Hosp_Days'].get_group('F')).mean(),2))
         
     elif Female is True:
         st.subheader('UNIQUE PATIENTS')
