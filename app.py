@@ -99,7 +99,6 @@ elif choice == 'EDA':
             </table>""")
     # Primera Linea
     row2_1, row2_2, row2_3, row2_4, row2_5 = st.columns((1,1,1,1,1))
-
     with row2_1:
         stc.html('''<table style="border-collapse:collapse;border:none;">
             <tbody>
@@ -113,10 +112,6 @@ elif choice == 'EDA':
         <p><br></p>''',height=50)
         Female = st.checkbox('FEMALE 🙋‍♀️',key='FEMALE')
         Male = st.checkbox('MALE',key='MALE')
-        # if Female is True:
-        #     st.session_state['MALE'] = False
-        # if Male is True:
-        #     st.session_state['FEMALE'] = False
     with row2_2:
         stc.html('''<table style="border-collapse:collapse;border:none;">
             <tbody>
@@ -195,7 +190,6 @@ elif choice == 'EDA':
         elif Male is True:
             a = round(data1_unique.groupby('genero - sexo')['valor factura fiscal'].get_group('M').mean(),0).astype(int)
             st.header(f'{a:,}')
-
     #graficos
     row3_1, row3_2 = st.columns((1,2))
     with row3_1:
@@ -211,8 +205,7 @@ elif choice == 'EDA':
         <p><br></p>''',height=50)
         fig = px.sunburst(data1_unique, path=['año factura fiscal', 'genero - sexo'])
         fig.update_traces(textinfo="label+percent parent")
-        st.plotly_chart(fig, use_container_width=True)
-        
+        st.plotly_chart(fig, use_container_width=True) 
     with row3_2:
         stc.html('''<table style="border-collapse:collapse;border:none;">
             <tbody>
@@ -242,7 +235,25 @@ elif choice == 'EDA':
             fig1.update_yaxes(showticklabels=False)
             fig1.update_layout(font_size=14)
             st.plotly_chart(fig1, use_container_width=True)
-    row4_1, row4_2, row4_3 = st.columns((2,1,1))
+    row4_1, row4_2, row4_3 = st.columns((1,1,1))
+    with row4_1:
+       stc.html('''<table style="border-collapse:collapse;border:none;">
+            <tbody>
+                <tr>
+                    <td style="width: 1450.8pt; border-collapse: collapse;background: rgb(84, 172, 210);padding: 0cm 5.4pt;vertical-align: top;">
+                        <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style="font-size:27px;color:black;">PATIENTS BY YEAR AND MONTH</span></p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>''',height=50)
+        by_month = pd.to_datetime(data1_unique['fecha ingreso']).dt.to_period('m').value_counts().sort_index()
+        by_month.index = pd.PeriodIndex(by_month.index)
+        df_month = by_month.rename_axis('month').reset_index(name='PATIENTS')
+        df_month =df_month[df_month['month']>='2018-01']
+        df_month["months"] = df_month["month"].dt.strftime('%m')
+        df_month["years"] = df_month["month"].dt.strftime('%y')
+        fig4_1 = px.line(df_month, x='months', y='PATIENTS', color='years',range_x=(0,11))
+        st.plotly_chart(fig4_1, use_container_width=True)
 
 
 elif choice == 'PREDICTION':
