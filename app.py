@@ -27,7 +27,7 @@ from plotly import graph_objects as go
 
 #Nombre de la Pagina
 img1 = Image.open('logo2.png')
-st.set_page_config(page_title='Hospital Universitario',page_icon = img1, layout='wide',initial_sidebar_state='collapsed')
+st.set_page_config(page_title='Hospital Universitario',page_icon = img1, layout='wide',initial_sidebar_state='expanded')
 #import df
 data1_unique = pd.read_csv('facturas unicas.csv',sep=",")
 
