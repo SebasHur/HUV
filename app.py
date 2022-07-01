@@ -273,18 +273,19 @@ elif choice == 'ABOUT':
             </table>""") 
     row2_1, row2_2, row2_3= st.columns(3)
     row3_1, row3_2, row3_3= st.columns(3)
+    size_image_us = 200
     with row2_1:
-        st.image('arley.png', width=100)
+        st.image('arley.png', width=size_image_us)
     with row2_2:
-        st.image('sebs.png')
+        st.image('sebs.png', width=size_image_us)
     with row2_3:
-        st.image('sebas.png')
+        st.image('sebas.png', width=size_image_us)
     with row3_1:
-        st.image('jose.png')
+        st.image('jose.png', width=size_image_us)
     with row3_2:
-        st.image('manuel.png')
+        st.image('manuel.png', width=size_image_us)
     with row3_3:
-        st.image('simon.png')
+        st.image('simon.png', width=size_image_us)
 
 
 # with row2_3:
