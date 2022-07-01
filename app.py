@@ -40,7 +40,7 @@ Hombres = data1_unique.groupby('genero - sexo').get_group('M')
 #Sidebar Menu
 st.sidebar.image('logo-HU_Horizontal_Azul.png')
 menu = ['HOME','EDA','PREDICTION','ABOUT']
-choice = st.sidebar.selectbox('MENU',menu)
+choice = st.sidebar.selectbox('SELECT AN OPTION',menu)
 #Titulo 
 if choice == 'HOME':
     row1_1, row1_2 = st.columns((1, 6))
@@ -100,6 +100,16 @@ elif choice == 'EDA':
     row2_1, row2_2, row2_3, row2_4 = st.columns((1,1,1,1))
 
     with row2_1:
+        stc.html('''<table style="border-collapse:collapse;border:none;">
+                <tbody>
+                    <tr>
+                        <td style="width: 450.8pt;border: 1pt solid windowtext;background: rgb(142, 170, 219);padding: 0cm 5.4pt;vertical-align: top;">
+                            <p style="margin: 0cm; line-height: normal; font-size: 15px; font-family: Calibri, sans-serif; text-align: center;"><span style="color: black; font-size: 20px;">SELECT GENDER</span></p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'><br></p>''')
         Female = st.checkbox('FEMALE')
         Male = st.checkbox('MALE')
     with row2_2:
