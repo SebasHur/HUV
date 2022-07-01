@@ -38,6 +38,7 @@ Mujeres = data1_unique.groupby('genero - sexo').get_group('F')
 Hombres = data1_unique.groupby('genero - sexo').get_group('M')
 
 #Sidebar Menu
+st.sidebar.image('logo-HU_Horizontal_Azul.png')
 menu = ['HOME','EDA','PREDICTION','ABOUT']
 choice = st.sidebar.selectbox('MENU',menu)
 #Titulo 
