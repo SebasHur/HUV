@@ -28,23 +28,6 @@ from plotly import graph_objects as go
 #Nombre de la Pagina
 img1 = Image.open('logo2.png')
 st.set_page_config(page_title='Hospital Universitario',page_icon = img1, layout='wide',initial_sidebar_state='collapsed')
-
-#Titulo 
-row1_1, row1_2 = st.columns((1, 6))
-img2 = Image.open('logo.png')
-with row1_1:
-    st.image(img2, caption=None, width=None, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
-with row1_2:
-    stc.html("""<table style="background: rgb(47, 84, 150); border-collapse: collapse; border: none; margin-right: calc(3%); width: 97%;">
-            <tbody>
-                <tr>
-                    <td style="width: 450.8pt;border: 1pt solid windowtext;background: rgb(142, 170, 219);padding: 0cm 5.4pt;vertical-align: top;">
-                        <p style="text-align: center;"><span style='font-size: 24px; font-family: "Arial Black", sans-serif; color: white;'><strong>HOSPITAL UNIVERSITARIO DEL VALLE</strong></span></p>
-                    </td>
-                </tr>
-            </tbody>
-        </table>""")
-
 #import df
 data1_unique = pd.read_csv('facturas unicas.csv',sep=",")
 
@@ -54,69 +37,94 @@ data1_unique['Hosp_Days'] = (data1_unique['fecha egreso'] - data1_unique['fecha 
 Mujeres = data1_unique.groupby('genero - sexo').get_group('F')
 Hombres = data1_unique.groupby('genero - sexo').get_group('M')
 
-# Primera Linea
-row2_1, row2_2, row2_3 = st.columns((1,2,2))
+#Sidebar Menu
+menu = ['HOME','EDA','PREDICTION','ABOUT']
+choice = st.sidebar.selectbox('MENU',menu)
+#Titulo 
+if choice == 'HOME':
+    pass
+elif choice == 'EDA':
+    row1_1, row1_2 = st.columns((1, 6))
+    img2 = Image.open('logo.png')
+    with row1_1:
+        st.image(img2, caption=None, width=None, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
+    with row1_2:
+        stc.html("""<table style="background: rgb(47, 84, 150); border-collapse: collapse; border: none; margin-right: calc(3%); width: 97%;">
+                <tbody>
+                    <tr>
+                        <td style="width: 450.8pt;border: 1pt solid windowtext;background: rgb(142, 170, 219);padding: 0cm 5.4pt;vertical-align: top;">
+                            <p style="text-align: center;"><span style='font-size: 24px; font-family: "Arial Black", sans-serif; color: white;'><strong>HOSPITAL UNIVERSITARIO DEL VALLE</strong></span></p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>""")
+    # Primera Linea
+    row2_1, row2_2, row2_3 = st.columns((1,2,2))
 
-with row2_1:
-    Female = st.checkbox('FEMALE')
-    Male = st.checkbox('MALE')
-    if (Female is True and Male is True) or (Female is False and Male is False):
-        st.subheader('UNIQUE PATIENTS')
-        PatientsAll = data1_unique['numero de identificacion del paciente'].nunique()
-        st.header(PatientsAll)
-        st.subheader('TOTAL VISITS')
-        InvoicesAll = data1_unique['Numero factura fiscal'].nunique()
-        st.header(InvoicesAll)
-        st.subheader('AVERAGE DAYS')
-        st.header(round(data1_unique.groupby('genero - sexo')['Hosp_Days'].get_group('M').append(data1_unique.groupby('genero - sexo')['Hosp_Days'].get_group('F')).mean(),2))
+    with row2_1:
+        Female = st.checkbox('FEMALE')
+        Male = st.checkbox('MALE')
+        if (Female is True and Male is True) or (Female is False and Male is False):
+            st.subheader('UNIQUE PATIENTS')
+            PatientsAll = data1_unique['numero de identificacion del paciente'].nunique()
+            st.header(PatientsAll)
+            st.subheader('TOTAL VISITS')
+            InvoicesAll = data1_unique['Numero factura fiscal'].nunique()
+            st.header(InvoicesAll)
+            st.subheader('AVERAGE DAYS')
+            st.header(round(data1_unique.groupby('genero - sexo')['Hosp_Days'].get_group('M').append(data1_unique.groupby('genero - sexo')['Hosp_Days'].get_group('F')).mean(),2))
+            
+        elif Female is True:
+            st.subheader('UNIQUE PATIENTS')
+            PatientsFemale = data1_unique[data1_unique['genero - sexo']=='F']['numero de identificacion del paciente'].nunique()
+            st.header(PatientsFemale)
+            st.subheader('TOTAL VISITS')
+            InvoicesAll = data1_unique[data1_unique['genero - sexo']=='F']['Numero factura fiscal'].nunique()
+            st.header(InvoicesAll)
+            st.subheader('AVERAGE DAYS')
+            st.header(round(data1_unique.groupby('genero - sexo')['Hosp_Days'].get_group('F').mean(),2))
         
-    elif Female is True:
-        st.subheader('UNIQUE PATIENTS')
-        PatientsFemale = data1_unique[data1_unique['genero - sexo']=='F']['numero de identificacion del paciente'].nunique()
-        st.header(PatientsFemale)
-        st.subheader('TOTAL VISITS')
-        InvoicesAll = data1_unique[data1_unique['genero - sexo']=='F']['Numero factura fiscal'].nunique()
-        st.header(InvoicesAll)
-        st.subheader('AVERAGE DAYS')
-        st.header(round(data1_unique.groupby('genero - sexo')['Hosp_Days'].get_group('F').mean(),2))
-       
-    elif Male is True:
-        st.subheader('UNIQUE PATIENTS')
-        PatientsFemale = data1_unique[data1_unique['genero - sexo']=='M']['numero de identificacion del paciente'].nunique()
-        st.header(PatientsFemale)
-        st.subheader('TOTAL VISITS')
-        InvoicesAll = data1_unique[data1_unique['genero - sexo']=='M']['Numero factura fiscal'].nunique()
-        st.header(InvoicesAll)
-        st.subheader('AVERAGE DAYS')
-        st.header(round(data1_unique.groupby('genero - sexo')['Hosp_Days'].get_group('M').mean(),2))
-#graficos
-with row2_2:
-    st.header('GENDERS BY YEAR')
-    fig = px.sunburst(data1_unique, path=['año factura fiscal', 'genero - sexo'])
-    fig.update_traces(textinfo="label+percent parent")
-    st.plotly_chart(fig, use_container_width=True)
-    
-with row2_3:
-    st.header('TOP 5 ENTRANCE DIAGNOSIS')
-    a = 5
-    if (Female is True and Male is True) or (Female is False and Male is False):
-        DX_total = data1_unique.groupby('cie10 egrdin').size().to_frame(name='count').reset_index().sort_values(['count'], ascending=False).head(a)
-        fig1 = go.Figure(go.Funnel(y = DX_total['cie10 egrdin'],x = DX_total['count'],textposition = "inside",textinfo = "label"))
-        fig1.update_yaxes(showticklabels=False)
-        fig1.update_layout(font_size=10)
-        st.plotly_chart(fig1, use_container_width=True)
-    elif Female is True:
-        DX_Mujeres = Mujeres.groupby('cie10 egrdin').size().to_frame(name='count').reset_index().sort_values(['count'], ascending=False).head(a)
-        fig1 = go.Figure(go.Funnel(y = DX_Mujeres['cie10 egrdin'],x = DX_Mujeres['count'],textposition = "inside",textinfo = "label"))
-        fig1.update_yaxes(showticklabels=False)
-        fig1.update_layout(font_size=10)
-        st.plotly_chart(fig1, use_container_width=True)
-    elif Male is True:
-        DX_Hombres = Hombres.groupby('cie10 egrdin').size().to_frame(name='count').reset_index().sort_values(['count'], ascending=False).head(a)
-        fig1 = go.Figure(go.Funnel(y = DX_Hombres['cie10 egrdin'],x = DX_Hombres['count'],textposition = "inside",textinfo = "label"))
-        fig1.update_yaxes(showticklabels=False)
-        fig1.update_layout(font_size=14)
-        st.plotly_chart(fig1, use_container_width=True)
+        elif Male is True:
+            st.subheader('UNIQUE PATIENTS')
+            PatientsFemale = data1_unique[data1_unique['genero - sexo']=='M']['numero de identificacion del paciente'].nunique()
+            st.header(PatientsFemale)
+            st.subheader('TOTAL VISITS')
+            InvoicesAll = data1_unique[data1_unique['genero - sexo']=='M']['Numero factura fiscal'].nunique()
+            st.header(InvoicesAll)
+            st.subheader('AVERAGE DAYS')
+            st.header(round(data1_unique.groupby('genero - sexo')['Hosp_Days'].get_group('M').mean(),2))
+    #graficos
+    with row2_2:
+        st.header('GENDERS BY YEAR')
+        fig = px.sunburst(data1_unique, path=['año factura fiscal', 'genero - sexo'])
+        fig.update_traces(textinfo="label+percent parent")
+        st.plotly_chart(fig, use_container_width=True)
+        
+    with row2_3:
+        st.header('TOP 5 ENTRANCE DIAGNOSIS')
+        a = 5
+        if (Female is True and Male is True) or (Female is False and Male is False):
+            DX_total = data1_unique.groupby('cie10 egrdin').size().to_frame(name='count').reset_index().sort_values(['count'], ascending=False).head(a)
+            fig1 = go.Figure(go.Funnel(y = DX_total['cie10 egrdin'],x = DX_total['count'],textposition = "inside",textinfo = "label"))
+            fig1.update_yaxes(showticklabels=False)
+            fig1.update_layout(font_size=10)
+            st.plotly_chart(fig1, use_container_width=True)
+        elif Female is True:
+            DX_Mujeres = Mujeres.groupby('cie10 egrdin').size().to_frame(name='count').reset_index().sort_values(['count'], ascending=False).head(a)
+            fig1 = go.Figure(go.Funnel(y = DX_Mujeres['cie10 egrdin'],x = DX_Mujeres['count'],textposition = "inside",textinfo = "label"))
+            fig1.update_yaxes(showticklabels=False)
+            fig1.update_layout(font_size=10)
+            st.plotly_chart(fig1, use_container_width=True)
+        elif Male is True:
+            DX_Hombres = Hombres.groupby('cie10 egrdin').size().to_frame(name='count').reset_index().sort_values(['count'], ascending=False).head(a)
+            fig1 = go.Figure(go.Funnel(y = DX_Hombres['cie10 egrdin'],x = DX_Hombres['count'],textposition = "inside",textinfo = "label"))
+            fig1.update_yaxes(showticklabels=False)
+            fig1.update_layout(font_size=14)
+            st.plotly_chart(fig1, use_container_width=True)
+elif choice == 'PREDICTION':
+    pass
+elif choice == 'ABOUT':
+    pass 
 
 # with row2_3:
     # Gender_Age = data1_unique[['genero - sexo','Age']]
