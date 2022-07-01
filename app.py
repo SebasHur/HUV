@@ -97,7 +97,7 @@ elif choice == 'EDA':
                 </tbody>
             </table>""")
     # Primera Linea
-    row2_1, row2_2, row2_3, row2_4 = st.columns((1,1,1,1))
+    row2_1, row2_2, row2_3, row2_4, row2_5 = st.columns((1,1,1,1,1))
 
     with row2_1:
         stc.html('''<table style="border-collapse:collapse;border:none;">
@@ -173,6 +173,28 @@ elif choice == 'EDA':
             st.header(round(data1_unique.groupby('genero - sexo')['Hosp_Days'].get_group('F').mean(),2))
         elif Male is True:
             st.header(round(data1_unique.groupby('genero - sexo')['Hosp_Days'].get_group('M').mean(),2))
+    with row2_5:
+        stc.html('''<table style="border-collapse:collapse;border:none;">
+                    <tbody>
+                        <tr>
+                            <td style="width: 450.8pt; border: 1pt solid windowtext; background: rgb(147, 101, 184); padding: 0cm 5.4pt; vertical-align: middle; text-align: justify;">
+                                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style="font-size:27px;color:black;">AVERAGE INVOICE</span></p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p><br></p>''',height=50)
+        if (Female is True and Male is True) or (Female is False and Male is False):
+            a = round(data1_unique.groupby('genero - sexo')['valor factura fiscal'].get_group('M').append(data1_unique.groupby('genero - sexo')['valor factura fiscal'].get_group('F')).mean(),0).astype(int)
+            st.header(f'{a:,}')  
+        elif Female is True:
+            a = round(data1_unique.groupby('genero - sexo')['valor factura fiscal'].get_group('F').mean(),0).astype(int)
+            st.header(f'{a:,}')
+            
+        elif Male is True:
+            a = round(data1_unique.groupby('genero - sexo')['valor factura fiscal'].get_group('M').mean(),0).astype(int)
+            st.header(f'{a:,}')
+
     #graficos
     row3_1, row3_2, row3_3 = st.columns((1,1,1))
     with row3_1:
