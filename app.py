@@ -131,38 +131,66 @@ elif choice == 'EDA':
             PatientsFemale = data1_unique[data1_unique['genero - sexo']=='M']['numero de identificacion del paciente'].nunique()
             st.header(PatientsFemale)
     with row2_3:
+        stc.html('''<table style="border-collapse:collapse;border:none;">
+            <tbody>
+                <tr>
+                    <td style="width: 450.8pt;border: 1pt solid windowtext;background: rgb(180, 198, 231);padding: 0cm 5.4pt;vertical-align: top;">
+                        <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style="font-size:27px;color:black;">NUMBER OF VISITS</span></p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>''',height=40)
         if (Female is True and Male is True) or (Female is False and Male is False):
-            st.subheader('TOTAL VISITS')
             InvoicesAll = data1_unique['Numero factura fiscal'].nunique()
             st.header(InvoicesAll)
         elif Female is True:
-            st.subheader('TOTAL VISITS')
             InvoicesAll = data1_unique[data1_unique['genero - sexo']=='F']['Numero factura fiscal'].nunique()
             st.header(InvoicesAll)
         elif Male is True:
-            st.subheader('TOTAL VISITS')
             InvoicesAll = data1_unique[data1_unique['genero - sexo']=='M']['Numero factura fiscal'].nunique()
             st.header(InvoicesAll)
     with row2_4:
+        stc.html('''<table style="border-collapse:collapse;border:none;">
+            <tbody>
+                <tr>
+                    <td style="width: 450.8pt;border: 1pt solid windowtext;background: rgb(180, 198, 231);padding: 0cm 5.4pt;vertical-align: top;">
+                        <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style="font-size:27px;color:black;">AVERAGE DAYS</span></p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>''',height=40)
         if (Female is True and Male is True) or (Female is False and Male is False):
-            st.subheader('AVERAGE DAYS')
             st.header(round(data1_unique.groupby('genero - sexo')['Hosp_Days'].get_group('M').append(data1_unique.groupby('genero - sexo')['Hosp_Days'].get_group('F')).mean(),2))  
         elif Female is True:
-            st.subheader('AVERAGE DAYS')
             st.header(round(data1_unique.groupby('genero - sexo')['Hosp_Days'].get_group('F').mean(),2))
         elif Male is True:
-            st.subheader('AVERAGE DAYS')
             st.header(round(data1_unique.groupby('genero - sexo')['Hosp_Days'].get_group('M').mean(),2))
     #graficos
     row3_1, row3_2, row3_3 = st.columns((1,1,1))
     with row3_1:
-        st.header('GENDERS BY YEAR')
+        stc.html('''<table style="border-collapse:collapse;border:none;">
+            <tbody>
+                <tr>
+                    <td style="width: 450.8pt;border: 1pt solid windowtext;background: rgb(180, 198, 231);padding: 0cm 5.4pt;vertical-align: top;">
+                        <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style="font-size:27px;color:black;">GENDERS BY YEAR</span></p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>''',height=40)
         fig = px.sunburst(data1_unique, path=['año factura fiscal', 'genero - sexo'])
         fig.update_traces(textinfo="label+percent parent")
         st.plotly_chart(fig, use_container_width=True)
         
     with row3_2:
-        st.header('TOP 5 ENTRANCE DIAGNOSIS')
+        stc.html('''<table style="border-collapse:collapse;border:none;">
+            <tbody>
+                <tr>
+                    <td style="width: 450.8pt;border: 1pt solid windowtext;background: rgb(180, 198, 231);padding: 0cm 5.4pt;vertical-align: top;">
+                        <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style="font-size:27px;color:black;">TOP 5 ENTRANCE DIAGNOSE/span></p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>''',height=40)
         a = 5
         if (Female is True and Male is True) or (Female is False and Male is False):
             DX_total = data1_unique.groupby('cie10 egrdin').size().to_frame(name='count').reset_index().sort_values(['count'], ascending=False).head(a)
