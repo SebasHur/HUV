@@ -80,7 +80,7 @@ with row2_2:
     st.write('GENDERS BY YEAR')
     fig = px.sunburst(data1_unique, path=['año factura fiscal', 'genero - sexo'])
     fig.update_traces(textinfo="label+percent parent")
-    st.plotly_chart(fig)
+    st.plotly_chart(fig, use_container_width=True)
 
 # with row2_3:
     # Gender_Age = data1_unique[['genero - sexo','Age']]
