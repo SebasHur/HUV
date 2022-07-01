@@ -229,7 +229,7 @@ elif choice == 'EDA':
             # fig1.update_yaxes(showticklabels=False)
             # fig1.update_layout(font_size=10)
             Ingreso = data1_unique.groupby('cie10 egrdin').size().to_frame(name='count').reset_index().sort_values(['count'], ascending=False)
-            Ingreso_top = Ingreso.head(20)
+            Ingreso_top = Ingreso.head(5)
             fig = px.histogram(Ingreso_top, x='cie10 egrdin', y='count',title='ENTRANCE DIAGNOSIS')
             fig.update_layout(font_size=7)
             # fig.show()
