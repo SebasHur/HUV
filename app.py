@@ -61,9 +61,9 @@ if choice == 'HOME':
     st.title('SIDEBAR MENU')
     st.subheader('GRAPHICAL APPROACH TO PATIENT BEHAVIOR')
     st.text('We invite you to navigate in the side menu to view the graphical statistics of the patients in our EDA.')
-    st.html('''<p style='margin-top:0cm;margin-right:0cm;margin-bottom:2.0pt;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'><strong><span style="font-size: 20px; line-height: 107%; color: rgb(143, 170, 220);">MAKE A COST PREDICTION</span></strong></p>
+    stc.html('''<p style='margin-top:0cm;margin-right:0cm;margin-bottom:2.0pt;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'><strong><span style="font-size: 20px; line-height: 107%; color: rgb(143, 170, 220);">MAKE A COST PREDICTION</span></strong></p>
             <p style='margin-top:0cm;margin-right:0cm;margin-bottom:00pt;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'>We invite you to make a prediction of the cost of a patient by providing us with basic patient data in our prediction menu.&nbsp;</p>''')
-    st.html('''<p style='margin-top:0cm;margin-right:0cm;margin-bottom:2.0pt;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'><strong><span style="font-size: 20px; line-height: 107%; color: rgb(143, 170, 220);">MEET THE TEAM MEMBERS</span></strong></p>
+    stc.html('''<p style='margin-top:0cm;margin-right:0cm;margin-bottom:2.0pt;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'><strong><span style="font-size: 20px; line-height: 107%; color: rgb(143, 170, 220);">MEET THE TEAM MEMBERS</span></strong></p>
             <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0.0pt;margin-left:0cm;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'>Additionally you will be able to know who is the team behind this project by visiting our about menu.</p>''')
 
 elif choice == 'EDA':
