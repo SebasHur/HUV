@@ -168,11 +168,11 @@ elif choice == 'EDA':
             </table>
             <p><br></p>''',height=50)
         if (Female is True and Male is True) or (Female is False and Male is False):
-            st.header(f'{round(data1_unique.groupby('genero - sexo')['Hosp_Days'].get_group('M').append(data1_unique.groupby('genero - sexo')['Hosp_Days'].get_group('F')).mean(),2):,}')  
+            st.header(round(data1_unique.groupby('genero - sexo')['Hosp_Days'].get_group('M').append(data1_unique.groupby('genero - sexo')['Hosp_Days'].get_group('F')).mean(),2))  
         elif Female is True:
-            st.header(f'{round(data1_unique.groupby('genero - sexo')['Hosp_Days'].get_group('F').mean(),2):,}')
+            st.header(round(data1_unique.groupby('genero - sexo')['Hosp_Days'].get_group('F').mean(),2))
         elif Male is True:
-            st.header(f'{round(data1_unique.groupby('genero - sexo')['Hosp_Days'].get_group('M').mean(),2):,}')
+            st.header(round(data1_unique.groupby('genero - sexo')['Hosp_Days'].get_group('M').mean(),2))
     #graficos
     row3_1, row3_2, row3_3 = st.columns((1,1,1))
     with row3_1:
