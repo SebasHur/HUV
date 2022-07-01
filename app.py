@@ -109,7 +109,7 @@ elif choice == 'EDA':
                     </tr>
                 </tbody>
             </table>
-            <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'><br></p>''')
+            <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'><br></p>''',height=50)
         Female = st.checkbox('FEMALE')
         Male = st.checkbox('MALE')
     with row2_2:
