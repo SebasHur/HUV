@@ -271,7 +271,7 @@ elif choice == 'ABOUT':
                     </tr>
                 </tbody>
             </table>""") 
-    row2_1, row2_2, row2_3= st.columns(3)
+    sp1,row2_1,sp2, row2_2,sp3, row2_3,sp4= st.columns(7)
     row3_1, row3_2, row3_3= st.columns(3)
     size_image_us = 200
     with row2_1:
