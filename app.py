@@ -39,7 +39,7 @@ Hombres = data1_unique.groupby('genero - sexo').get_group('M')
 
 #Sidebar Menu
 menu = ['HOME','EDA','PREDICTION','ABOUT']
-choice = st.sidebar.selectbox('MENU',menu, disabled=True)
+choice = st.sidebar.selectbox('MENU',menu)
 #Titulo 
 if choice == 'HOME':
     row1_1, row1_2 = st.columns((1, 6))
