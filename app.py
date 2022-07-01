@@ -96,7 +96,7 @@ elif choice == 'EDA':
                     </tr>
                 </tbody>
             </table>
-            <p><br></p>""",height=300)
+            <p><br></p>""")
     # Primera Linea
     row2_1, row2_2, row2_3, row2_4 = st.columns((1,1,1,1))
 
