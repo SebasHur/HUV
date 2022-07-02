@@ -351,7 +351,7 @@ elif choice == 'EDA':
                 stc.html('''<table style="border-collapse:collapse;border:none;">
                         <tbody>
                             <tr>
-                                <td style="width: 1450.8pt; border-collapse: collapse; background: rgb(247, 218, 100); padding: 0cm 5.4pt; vertical-align: middle; text-align: justify;">
+                                <td style="width: 1450.8pt; border-collapse: collapse; background: rgb(0, 168, 133); padding: 0cm 5.4pt; vertical-align: middle; text-align: justify;">
                                     <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style="color:white;">CLINIC DAYS</span></p>
                                 </td>
                             </tr>
