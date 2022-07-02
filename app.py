@@ -418,10 +418,10 @@ elif choice == 'EDA':
                     <p><br></p>''',height=50)
             EPS_percent = data1_unique['responsable EPS'].value_counts().rename_axis('EPS').reset_index(name='PATIENTS')
             EPS_percent['Participacion'] = round((EPS_percent['PATIENTS']/EPS_percent['PATIENTS'].sum())*100,0)
-            fig1 = go.Figure(go.Funnel(y = EPS_percent['EPS'].head(10),x = EPS_percent['PATIENTS'].head(10),textposition = "inside",textinfo = "label"))
-            fig1.update_yaxes(showticklabels=False)
-            fig1.update_layout(font_size=14)
-            st.plotly_char(fig1)
+            fig_EPS_2_1 = go.Figure(go.Funnel(y = EPS_percent['EPS'].head(10),x = EPS_percent['PATIENTS'].head(10),textposition = "inside",textinfo = "label"))
+            fig_EPS_2_1.update_yaxes(showticklabels=False)
+            fig_EPS_2_1.update_layout(font_size=14)
+            st.plotly_char(fig_EPS_2_1)
 
             
 
