@@ -324,8 +324,8 @@ elif choice == 'EDA':
                 </tbody>
             </table>''',height=50)
         #multiple selections
-        spoken_lang = ('Ingles','Español','Portugues')
-        my_spoken = st.multiselect('Spoken Lang', spoken_lang, default='Ingles')
+        diagnosticos = ['TODOS'] + (data1_unique['cie10 egrdin'].to_list())
+        my_spoken = st.multiselect('Select your diagnoses', diagnosticos, default='TODOS')
 
 
 elif EDA_OPT == 'EPS':
