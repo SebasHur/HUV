@@ -335,7 +335,7 @@ elif choice == 'EDA':
             # st.table(Diag_5)
             with row5_1:
                 fig_row_5_1 = sns.histplot(Diag_5 , x='Age',kde=True, hue='genero - sexo')
-                st.pyplot(fig_row_5_1)
+                # st.pyplot(fig_row_5_1)
 elif EDA_OPT == 'EPS':
         pass
 
