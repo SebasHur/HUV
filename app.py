@@ -328,7 +328,8 @@ elif choice == 'EDA':
         my_spoken = st.multiselect('Select your diagnoses', diagnosticos)
         row5_1,row5_2,row5_3 = st.columns(3)
         st.write(my_spoken)
-
+        Diag_5 = pd.concat([data1_unique.groupby('cie10 egrdin').get_group(name) for name in groups])
+        st.table(Diag_5)
 elif EDA_OPT == 'EPS':
         pass
 
