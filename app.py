@@ -329,6 +329,7 @@ elif choice == 'EDA':
         if 'TODOS' in Chose_Diag:
             Chose_Diag = (data1_unique['cie10 egrdin'].to_list())
         row5_1,row5_2,row5_3 = st.columns(3)
+        st.write(Chose_Diag)
         if Chose_Diag == []:
             pass
         else:
