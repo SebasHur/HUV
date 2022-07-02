@@ -324,8 +324,8 @@ elif choice == 'EDA':
                 </tbody>
             </table>''',height=50)
         #multiple selections
-        diagnosticos = ['TODOS'] + (data1_unique['cie10 egrdin'].to_list())
-        Chose_Diag = st.multiselect('Select your diagnoses', diagnosticos, default = 'TODOS')
+        diagnosticos = (data1_unique['cie10 egrdin'].to_list())
+        Chose_Diag = st.multiselect('Select your diagnoses', ['TODOS'] + diagnosticos, default = 'TODOS')
         if 'TODOS' in Chose_Diag:
             Chose_Diag = (data1_unique['cie10 egrdin'].to_list())
         row5_1,row5_2,row5_3 = st.columns(3)
