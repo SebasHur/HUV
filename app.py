@@ -326,7 +326,9 @@ elif choice == 'EDA':
         #multiple selections
         spoken_lang = ('Ingles','Español','Portugues')
         my_spoken = st.multiselect('Spoken Lang', spoken_lang, default='Ingles')
-   elif EDA_OPT == 'EPS':
+
+
+elif EDA_OPT == 'EPS':
         pass
 
 elif choice == 'PREDICTION':
