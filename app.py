@@ -407,7 +407,7 @@ elif choice == 'EDA':
         row2_1, row2_2 = st.columns((2, 1))
         with row2_1:
             EPS_percent = data1_unique['responsable EPS'].value_counts().rename_axis('EPS_name').reset_index(name='counts')
-            figP_2_1 = px.bar(EPS_percent, y='counts', x='EPS_name', title='Number of visits of each patiente')
+            figP_2_1 = px.bar(EPS_percent, y='counts', x='EPS_name', title='NUMBER OF PATIENT GROUPED BY EPS')
             st.plotly_chart(figP_2_1 , use_container_width=True) 
 
       
