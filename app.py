@@ -323,7 +323,10 @@ elif choice == 'EDA':
                     </tr>
                 </tbody>
             </table>''',height=50)
-    elif EDA_OPT == 'EPS':
+        #multiple selections
+        spoken_lang = ('Ingles','Español','Portugues')
+        my_spoken = st.multiselect('Spoken Lang', spoken_lang, default='Ingles')
+   elif EDA_OPT == 'EPS':
         pass
 
 elif choice == 'PREDICTION':
@@ -416,9 +419,9 @@ elif choice == 'ABOUT':
 # choice = st.selectbox('Lenguaje',my_lang)
 # st.write('Selecciono{}'.format(choice))
 
-# #multiple selections
-# spoken_lang = ('Ingles','Español','Portugues')
-# my_spoken = st.multiselect('Spoken Lang', spoken_lang, default='Ingles')
+#multiple selections
+spoken_lang = ('Ingles','Español','Portugues')
+my_spoken = st.multiselect('Spoken Lang', spoken_lang, default='Ingles')
 
 # #slider
 # #numeros
