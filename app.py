@@ -334,12 +334,46 @@ elif choice == 'EDA':
             Diag_5 = pd.concat([data1_unique.groupby('cie10 egrdin').get_group(name) for name in Chose_Diag])
             # st.table(Diag_5)
             with row5_1:
+                stc.html('''<table style="border-collapse:collapse;border:none;">
+                        <tbody>
+                            <tr>
+                                <td style="width: 1450.8pt; border-collapse: collapse; background: rgb(97, 189, 109); padding: 0cm 5.4pt; vertical-align: middle; text-align: justify;">
+                                    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style="color:white;">PATIENTS AGE</span></p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p><br></p>''',height=50)
                 fig_row_5_1 = plt.figure()
                 sns.histplot(Diag_5 , x='Age',kde=True, hue='genero - sexo')
                 st.pyplot(fig_row_5_1)
             with row5_2:
+                stc.html('''<table style="border-collapse:collapse;border:none;">
+                        <tbody>
+                            <tr>
+                                <td style="width: 1450.8pt; border-collapse: collapse; background: rgb(247, 218, 100); padding: 0cm 5.4pt; vertical-align: middle; text-align: justify;">
+                                    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style="color:white;">CLINIC DAYS</span></p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p><br></p>''',height=50)
                 fig_row_5_2 = plt.figure()
                 sns.histplot(Diag_5 , x='Hosp_Days',kde=True, hue='genero - sexo')
+                st.pyplot(fig_row_5_2)
+            with row5_3:
+                stc.html('''<table style="border-collapse:collapse;border:none;">
+                        <tbody>
+                            <tr>
+                                <td style="width: 1450.8pt; border-collapse: collapse; background: rgb(235, 107, 86); padding: 0cm 5.4pt; vertical-align: middle; text-align: justify;">
+                                    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style="color:white;">INVOICE</span></p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p><br></p>''',height=50)
+                fig_row_5_2 = plt.figure()
+                sns.histplot(Diag_5 , x='valor factura fiscal',kde=True, hue='genero - sexo')
                 st.pyplot(fig_row_5_2)
 elif EDA_OPT == 'EPS':
         pass
