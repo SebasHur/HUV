@@ -39,6 +39,18 @@ data1_unique['Age'] = round((data1_unique['fecha ingreso']-data1_unique['Fecha d
 Mujeres = data1_unique.groupby('genero - sexo').get_group('F')
 Hombres = data1_unique.groupby('genero - sexo').get_group('M')
 
+#Limpieza base de datos Columna Responsable EPS
+data1_unique.loc[data1_unique['codigo responsable'] == data1_unique['numero de identificacion del paciente'], 'responsable EPS'] = 'independiente'
+data1_unique.loc[data1_unique['codigo responsable'] == data1_unique['numero de identificacion del paciente'], 'codigo responsable'] = '000'
+count_freq =dict(data1_unique['responsable EPS'].value_counts())
+data1_unique['count_freq'] = data1_unique['responsable EPS']
+data1_unique['count_freq'] = data1_unique['count_freq'].map(count_freq)
+data1_unique.loc[data1_unique['count_freq'] < 100,'responsable EPS'] = 'independiente'
+data1_unique.loc[data1_unique['count_freq'] < 100,'codigo responsable'] = '000'
+count_freq =dict(data1_unique['responsable EPS'].value_counts())
+data1_unique['count_freq'] = data1_unique['responsable EPS']
+data1_unique['count_freq'] = data1_unique['count_freq'].map(count_freq)
+
 def Grouped_Age_gender():
     Gender_Age = data1_unique[['genero - sexo','Age']]
     age_groups = pd.cut(Gender_Age['Age'], bins=[0,5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90,95,np.inf])
@@ -392,6 +404,7 @@ elif choice == 'EDA':
                         </tr>
                     </tbody>
                 </table>""")
+                    
 
 elif choice == 'PREDICTION':
     row1_1, row1_2 = st.columns((1, 6))
