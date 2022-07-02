@@ -330,9 +330,12 @@ elif choice == 'EDA':
         if Chose_Diag == []:
             pass
         else:
-            st.write(Chose_Diag)
+            # st.write(Chose_Diag)
             Diag_5 = pd.concat([data1_unique.groupby('cie10 egrdin').get_group(name) for name in Chose_Diag])
-            st.table(Diag_5)
+            # st.table(Diag_5)
+            with row5_1:
+                fig_row_5_1 = sns.histplot(Diag_5 , x='Age',kde=True, hue='genero - sexo')
+                st.pyplot(fig_row_5_1)
 elif EDA_OPT == 'EPS':
         pass
 
