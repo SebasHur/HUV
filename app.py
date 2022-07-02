@@ -94,225 +94,228 @@ if choice == 'HOME':
                 <p style='margin-top:0cm;margin-right:0cm;margin-bottom:8.0pt;margin-left:0cm;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;text-align:justify;'><br></p>''',
                 height=700)
 elif choice == 'EDA':
-    row1_1, row1_2 = st.columns((1, 6))
-    img2 = Image.open('logo.png')
-    with row1_1:
-        st.image(img2, caption=None, width=None, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
-    with row1_2:
-        stc.html("""<table style="background: rgb(47, 84, 150); border-collapse: collapse; border: none; margin-right: calc(3%); width: 97%;">
-                <tbody>
-                    <tr>
-                        <td style="width: 450.8pt;border: 1pt solid windowtext;background: rgb(84, 172, 210);padding: 0cm 5.4pt;vertical-align: top;">
-                            <p style="text-align: center;"><span style='font-size: 24px; font-family: "Arial Black", sans-serif; color: white;'><strong>HOSPITAL UNIVERSITARIO DEL VALLE</strong></span></p>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>""")
-    # Primera Linea
-    row2_1, row2_2, row2_3, row2_4, row2_5 = st.columns((1,1,1,1,1))
-    with row2_1:
-        stc.html('''<table style="border-collapse:collapse;border:none;">
-            <tbody>
-                <tr>
-                    <td style="width: 1450.8pt; border-collapse: collapse; background: rgb(97, 189, 109); padding: 0cm 5.4pt; vertical-align: middle; text-align: justify;">
-                        <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style="color:white">SELECT GENDER</span></p>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <p><br></p>''',height=50)
-        Gender1 = st.radio(label = '', options=('FEMALE','MALE','BOTH'))
-    with row2_2:
-        stc.html('''<table style="border-collapse:collapse;border:none;">
-            <tbody>
-                <tr>
-                    <td style="width: 1450.8pt; border-collapse: collapse; background: rgb(26, 188, 156); padding: 0cm 5.4pt; vertical-align: middle; text-align: justify;">
-                        <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style="color:white;">PATIENTS</span></p>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <p><br></p>''', height = 50)
-        if Gender1 == 'BOTH':
-            PatientsAll = data1_unique['numero de identificacion del paciente'].nunique()
-            st.header(f'{PatientsAll:,}')
-        elif Gender1 == 'FEMALE':
-            PatientsFemale = data1_unique[data1_unique['genero - sexo']=='F']['numero de identificacion del paciente'].nunique()
-            st.header(f'{PatientsFemale:,}')
-        elif Gender1 == 'MALE':
-            PatientsFemale = data1_unique[data1_unique['genero - sexo']=='M']['numero de identificacion del paciente'].nunique()
-            st.header(f'{PatientsFemale:,}')
-    with row2_3:
-        stc.html('''<table style="border-collapse:collapse;border:none;">
+    EDA_OPT = st.sidebar.radio('Select what you want to explore',('Patients and Gender','EPS'))
+    if EDA_OPT == 'Patients and Gender':
+        row1_1, row1_2 = st.columns((1, 6))
+        img2 = Image.open('logo.png')
+        with row1_1:
+            st.image(img2, caption=None, width=None, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
+        with row1_2:
+            stc.html("""<table style="background: rgb(47, 84, 150); border-collapse: collapse; border: none; margin-right: calc(3%); width: 97%;">
                     <tbody>
                         <tr>
-                            <td style="width: 1450.8pt; border-collapse: collapse; background: rgb(84, 172, 210); padding: 0cm 5.4pt; vertical-align: middle; text-align: justify;">
-                                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style="color:white;">VISITS</span></p>
+                            <td style="width: 450.8pt;border: 1pt solid windowtext;background: rgb(84, 172, 210);padding: 0cm 5.4pt;vertical-align: top;">
+                                <p style="text-align: center;"><span style='font-size: 24px; font-family: "Arial Black", sans-serif; color: white;'><strong>HOSPITAL UNIVERSITARIO DEL VALLE</strong></span></p>
                             </td>
                         </tr>
                     </tbody>
-                </table>
-                <p><br></p>''',height=50)
-        if Gender1 == 'BOTH':
-            InvoicesAll = data1_unique['Numero factura fiscal'].nunique()
-            st.header(f'{InvoicesAll:,}')
-        elif Gender1 == 'FEMALE':
-            InvoicesAll = data1_unique[data1_unique['genero - sexo']=='F']['Numero factura fiscal'].nunique()
-            st.header(f'{InvoicesAll:,}')
-        elif Gender1 == 'MALE':
-            InvoicesAll = data1_unique[data1_unique['genero - sexo']=='M']['Numero factura fiscal'].nunique()
-            st.header(f'{InvoicesAll:,}')
-    with row2_4:
-        stc.html('''<table style="border-collapse:collapse;border:none;">
+                </table>""")
+        # Primera Linea
+        row2_1, row2_2, row2_3, row2_4, row2_5 = st.columns((1,1,1,1,1))
+        with row2_1:
+            stc.html('''<table style="border-collapse:collapse;border:none;">
                 <tbody>
                     <tr>
-                        <td style="width: 1450.8pt; border-collapse: collapse; background: rgb(44, 130, 201); padding: 0cm 5.4pt; vertical-align: middle; text-align: justify;">
-                            <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style="color:white;">CLINIC DAYS AVERAGE</span></p>
+                        <td style="width: 1450.8pt; border-collapse: collapse; background: rgb(97, 189, 109); padding: 0cm 5.4pt; vertical-align: middle; text-align: justify;">
+                            <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style="color:white">SELECT GENDER</span></p>
                         </td>
                     </tr>
                 </tbody>
             </table>
             <p><br></p>''',height=50)
-        if Gender1 == 'BOTH':
-            st.header(round(data1_unique.groupby('genero - sexo')['Hosp_Days'].get_group('M').append(data1_unique.groupby('genero - sexo')['Hosp_Days'].get_group('F')).mean(),2))  
-        elif Gender1 == 'FEMALE':
-            st.header(round(data1_unique.groupby('genero - sexo')['Hosp_Days'].get_group('F').mean(),2))
-        elif Gender1 == 'MALE':
-            st.header(round(data1_unique.groupby('genero - sexo')['Hosp_Days'].get_group('M').mean(),2))
-    with row2_5:
-        stc.html('''<table style="border-collapse:collapse;border:none;">
+            Gender1 = st.radio(label = '', options=('FEMALE','MALE','BOTH'))
+        with row2_2:
+            stc.html('''<table style="border-collapse:collapse;border:none;">
+                <tbody>
+                    <tr>
+                        <td style="width: 1450.8pt; border-collapse: collapse; background: rgb(26, 188, 156); padding: 0cm 5.4pt; vertical-align: middle; text-align: justify;">
+                            <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style="color:white;">PATIENTS</span></p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p><br></p>''', height = 50)
+            if Gender1 == 'BOTH':
+                PatientsAll = data1_unique['numero de identificacion del paciente'].nunique()
+                st.header(f'{PatientsAll:,}')
+            elif Gender1 == 'FEMALE':
+                PatientsFemale = data1_unique[data1_unique['genero - sexo']=='F']['numero de identificacion del paciente'].nunique()
+                st.header(f'{PatientsFemale:,}')
+            elif Gender1 == 'MALE':
+                PatientsFemale = data1_unique[data1_unique['genero - sexo']=='M']['numero de identificacion del paciente'].nunique()
+                st.header(f'{PatientsFemale:,}')
+        with row2_3:
+            stc.html('''<table style="border-collapse:collapse;border:none;">
+                        <tbody>
+                            <tr>
+                                <td style="width: 1450.8pt; border-collapse: collapse; background: rgb(84, 172, 210); padding: 0cm 5.4pt; vertical-align: middle; text-align: justify;">
+                                    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style="color:white;">VISITS</span></p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p><br></p>''',height=50)
+            if Gender1 == 'BOTH':
+                InvoicesAll = data1_unique['Numero factura fiscal'].nunique()
+                st.header(f'{InvoicesAll:,}')
+            elif Gender1 == 'FEMALE':
+                InvoicesAll = data1_unique[data1_unique['genero - sexo']=='F']['Numero factura fiscal'].nunique()
+                st.header(f'{InvoicesAll:,}')
+            elif Gender1 == 'MALE':
+                InvoicesAll = data1_unique[data1_unique['genero - sexo']=='M']['Numero factura fiscal'].nunique()
+                st.header(f'{InvoicesAll:,}')
+        with row2_4:
+            stc.html('''<table style="border-collapse:collapse;border:none;">
                     <tbody>
                         <tr>
-                            <td style="width: 1450.8pt; border-collapse: collapse; background: rgb(147, 101, 184); padding: 0cm 5.4pt; vertical-align: middle; text-align: justify;">
-                                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style="color:white;">INVOICE AVERAGE</span></p>
+                            <td style="width: 1450.8pt; border-collapse: collapse; background: rgb(44, 130, 201); padding: 0cm 5.4pt; vertical-align: middle; text-align: justify;">
+                                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style="color:white;">CLINIC DAYS AVERAGE</span></p>
                             </td>
                         </tr>
                     </tbody>
                 </table>
                 <p><br></p>''',height=50)
-        if Gender1 == 'BOTH':
-            a = round(data1_unique.groupby('genero - sexo')['valor factura fiscal'].get_group('M').append(data1_unique.groupby('genero - sexo')['valor factura fiscal'].get_group('F')).mean(),0).astype(int)
-            st.header(f'{a:,}')  
-        elif Gender1 == 'FEMALE':
-            a = round(data1_unique.groupby('genero - sexo')['valor factura fiscal'].get_group('F').mean(),0).astype(int)
-            st.header(f'{a:,}')
+            if Gender1 == 'BOTH':
+                st.header(round(data1_unique.groupby('genero - sexo')['Hosp_Days'].get_group('M').append(data1_unique.groupby('genero - sexo')['Hosp_Days'].get_group('F')).mean(),2))  
+            elif Gender1 == 'FEMALE':
+                st.header(round(data1_unique.groupby('genero - sexo')['Hosp_Days'].get_group('F').mean(),2))
+            elif Gender1 == 'MALE':
+                st.header(round(data1_unique.groupby('genero - sexo')['Hosp_Days'].get_group('M').mean(),2))
+        with row2_5:
+            stc.html('''<table style="border-collapse:collapse;border:none;">
+                        <tbody>
+                            <tr>
+                                <td style="width: 1450.8pt; border-collapse: collapse; background: rgb(147, 101, 184); padding: 0cm 5.4pt; vertical-align: middle; text-align: justify;">
+                                    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style="color:white;">INVOICE AVERAGE</span></p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p><br></p>''',height=50)
+            if Gender1 == 'BOTH':
+                a = round(data1_unique.groupby('genero - sexo')['valor factura fiscal'].get_group('M').append(data1_unique.groupby('genero - sexo')['valor factura fiscal'].get_group('F')).mean(),0).astype(int)
+                st.header(f'{a:,}')  
+            elif Gender1 == 'FEMALE':
+                a = round(data1_unique.groupby('genero - sexo')['valor factura fiscal'].get_group('F').mean(),0).astype(int)
+                st.header(f'{a:,}')
+                
+            elif Gender1 == 'MALE':
+                a = round(data1_unique.groupby('genero - sexo')['valor factura fiscal'].get_group('M').mean(),0).astype(int)
+                st.header(f'{a:,}')
+        #graficos
+        row4_1, row4_2 = st.columns((1,1))
+        with row4_2:
+            stc.html('''<table style="border-collapse:collapse;border:none;">
+                <tbody>
+                    <tr>
+                        <td style="width: 1450.8pt; border-collapse: collapse;background: rgb(84, 172, 210);padding: 0cm 5.4pt;vertical-align: top;">
+                            <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style="color:white;">PATIENTS BY YEAR AND MONTH</span></p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>''',height=50)
+            if Gender1 == 'BOTH':
+                by_month1 = data1_unique['fecha ingreso'].dt.to_period('m').value_counts().sort_index()
+                by_month1.index = pd.PeriodIndex(by_month1.index)
+                df_month = by_month1.rename_axis('month').reset_index(name='PATIENTS')
+                df_month =df_month[df_month['month']>='2018-01']
+                df_month["months"] = df_month["month"].dt.strftime('%m')
+                df_month["years"] = df_month["month"].dt.strftime('%y')
+                fig4_1 = px.line(df_month, x='months', y='PATIENTS', color='years',range_x=(0,11))
+                st.plotly_chart(fig4_1, use_container_width=True)
+            elif Gender1 == 'FEMALE':
+                by_month1 = Mujeres['fecha ingreso'].dt.to_period('m').value_counts().sort_index()
+                by_month1.index = pd.PeriodIndex(by_month1.index)
+                df_month = by_month1.rename_axis('month').reset_index(name='PATIENTS')
+                df_month =df_month[df_month['month']>='2018-01']
+                df_month["months"] = df_month["month"].dt.strftime('%m')
+                df_month["years"] = df_month["month"].dt.strftime('%y')
+                fig4_1 = px.line(df_month, x='months', y='PATIENTS', color='years',range_x=(0,11))
+                st.plotly_chart(fig4_1, use_container_width=True)
+            elif Gender1 == 'MALE':
+                by_month1 = Hombres['fecha ingreso'].dt.to_period('m').value_counts().sort_index()
+                by_month1.index = pd.PeriodIndex(by_month1.index)
+                df_month = by_month1.rename_axis('month').reset_index(name='PATIENTS')
+                df_month =df_month[df_month['month']>='2018-01']
+                df_month["months"] = df_month["month"].dt.strftime('%m')
+                df_month["years"] = df_month["month"].dt.strftime('%y')
+                fig4_1 = px.line(df_month, x='months', y='PATIENTS', color='years',range_x=(0,11))
+                st.plotly_chart(fig4_1, use_container_width=True)
+        with row4_1:
+            stc.html('''<table style="border-collapse:collapse;border:none;">
+                <tbody>
+                    <tr>
+                        <td style="width: 1450.8pt; border-collapse: collapse;background: rgb(84, 172, 210);padding: 0cm 5.4pt;vertical-align: top;">
+                            <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style="color:white;">TOP 5 ENTRANCE DIAGNOSE</span></p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>''',height=50)
+            a = 5
+            if Gender1 == 'BOTH':
+                DX_total = data1_unique.groupby('cie10 egrdin').size().to_frame(name='count').reset_index().sort_values(['count'], ascending=False).head(a)
+                fig1 = go.Figure(go.Funnel(y = DX_total['cie10 egrdin'],x = DX_total['count'],textposition = "inside",textinfo = "label"))
+                fig1.update_yaxes(showticklabels=False)
+                fig1.update_layout(font_size=14)
+                st.plotly_chart(fig1, use_container_width=True)
+            elif Gender1 == 'FEMALE':
+                DX_Mujeres = Mujeres.groupby('cie10 egrdin').size().to_frame(name='count').reset_index().sort_values(['count'], ascending=False).head(a)
+                fig1 = go.Figure(go.Funnel(y = DX_Mujeres['cie10 egrdin'],x = DX_Mujeres['count'],textposition = "inside",textinfo = "label"))
+                fig1.update_yaxes(showticklabels=False)
+                fig1.update_layout(font_size=14)
+                st.plotly_chart(fig1, use_container_width=True)
+            elif Gender1 == 'MALE':
+                DX_Hombres = Hombres.groupby('cie10 egrdin').size().to_frame(name='count').reset_index().sort_values(['count'], ascending=False).head(a)
+                fig1 = go.Figure(go.Funnel(y = DX_Hombres['cie10 egrdin'],x = DX_Hombres['count'],textposition = "inside",textinfo = "label"))
+                fig1.update_yaxes(showticklabels=False)
+                fig1.update_layout(font_size=14)
+                st.plotly_chart(fig1, use_container_width=True)
+        row3_1, row3_2 = st.columns((1,2))
+        with row3_1:
+            stc.html('''<table style="border-collapse:collapse;border:none;">
+                <tbody>
+                    <tr>
+                        <td style="width: 1450.8pt; border-collapse: collapse; background: rgb(44, 130, 201); padding: 0cm 5.4pt; vertical-align: middle; text-align: justify;">
+                            <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style="color:white;">GENDER BY YEAR</span></p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <p><br></p>''',height=50)
+            fig = px.sunburst(data1_unique, path=['año factura fiscal', 'genero - sexo'])
+            fig.update_traces(textinfo="label+percent parent")
+            st.plotly_chart(fig, use_container_width=True) 
+        with row3_2:
+            stc.html('''<table style="border-collapse:collapse;border:none;">
+                <tbody>
+                    <tr>
+                        <td style="width: 1450.8pt; border-collapse: collapse;background: rgb(84, 172, 210);padding: 0cm 5.4pt;vertical-align: top;">
+                            <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style="color:white;">AGE DISTRIBUTION BY GENDER</span></p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>''',height=50)
+            Grouped_Age_gender = Grouped_Age_gender()
+            y_age = Grouped_Age_gender['Age']
+            x_M = Grouped_Age_gender['M']
+            x_F = Grouped_Age_gender['F']
+            # Creating instance of the figure
+            fig4_2 = go.Figure()
             
-        elif Gender1 == 'MALE':
-            a = round(data1_unique.groupby('genero - sexo')['valor factura fiscal'].get_group('M').mean(),0).astype(int)
-            st.header(f'{a:,}')
-    #graficos
-    row4_1, row4_2 = st.columns((1,1))
-    with row4_2:
-        stc.html('''<table style="border-collapse:collapse;border:none;">
-            <tbody>
-                <tr>
-                    <td style="width: 1450.8pt; border-collapse: collapse;background: rgb(84, 172, 210);padding: 0cm 5.4pt;vertical-align: top;">
-                        <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style="color:white;">PATIENTS BY YEAR AND MONTH</span></p>
-                    </td>
-                </tr>
-            </tbody>
-        </table>''',height=50)
-        if Gender1 == 'BOTH':
-            by_month1 = data1_unique['fecha ingreso'].dt.to_period('m').value_counts().sort_index()
-            by_month1.index = pd.PeriodIndex(by_month1.index)
-            df_month = by_month1.rename_axis('month').reset_index(name='PATIENTS')
-            df_month =df_month[df_month['month']>='2018-01']
-            df_month["months"] = df_month["month"].dt.strftime('%m')
-            df_month["years"] = df_month["month"].dt.strftime('%y')
-            fig4_1 = px.line(df_month, x='months', y='PATIENTS', color='years',range_x=(0,11))
-            st.plotly_chart(fig4_1, use_container_width=True)
-        elif Gender1 == 'FEMALE':
-            by_month1 = Mujeres['fecha ingreso'].dt.to_period('m').value_counts().sort_index()
-            by_month1.index = pd.PeriodIndex(by_month1.index)
-            df_month = by_month1.rename_axis('month').reset_index(name='PATIENTS')
-            df_month =df_month[df_month['month']>='2018-01']
-            df_month["months"] = df_month["month"].dt.strftime('%m')
-            df_month["years"] = df_month["month"].dt.strftime('%y')
-            fig4_1 = px.line(df_month, x='months', y='PATIENTS', color='years',range_x=(0,11))
-            st.plotly_chart(fig4_1, use_container_width=True)
-        elif Gender1 == 'MALE':
-            by_month1 = Hombres['fecha ingreso'].dt.to_period('m').value_counts().sort_index()
-            by_month1.index = pd.PeriodIndex(by_month1.index)
-            df_month = by_month1.rename_axis('month').reset_index(name='PATIENTS')
-            df_month =df_month[df_month['month']>='2018-01']
-            df_month["months"] = df_month["month"].dt.strftime('%m')
-            df_month["years"] = df_month["month"].dt.strftime('%y')
-            fig4_1 = px.line(df_month, x='months', y='PATIENTS', color='years',range_x=(0,11))
-            st.plotly_chart(fig4_1, use_container_width=True)
-    with row4_1:
-        stc.html('''<table style="border-collapse:collapse;border:none;">
-            <tbody>
-                <tr>
-                    <td style="width: 1450.8pt; border-collapse: collapse;background: rgb(84, 172, 210);padding: 0cm 5.4pt;vertical-align: top;">
-                        <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style="color:white;">TOP 5 ENTRANCE DIAGNOSE</span></p>
-                    </td>
-                </tr>
-            </tbody>
-        </table>''',height=50)
-        a = 5
-        if Gender1 == 'BOTH':
-            DX_total = data1_unique.groupby('cie10 egrdin').size().to_frame(name='count').reset_index().sort_values(['count'], ascending=False).head(a)
-            fig1 = go.Figure(go.Funnel(y = DX_total['cie10 egrdin'],x = DX_total['count'],textposition = "inside",textinfo = "label"))
-            fig1.update_yaxes(showticklabels=False)
-            fig1.update_layout(font_size=14)
-            st.plotly_chart(fig1, use_container_width=True)
-        elif Gender1 == 'FEMALE':
-            DX_Mujeres = Mujeres.groupby('cie10 egrdin').size().to_frame(name='count').reset_index().sort_values(['count'], ascending=False).head(a)
-            fig1 = go.Figure(go.Funnel(y = DX_Mujeres['cie10 egrdin'],x = DX_Mujeres['count'],textposition = "inside",textinfo = "label"))
-            fig1.update_yaxes(showticklabels=False)
-            fig1.update_layout(font_size=14)
-            st.plotly_chart(fig1, use_container_width=True)
-        elif Gender1 == 'MALE':
-            DX_Hombres = Hombres.groupby('cie10 egrdin').size().to_frame(name='count').reset_index().sort_values(['count'], ascending=False).head(a)
-            fig1 = go.Figure(go.Funnel(y = DX_Hombres['cie10 egrdin'],x = DX_Hombres['count'],textposition = "inside",textinfo = "label"))
-            fig1.update_yaxes(showticklabels=False)
-            fig1.update_layout(font_size=14)
-            st.plotly_chart(fig1, use_container_width=True)
-    row3_1, row3_2 = st.columns((1,2))
-    with row3_1:
-        stc.html('''<table style="border-collapse:collapse;border:none;">
-            <tbody>
-                <tr>
-                    <td style="width: 1450.8pt; border-collapse: collapse; background: rgb(44, 130, 201); padding: 0cm 5.4pt; vertical-align: middle; text-align: justify;">
-                        <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style="color:white;">GENDER BY YEAR</span></p>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <p><br></p>''',height=50)
-        fig = px.sunburst(data1_unique, path=['año factura fiscal', 'genero - sexo'])
-        fig.update_traces(textinfo="label+percent parent")
-        st.plotly_chart(fig, use_container_width=True) 
-    with row3_2:
-        stc.html('''<table style="border-collapse:collapse;border:none;">
-            <tbody>
-                <tr>
-                    <td style="width: 1450.8pt; border-collapse: collapse;background: rgb(84, 172, 210);padding: 0cm 5.4pt;vertical-align: top;">
-                        <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style="color:white;">AGE DISTRIBUTION BY GENDER</span></p>
-                    </td>
-                </tr>
-            </tbody>
-        </table>''',height=50)
-        Grouped_Age_gender = Grouped_Age_gender()
-        y_age = Grouped_Age_gender['Age']
-        x_M = Grouped_Age_gender['M']
-        x_F = Grouped_Age_gender['F']
-        # Creating instance of the figure
-        fig4_2 = go.Figure()
-        
-        # Adding Male data to the figure
-        fig4_2.add_trace(go.Bar(y= y_age, x = x_M, name = 'Male', orientation = 'h'))
-        
-        # Adding Female data to the figure
-        fig4_2.add_trace(go.Bar(y = y_age, x = x_F,name = 'Female', orientation = 'h'))
-        fig4_2.update_layout(barmode = 'relative',
-                        bargap = 0.0, bargroupgap = 0,
-                        xaxis = dict(tickvals = [-3000, -2000, -1000,0, 1000, 2000,3000],                                
-                                    ticktext = ['3000', '2000', '1000', '0', '1000', '2000', '3000'])
-                        )
-        fig4_2.update_xaxes(tickvals=[-3000, -2000, -1000,0, 1000, 2000,3000])
-        st.plotly_chart(fig4_2, use_container_width=True)
-    
+            # Adding Male data to the figure
+            fig4_2.add_trace(go.Bar(y= y_age, x = x_M, name = 'Male', orientation = 'h'))
+            
+            # Adding Female data to the figure
+            fig4_2.add_trace(go.Bar(y = y_age, x = x_F,name = 'Female', orientation = 'h'))
+            fig4_2.update_layout(barmode = 'relative',
+                            bargap = 0.0, bargroupgap = 0,
+                            xaxis = dict(tickvals = [-3000, -2000, -1000,0, 1000, 2000,3000],                                
+                                        ticktext = ['3000', '2000', '1000', '0', '1000', '2000', '3000'])
+                            )
+            fig4_2.update_xaxes(tickvals=[-3000, -2000, -1000,0, 1000, 2000,3000])
+            st.plotly_chart(fig4_2, use_container_width=True)
+    elif EDA_OPT == 'EPS':
+        pass
 
 elif choice == 'PREDICTION':
     row1_1, row1_2 = st.columns((1, 6))
