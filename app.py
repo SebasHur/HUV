@@ -327,9 +327,12 @@ elif choice == 'EDA':
         diagnosticos = (data1_unique['cie10 egrdin'].to_list())
         Chose_Diag = st.multiselect('Select your diagnoses', diagnosticos)
         row5_1,row5_2,row5_3 = st.columns(3)
-        st.write(Chose_Diag)
-        Diag_5 = pd.concat([data1_unique.groupby('cie10 egrdin').get_group(name) for name in Chose_Diag])
-        st.table(Diag_5)
+        if Chose_Diag == []:
+            pass
+        else:
+            st.write(Chose_Diag)
+            Diag_5 = pd.concat([data1_unique.groupby('cie10 egrdin').get_group(name) for name in Chose_Diag])
+            st.table(Diag_5)
 elif EDA_OPT == 'EPS':
         pass
 
