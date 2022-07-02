@@ -407,9 +407,11 @@ elif choice == 'EDA':
         row2_1, row2_2 = st.columns((2, 1))
         with row2_1:
             EPS_percent = data1_unique['responsable EPS'].value_counts().rename_axis('EPS_name').reset_index(name='counts')
-            figP_2_1 = px.bar(EPS_percent.head(15), y='counts', x='EPS_name', title='NUMBER OF PATIENT GROUPED BY EPS')
-            figP_2_1.update_layout(font_size=12)
-            st.plotly_chart(figP_2_1 , use_container_width=True) 
+            EPS_percent['Participacion'] = round((EPS_percent['counts']/EPS_percent['counts'].sum())*100,2)
+            # figP_2_1 = px.bar(EPS_percent.head(15), y='counts', x='EPS_name', title='NUMBER OF PATIENT GROUPED BY EPS')
+            # figP_2_1.update_layout(font_size=12)
+            # st.plotly_chart(figP_2_1 , use_container_width=True) 
+            st.table(EPS_percent)
 
       
 
