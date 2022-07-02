@@ -375,7 +375,9 @@ elif choice == 'EDA':
                 fig_row_5_2 = plt.figure()
                 sns.histplot(Diag_5 , x='valor factura fiscal',kde=True, hue='genero - sexo')
                 st.pyplot(fig_row_5_2)
-elif EDA_OPT == 'EPS':
+    
+    
+    elif EDA_OPT == 'EPS':
         pass
 
 elif choice == 'PREDICTION':
