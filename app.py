@@ -324,10 +324,11 @@ elif choice == 'EDA':
                 </tbody>
             </table>''',height=50)
         #multiple selections
-        diagnosticos = ['TODOS'] + (data1_unique['cie10 egrdin'].to_list())
-        my_spoken = st.multiselect('Select your diagnoses', diagnosticos, default='TODOS')
+        diagnosticos = data1_unique['cie10 egrdin'].to_list()
+        diagnoses5= st.multiselect('Select your diagnoses', diagnosticos, default='TODOS')
         row5_1,row5_2,row5_3 = st.columns(3)
-        st.write(my_spoken)
+        diagnoses5_a = diagnoses5.to_list()
+        st.write(diagnoses5_a)
 
 elif EDA_OPT == 'EPS':
         pass
