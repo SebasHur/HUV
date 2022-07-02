@@ -314,6 +314,15 @@ elif choice == 'EDA':
                             )
             fig4_2.update_xaxes(tickvals=[-3000, -2000, -1000,0, 1000, 2000,3000])
             st.plotly_chart(fig4_2, use_container_width=True)
+        stc.html('''<table style="border-collapse:collapse;border:none;">
+                <tbody>
+                    <tr>
+                        <td style="width: 1450.8pt; border-collapse: collapse;background: rgb(147, 101, 184);padding: 0cm 5.4pt;vertical-align: top;">
+                            <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style="color:white;">PARTICIPATION BY DIAGNOSIS</span></p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>''',height=50)
     elif EDA_OPT == 'EPS':
         pass
 
