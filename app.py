@@ -406,12 +406,24 @@ elif choice == 'EDA':
                 </table>""")
         row2_1, row2_2 = st.columns((2, 1))
         with row2_1:
+            stc.html('''<table style="border-collapse:collapse;border:none;">
+                        <tbody>
+                            <tr>
+                                <td style="width: 1450.8pt; border-collapse: collapse; background: rgb(0, 168, 133); padding: 0cm 5.4pt; vertical-align: middle; text-align: justify;">
+                                    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style="color:white;">TOP EPS</span></p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p><br></p>''',height=50)
             EPS_percent = data1_unique['responsable EPS'].value_counts().rename_axis('EPS').reset_index(name='PATIENTS')
             EPS_percent['Participacion'] = round((EPS_percent['PATIENTS']/EPS_percent['PATIENTS'].sum())*100,0)
-            # figP_2_1 = px.bar(EPS_percent.head(15), y='counts', x='EPS_name', title='NUMBER OF PATIENT GROUPED BY EPS')
-            # figP_2_1.update_layout(font_size=12)
-            # st.plotly_chart(figP_2_1 , use_container_width=True) 
-            st.table(EPS_percent.head(10))
+            fig1 = go.Figure(go.Funnel(y = EPS_percent['EPS'].head(10),x = EPS_percent['PATIENTS'].head(10),textposition = "inside",textinfo = "label"))
+            fig1.update_yaxes(showticklabels=False)
+            fig1.update_layout(font_size=14)
+            st.plotly_char(fig1)
+
+            
 
       
 
