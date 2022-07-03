@@ -494,7 +494,6 @@ elif choice == 'EDA':
                 st.pyplot(fig_row_6_1)
     
     elif EDA_OPT == 'EPS':
-        EPS_MED1 = pd.read_pickle('eps_med'+ '.pkl',compression='bz2')
         row1_1, row1_2 = st.columns((1, 6))
         img2 = Image.open('logo.png')
         with row1_1:
@@ -545,7 +544,7 @@ elif choice == 'EDA':
                     <p><br></p>''',height=50)
         st.write('With this tool you can browse through the different activities and cups and see how their price has changed over the years, as well as compare it with other EPS.')
         st.write('Please select from the four options we will show you in order to analyze the costs. ')
-        st.dataframe(EPS_MED1)
+        
 
 
             
