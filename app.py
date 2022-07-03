@@ -427,7 +427,7 @@ elif choice == 'EDA':
         top_EPS = st.slider('',min_value=3, max_value=33, value=10, step=1)
         row2_1, row2_2 = st.columns((2, 1))
         EPS_percent = data1_unique['responsable EPS'].value_counts().rename_axis('EPS').reset_index(name='PATIENTS')
-        EPS_percent['PARTICIPATION'] = round((EPS_percent['PATIENTS']/EPS_percent['PATIENTS'].sum())*100,0)
+        EPS_percent['PARTICIPATION'] = round((EPS_percent['PATIENTS']/EPS_percent['PATIENTS'].sum())*100,2).astype(float)
         with row2_1:
             fig_EPS_2_1 = go.Figure(go.Funnel(y = EPS_percent['EPS'].head(top_EPS),x = EPS_percent['PATIENTS'].head(top_EPS),textposition = "inside",textinfo = "label"))
             fig_EPS_2_1.update_yaxes(showticklabels=False)
