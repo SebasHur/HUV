@@ -233,14 +233,14 @@ elif choice == 'EDA':
                     <p><br></p>''',height=50)
             if Gender1 == 'BOTH':
                 a = round(data1_unique.groupby('genero - sexo')['valor factura fiscal'].get_group('M').append(data1_unique.groupby('genero - sexo')['valor factura fiscal'].get_group('F')).sum(),0).astype(int)
-                st.header(f'{a:,}')  
+                st.subheader(f'{a:,}')  
             elif Gender1 == 'FEMALE':
                 a = round(data1_unique.groupby('genero - sexo')['valor factura fiscal'].get_group('F').sum(),0).astype(int)
-                st.header(f'{a:,}')
+                st.subheader(f'{a:,}')
                 
             elif Gender1 == 'MALE':
                 a = round(data1_unique.groupby('genero - sexo')['valor factura fiscal'].get_group('M').sum(),0).astype(int)
-                st.header(f'{a:,}')
+                st.subheader(f'{a:,}')
         #graficos
         row4_1, row4_2 = st.columns((1,1))
         with row4_2:
