@@ -129,7 +129,7 @@ elif choice == 'EDA':
                     </tbody>
                 </table>""")
         # Primera Linea
-        row2_1, row2_2, row2_3, row2_4, row2_5 = st.columns((1,1,1,1,1))
+        row2_1, row2_2, row2_3, row2_4, row2_5, row2_6 = st.columns(6)
         with row2_1:
             stc.html('''<table style="border-collapse:collapse;border:none;">
                 <tbody>
@@ -219,6 +219,27 @@ elif choice == 'EDA':
                 
             elif Gender1 == 'MALE':
                 a = round(data1_unique.groupby('genero - sexo')['valor factura fiscal'].get_group('M').mean(),0).astype(int)
+                st.header(f'{a:,}')
+        with row2_6:
+            stc.html('''<table style="border-collapse:collapse;border:none;">
+                        <tbody>
+                            <tr>
+                                <td style="width: 1450.8pt; border-collapse: collapse; background: rgb(226, 80, 65); padding: 0cm 5.4pt; vertical-align: middle; text-align: justify;">
+                                    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style="color:white;">TOTAL INVOICES</span></p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p><br></p>''',height=50)
+            if Gender1 == 'BOTH':
+                a = round(data1_unique.groupby('genero - sexo')['valor factura fiscal'].get_group('M').append(data1_unique.groupby('genero - sexo')['valor factura fiscal'].get_group('F')).sum(),0).astype(int)
+                st.header(f'{a:,}')  
+            elif Gender1 == 'FEMALE':
+                a = round(data1_unique.groupby('genero - sexo')['valor factura fiscal'].get_group('F').sum(),0).astype(int)
+                st.header(f'{a:,}')
+                
+            elif Gender1 == 'MALE':
+                a = round(data1_unique.groupby('genero - sexo')['valor factura fiscal'].get_group('M').sum(),0).astype(int)
                 st.header(f'{a:,}')
         #graficos
         row4_1, row4_2 = st.columns((1,1))
