@@ -356,7 +356,7 @@ elif choice == 'EDA':
             # st.write(Chose_Diag)
             Diag_5 = pd.concat([data1_unique.groupby('cie10 egrdin').get_group(name) for name in Chose_Diag])
             # st.table(Diag_5)
-            with row5_1:
+            with row5_2:
                 stc.html('''<table style="border-collapse:collapse;border:none;">
                         <tbody>
                             <tr>
@@ -370,7 +370,7 @@ elif choice == 'EDA':
                 fig_row_5_1 = plt.figure()
                 sns.histplot(Diag_5 , x='Age',kde=True, hue='genero - sexo')
                 st.pyplot(fig_row_5_1)
-            with row5_2:
+            with row5_3:
                 stc.html('''<table style="border-collapse:collapse;border:none;">
                         <tbody>
                             <tr>
@@ -384,7 +384,7 @@ elif choice == 'EDA':
                 fig_row_5_2 = plt.figure()
                 sns.histplot(Diag_5 , x='Hosp_Days',kde=True, hue='genero - sexo')
                 st.pyplot(fig_row_5_2)
-            with row5_3:
+            with row6_3:
                 stc.html('''<table style="border-collapse:collapse;border:none;">
                         <tbody>
                             <tr>
@@ -398,7 +398,7 @@ elif choice == 'EDA':
                 fig_row_5_2 = plt.figure()
                 sns.histplot(Diag_5 , x='valor factura fiscal',kde=True, hue='genero - sexo')
                 st.pyplot(fig_row_5_2)
-            with row6_1:
+            with row5_1:
                 stc.html('''<table style="border-collapse:collapse;border:none;">
                         <tbody>
                             <tr>
