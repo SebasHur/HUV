@@ -38,10 +38,19 @@ def run_patients_gender():
     count_freq =dict(data1_unique['responsable EPS'].value_counts())
     data1_unique['count_freq'] = data1_unique['responsable EPS']
     data1_unique['count_freq'] = data1_unique['count_freq'].map(count_freq)
-    row1_1, row1_2 = st.columns((1, 6))
-    img2 = Image.open('logo.png')
-    EDA_OPT = st.sidebar.radio('Select what you want to explore',('Patients and Gender','EPS'))
-    
+
+    def Grouped_Age_gender():
+        Gender_Age = data1_unique[['genero - sexo','Age']]
+        age_groups = pd.cut(Gender_Age['Age'], bins=[0,5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90,95,np.inf])
+        Grouped_Age_gender = pd.crosstab(age_groups, Gender_Age['genero - sexo']).reset_index()
+        Grouped_Age_gender['F'] = Grouped_Age_gender['F'] * -1
+        Grouped_Age_gender['Age'] = Grouped_Age_gender['Age'].astype(str)
+        Grouped_Age_gender['Age'] = Grouped_Age_gender['Age'].replace(',','-',regex=True)
+        Grouped_Age_gender['Age'] = Grouped_Age_gender['Age'].replace('\(','',regex=True)
+        Grouped_Age_gender['Age'] = Grouped_Age_gender['Age'].replace(']','',regex=True)
+        return Grouped_Age_gender
+
+        
     row1_1, row1_2 = st.columns((1, 6))
     img2 = Image.open('logo.png')
     with row1_1:
