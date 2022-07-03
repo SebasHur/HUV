@@ -141,7 +141,7 @@ def main():
     elif choice == 'ABOUT':
         run_about()
     
-if __main__ == '__main__':
+if __name__ == '__main__':
     main()
 
 # with row2_3:
