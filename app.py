@@ -422,6 +422,10 @@ elif choice == 'EDA':
             fig_EPS_2_1 = go.Figure(go.Funnel(y = EPS_percent['EPS'].head(top_EPS),x = EPS_percent['PATIENTS'].head(top_EPS),textposition = "inside",textinfo = "label"))
             fig_EPS_2_1.update_yaxes(showticklabels=False)
             fig_EPS_2_1.update_layout(font_size=14)
+            fig1.update_layout(
+                margin=dict(l=20, r=20, t=20, b=20),
+                paper_bgcolor="LightSteelBlue",
+            )
             st.plotly_chart(fig_EPS_2_1, use_container_width=True)
 
             
