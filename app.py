@@ -36,7 +36,6 @@ data1_unique = pd.read_csv('facturas unicas.csv',sep=",")
 data1_unique['cie10 egrdin'] = data1_unique['cie10 egrdin'].str.replace('�','Ñ')
 data1_unique['responsable EPS'] = data1_unique['responsable EPS'].str.replace('�','Ñ')
 
-
 #Creacion colummas
 data1_unique[['fecha actividad','fecha ingreso','fecha egreso','Fecha de nacimiento']] = data1_unique[['fecha actividad','fecha ingreso','fecha egreso','Fecha de nacimiento']].apply(pd.to_datetime,format='%Y/%m/%d' ,errors='coerce')
 data1_unique['Hosp_Days'] = (data1_unique['fecha egreso'] - data1_unique['fecha ingreso'])/np.timedelta64(1,'D')
@@ -59,6 +58,17 @@ count_freq =dict(data1_unique['responsable EPS'].value_counts())
 data1_unique['count_freq'] = data1_unique['responsable EPS']
 data1_unique['count_freq'] = data1_unique['count_freq'].map(count_freq)
 
+    
+def Grouped_Age_gender():
+    Gender_Age = data1_unique[['genero - sexo','Age']]
+    age_groups = pd.cut(Gender_Age['Age'], bins=[0,5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90,95,np.inf])
+    Grouped_Age_gender = pd.crosstab(age_groups, Gender_Age['genero - sexo']).reset_index()
+    Grouped_Age_gender['F'] = Grouped_Age_gender['F'] * -1
+    Grouped_Age_gender['Age'] = Grouped_Age_gender['Age'].astype(str)
+    Grouped_Age_gender['Age'] = Grouped_Age_gender['Age'].replace(',','-',regex=True)
+    Grouped_Age_gender['Age'] = Grouped_Age_gender['Age'].replace('\(','',regex=True)
+    Grouped_Age_gender['Age'] = Grouped_Age_gender['Age'].replace(']','',regex=True)
+    return Grouped_Age_gender
 
 #Sidebar Menu
 st.sidebar.image('logo-HU_Horizontal_Azul.png')
@@ -108,7 +118,7 @@ elif choice == 'EDA':
     EDA_OPT = st.sidebar.radio('Select what you want to explore',('Patients and Gender','EPS'))
     
     if EDA_OPT == 'Patients and Gender':
-        run_patients_gender()
+        run_patients_gender(data1_unique, Mujeres, Hombres, Grouped_Age_gender())
     
     elif EDA_OPT == 'EPS':
         run_EDA_eps(data1_unique)
