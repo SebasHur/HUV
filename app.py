@@ -300,6 +300,7 @@ elif choice == 'EDA':
             <p><br></p>''',height=50)
             fig = px.sunburst(data1_unique, path=['año factura fiscal', 'genero - sexo'])
             fig.update_traces(textinfo="label+percent parent")
+            fig.update_layout(margin=dict(l=20, r=20, t=20, b=20),paper_bgcolor="LightSteelBlue")
             st.plotly_chart(fig, use_container_width=True) 
         with row3_2:
             stc.html('''<table style="border-collapse:collapse;border:none;">
@@ -329,6 +330,7 @@ elif choice == 'EDA':
                                         ticktext = ['3000', '2000', '1000', '0', '1000', '2000', '3000'])
                             )
             fig4_2.update_xaxes(tickvals=[-3000, -2000, -1000,0, 1000, 2000,3000])
+            fig4_2.update_layout(margin=dict(l=20, r=20, t=20, b=20),paper_bgcolor="LightSteelBlue")
             st.plotly_chart(fig4_2, use_container_width=True)
         stc.html('''<table style="border-collapse:collapse;border:none;">
                 <tbody>
