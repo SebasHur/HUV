@@ -6,6 +6,7 @@ from xml.dom.xmlbuilder import Options
 from eps import run_EDA_eps
 from patients_genders import run_patients_gender
 from about import run_about
+from prediction import run_prediction
 import numpy as np
 import pandas as pd
 import plotly.express as px
@@ -124,55 +125,11 @@ def main():
             run_EDA_eps(data1_unique)
     
     elif choice == 'PREDICTION':
-        row1_1, row1_2 = st.columns((1, 6))
-        img2 = Image.open('logo.png')
-        with row1_1:
-            st.image(img2, caption=None, width=None, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
-        with row1_2:
-            stc.html("""<table style="background: rgb(47, 84, 150); border-collapse: collapse; border: none; margin-right: calc(3%); width: 97%;">
-                    <tbody>
-                        <tr>
-                            <td style="width: 450.8pt;border: 1pt solid windowtext;background: rgb(84, 172, 210);padding: 0cm 5.4pt;vertical-align: top;">
-                                <p style="text-align: center;"><span style='font-size: 24px; font-family: "Arial Black", sans-serif; color: white;'><strong>HOSPITAL UNIVERSITARIO DEL VALLE</strong></span></p>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>""")
+        run_prediction()
+
+        
     elif choice == 'ABOUT':
         run_about()
     
 if __name__ == '__main__':
     main()
-
-# with row2_3:
-    # Gender_Age = data1_unique[['genero - sexo','Age']]
-    # age_groups = pd.cut(Gender_Age['Age'], bins=[0,5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90,95,np.inf])
-    # Grouped_Age_gender = pd.crosstab(age_groups, Gender_Age['genero - sexo']).reset_index()
-    # Grouped_Age_gender['F'] = Grouped_Age_gender['F'] * -1
-    # Grouped_Age_gender['Age'] = Grouped_Age_gender['Age'].astype(str)
-    # Grouped_Age_gender['Age'] = Grouped_Age_gender['Age'].replace(',','-',regex=True)
-    # Grouped_Age_gender['Age'] = Grouped_Age_gender['Age'].replace('\(','',regex=True)
-    # Grouped_Age_gender['Age'] = Grouped_Age_gender['Age'].replace(']','',regex=True)
-    # fig, _ = plt.subplots( figsize=(15,5))
-    # ax1 = sns.barplot(x='M', y='Age', data=Grouped_Age_gender, palette="Blues")
-    # ax2 = sns.barplot(x='F', y='Age', data=Grouped_Age_gender, palette="Greens")
-    # plt.title("Population pyramid for Patients")
-    # plt.xlabel("Female / Male")
-    # plt.xticks(ticks=[-3000,-2000, -1000, 0, 1000, 2000,3000],labels=['3000','2000', '1000', '0', '1000', '2000','3000']);
-    # st.plotly_chart(fig)
-
-
-
-
-# my_lang = ['Python','TESTING','Sql']
-# choice = st.selectbox('Lenguaje',my_lang)
-# st.write('Selecciono{}'.format(choice))
-
-
-
-# #slider
-# #numeros
-# age = st.slider('Age',1,100,5)
-# #todos los datos
-
-# color = st.select_slider('Escoge Color', options=['amarillo','azul', 'rojo'])
