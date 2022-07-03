@@ -11,7 +11,7 @@ from plotly import graph_objects as go
 
 
 def run_EDA_eps(data1_unique):
-    
+    EPS = pd.read_pickle('eps_med1' + '.pkl', compression='bz2')
     row1_1, row1_2 = st.columns((1, 6))
     img2 = Image.open('logo.png')
     with row1_1:
@@ -62,3 +62,4 @@ def run_EDA_eps(data1_unique):
                 <p><br></p>''',height=50)
     st.write('With this tool you can browse through the different activities and cups and see how their price has changed over the years, as well as compare it with other EPS.')
     st.write('Please select from the four options we will show you in order to analyze the costs. ')
+    row3_1,row3_2,row3_3,row3_4 = st.columns()
