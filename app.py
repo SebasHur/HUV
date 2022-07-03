@@ -450,9 +450,9 @@ elif choice == 'EDA':
                         </tbody>
                     </table>
                     <p><br></p>''',height=50)
-            fig_row_6_1 = plt.figure()
-            sns.histplot(Diag_5 , x='WEEK_DAY')
-            st.pyplot(fig_row_6_1)
+                fig_row_6_1 = plt.figure()
+                sns.histplot(Diag_5 , x='WEEK_DAY')
+                st.pyplot(fig_row_6_1)
 
     
     
