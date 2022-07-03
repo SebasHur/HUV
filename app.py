@@ -332,7 +332,7 @@ elif choice == 'EDA':
                                         ticktext = ['3000', '2000', '1000', '0', '1000', '2000', '3000'])
                             )
             fig4_2.update_xaxes(tickvals=[-3000, -2000, -1000,0, 1000, 2000,3000])
-            fig4_2.update_layout(margin=dict(l=20, r=20, t=20, b=20),paper_bgcolor="LightSteelBlue")
+            fig4_2.update_layout(margin=dict(l=5, r=5, t=5, b=5))
             st.plotly_chart(fig4_2, use_container_width=True)
         stc.html('''<table style="border-collapse:collapse;border:none;">
                 <tbody>
