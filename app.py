@@ -424,8 +424,7 @@ elif choice == 'EDA':
             fig_EPS_2_1.update_layout(font_size=14)
             fig1.update_layout(
                 margin=dict(l=20, r=20, t=20, b=20),
-                paper_bgcolor="LightSteelBlue",
-            )
+                paper_bgcolor="LightSteelBlue")
             st.plotly_chart(fig_EPS_2_1, use_container_width=True)
 
             
