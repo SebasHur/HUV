@@ -234,7 +234,7 @@ elif choice == 'EDA':
                 df_month["months"] = df_month["month"].dt.strftime('%m')
                 df_month["years"] = df_month["month"].dt.strftime('%y')
                 fig4_1 = px.line(df_month, x='months', y='PATIENTS', color='years',range_x=(0,11))
-                fig4_1.update_layout(margin=dict(l=20, r=20, t=20, b=20))
+                fig4_1.update_layout(margin=dict(l=20, r=20, t=20, b=20),paper_bgcolor="LightSteelBlue")
                 st.plotly_chart(fig4_1, use_container_width=True)
             elif Gender1 == 'FEMALE':
                 by_month1 = Mujeres['fecha ingreso'].dt.to_period('m').value_counts().sort_index()
@@ -272,7 +272,7 @@ elif choice == 'EDA':
                 fig1 = go.Figure(go.Funnel(y = DX_total['cie10 egrdin'],x = DX_total['count'],textposition = "inside",textinfo = "label"))
                 fig1.update_yaxes(showticklabels=False)
                 fig1.update_layout(font_size=14)
-                fig1.update_layout(margin=dict(l=20, r=20, t=20, b=20),paper_bgcolor="LightSteelBlue")
+                fig1.update_layout(margin=dict(l=20, r=20, t=20, b=20))
                 st.plotly_chart(fig1, use_container_width=True)
             elif Gender1 == 'FEMALE':
                 DX_Mujeres = Mujeres.groupby('cie10 egrdin').size().to_frame(name='count').reset_index().sort_values(['count'], ascending=False).head(a)
