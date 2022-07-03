@@ -1,5 +1,13 @@
 import streamlit as st
-
+import streamlit.components.v1 as stc
+from PIL import Image
+from xml.dom.xmlbuilder import Options
+import numpy as np
+import pandas as pd
+import plotly.express as px
+import seaborn as sns
+import matplotlib.pyplot as plt
+from plotly import graph_objects as go
 
 def run_EDA_eps():
     row1_1, row1_2 = st.columns((1, 6))
