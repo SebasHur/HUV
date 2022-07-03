@@ -272,7 +272,7 @@ elif choice == 'EDA':
                 fig1 = go.Figure(go.Funnel(y = DX_total['cie10 egrdin'],x = DX_total['count'],textposition = "inside",textinfo = "label"))
                 fig1.update_yaxes(showticklabels=False)
                 fig1.update_layout(font_size=14)
-                fig1.update_layout(margin=dict(l=20, r=20, t=20, b=20))
+                fig1.update_layout(margin=dict(l=5, r=5, t=5, b=5))
                 st.plotly_chart(fig1, use_container_width=True)
             elif Gender1 == 'FEMALE':
                 DX_Mujeres = Mujeres.groupby('cie10 egrdin').size().to_frame(name='count').reset_index().sort_values(['count'], ascending=False).head(a)
