@@ -34,7 +34,7 @@ def main():
     st.set_page_config(page_title='Hospital Universitario',page_icon = img1, layout='wide',initial_sidebar_state='expanded')
 
     #import df
-    data1_unique = pd.read_csv('facturas unicas.csv',sep=",")
+    data1_unique = pd.read_csv('facturas unicas.csv',sep=",",index_col=0)
     data1_unique['cie10 egrdin'] = data1_unique['cie10 egrdin'].str.replace('�','Ñ')
     data1_unique['responsable EPS'] = data1_unique['responsable EPS'].str.replace('�','Ñ')
     
