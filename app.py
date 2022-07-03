@@ -412,9 +412,7 @@ elif choice == 'EDA':
                         </tr>
                     </tbody>
                 </table>""")
-        row2_1, row2_2 = st.columns((2, 1))
-        with row2_1:
-            stc.html('''<table style="border-collapse:collapse;border:none;">
+        stc.html('''<table style="border-collapse:collapse;border:none;">
                         <tbody>
                             <tr>
                                 <td style="width: 1450.8pt; border-collapse: collapse; background: rgb(0, 168, 133); padding: 0cm 5.4pt; vertical-align: middle; text-align: justify;">
@@ -424,16 +422,21 @@ elif choice == 'EDA':
                         </tbody>
                     </table>
                     <p><br></p>''',height=50)
-            top_EPS = st.slider('TOP',1,33,1)
-            EPS_percent = data1_unique['responsable EPS'].value_counts().rename_axis('EPS').reset_index(name='PATIENTS')
-            EPS_percent['Participacion'] = round((EPS_percent['PATIENTS']/EPS_percent['PATIENTS'].sum())*100,0)
+        top_EPS = st.slider('TOP',1,33,1)
+        row2_1, row2_2 = st.columns((2, 1))
+        EPS_percent = data1_unique['responsable EPS'].value_counts().rename_axis('EPS').reset_index(name='PATIENTS')
+        EPS_percent['Participacion'] = round((EPS_percent['PATIENTS']/EPS_percent['PATIENTS'].sum())*100,0)
+        with row2_1:
             fig_EPS_2_1 = go.Figure(go.Funnel(y = EPS_percent['EPS'].head(top_EPS),x = EPS_percent['PATIENTS'].head(top_EPS),textposition = "inside",textinfo = "label"))
             fig_EPS_2_1.update_yaxes(showticklabels=False)
             fig_EPS_2_1.update_layout(font_size=14)
             fig_EPS_2_1.update_layout(
-                margin=dict(l=20, r=20, t=20, b=20),
+                margin=dict(l=5, r=5, t=5, b=5),
                 paper_bgcolor="LightSteelBlue")
             st.plotly_chart(fig_EPS_2_1, use_container_width=True)
+        with row2_1:
+            st.table(EPS_percent.head(top_EPS))
+
 
             
 
