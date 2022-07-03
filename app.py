@@ -123,7 +123,7 @@ def main():
             run_patients_gender(data1_unique, Mujeres, Hombres, Grouped_Age_gender)
         
         elif EDA_OPT == 'EPS':
-            run_EDA_eps(data1_unique,EPS)
+            run_EDA_eps(data1_unique)
     
     elif choice == 'PREDICTION':
         run_prediction()

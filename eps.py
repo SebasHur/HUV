@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 from plotly import graph_objects as go
 
 
-def run_EDA_eps(data1_unique,EPS):
+def run_EDA_eps(data1_unique):
     row1_1, row1_2 = st.columns((1, 6))
     img2 = Image.open('logo.png')
     with row1_1:
@@ -49,19 +49,6 @@ def run_EDA_eps(data1_unique,EPS):
         st.plotly_chart(fig_EPS_2_1, use_container_width=True)
     with row2_2:
         st.dataframe(EPS_percent)
-    stc.html('''<table style="border-collapse:collapse;border:none;">
-                    <tbody>
-                        <tr>
-                            <td style="width: 1450.8pt; border-collapse: collapse; background: rgb(0, 168, 133); padding: 0cm 5.4pt; vertical-align: middle; text-align: justify;">
-                                <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style="color:white;">CUPS PRICES(by Patients)</span></p>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-                <p><br></p>''',height=50)
-    st.write('With this tool you can browse through the different activities and cups and see how their price has changed over the years, as well as compare it with other EPS.')
-    # st.write('Please select from the four options we will show you in order to analyze the costs. ')
     
-
 
 
