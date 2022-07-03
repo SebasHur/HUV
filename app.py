@@ -452,6 +452,7 @@ elif choice == 'EDA':
                     <p><br></p>''',height=50)
                 fig_row_6_1 = plt.figure()
                 sns.histplot(Diag_5 , x='WEEK_DAY')
+                fig_row_6_1.set_xticklabels(chart.get_xticklabels(), rotation=45)
                 st.pyplot(fig_row_6_1)
 
     
