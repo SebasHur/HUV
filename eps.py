@@ -10,8 +10,7 @@ import matplotlib.pyplot as plt
 from plotly import graph_objects as go
 
 
-def run_EDA_eps(data1_unique):
-    EPS = pd.read_pickle('eps_med1' + '.pkl', compression='bz2')
+def run_EDA_eps(data1_unique,EPS):
     row1_1, row1_2 = st.columns((1, 6))
     img2 = Image.open('logo.png')
     with row1_1:

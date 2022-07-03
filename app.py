@@ -37,6 +37,7 @@ def main():
     data1_unique = pd.read_csv('facturas unicas.csv',sep=",")
     data1_unique['cie10 egrdin'] = data1_unique['cie10 egrdin'].str.replace('�','Ñ')
     data1_unique['responsable EPS'] = data1_unique['responsable EPS'].str.replace('�','Ñ')
+    EPS = pd.read_pickle('eps_med1' + '.pkl', compression='bz2')
 
     #Creacion colummas
     data1_unique[['fecha actividad','fecha ingreso','fecha egreso','Fecha de nacimiento']] = data1_unique[['fecha actividad','fecha ingreso','fecha egreso','Fecha de nacimiento']].apply(pd.to_datetime,format='%Y/%m/%d' ,errors='coerce')
@@ -122,7 +123,7 @@ def main():
             run_patients_gender(data1_unique, Mujeres, Hombres, Grouped_Age_gender)
         
         elif EDA_OPT == 'EPS':
-            run_EDA_eps(data1_unique)
+            run_EDA_eps(data1_unique,EPS)
     
     elif choice == 'PREDICTION':
         run_prediction()
