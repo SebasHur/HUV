@@ -30,7 +30,7 @@ img1 = Image.open('logo2.png')
 st.set_page_config(page_title='Hospital Universitario',page_icon = img1, layout='wide',initial_sidebar_state='expanded')
 #import df
 data1_unique = pd.read_csv('facturas unicas.csv',sep=",")
-data1_unique[['cie10 egrdin','responsable EPS']] = data1_unique['[cie10 egrdin','responsable EPS']].str.replace('�','Ñ')
+data1_unique[['cie10 egrdin','responsable EPS']] = data1_unique[['cie10 egrdin','responsable EPS']].str.replace('�','Ñ')
 
 #Creacion colummas
 data1_unique[['fecha actividad','fecha ingreso','fecha egreso','Fecha de nacimiento']] = data1_unique[['fecha actividad','fecha ingreso','fecha egreso','Fecha de nacimiento']].apply(pd.to_datetime,format='%Y/%m/%d' ,errors='coerce')
