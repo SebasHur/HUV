@@ -455,7 +455,21 @@ elif choice == 'EDA':
                 plt.xticks(rotation=45)
                 st.pyplot(fig_row_6_1)
 
-    
+            with row6_2:
+                stc.html('''<table style="border-collapse:collapse;border:none;">
+                        <tbody>
+                            <tr>
+                                <td style="width: 1450.8pt; border-collapse: collapse; background: rgb(243, 121, 52); padding: 0cm 5.4pt; vertical-align: middle; text-align: justify;">
+                                    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style="color:white;">DEPARTURE REASON</span></p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p><br></p>''',height=50)
+                fig_row_6_1 = plt.figure()
+                sns.histplot(Diag_5 , x='Causa Egreso')
+                plt.xticks(rotation=45)
+                st.pyplot(fig_row_6_1)
     
     elif EDA_OPT == 'EPS':
         row1_1, row1_2 = st.columns((1, 6))
