@@ -27,7 +27,7 @@ from plotly import graph_objects as go
 
 #Nombre de la Pagina
 img1 = Image.open('logo2.png')
-st.set_page_config(page_title='Hospital Universitario',page_icon = img1, layout='wide')#,initial_sidebar_state='expanded')
+st.set_page_config(page_title='Hospital Universitario',page_icon = img1, layout='wide',initial_sidebar_state='expanded')
 
 #import df
 data1_unique = pd.read_csv('facturas unicas.csv',sep=",")
@@ -114,7 +114,7 @@ if choice == 'HOME':
 elif choice == 'EDA':
     EDA_OPT = st.sidebar.radio('Select what you want to explore',('Patients and Gender','EPS'))
     if EDA_OPT == 'Patients and Gender':
-        initial_sidebar_state='collapsed'
+        st.set_page_config(initial_sidebar_state='collapsed')
         row1_1, row1_2 = st.columns((1, 6))
         img2 = Image.open('logo.png')
         with row1_1:
