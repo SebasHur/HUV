@@ -116,9 +116,8 @@ if choice == 'HOME':
                 height=700)
 elif choice == 'EDA':
     EDA_OPT = st.sidebar.radio('Select what you want to explore',('Patients and Gender','EPS'))
-    
     if EDA_OPT == 'Patients and Gender':
-        run_patients_gender(data1_unique, Mujeres, Hombres, Grouped_Age_gender())
+        run_patients_gender(data1_unique, Mujeres, Hombres, Grouped_Age_gender)
     
     elif EDA_OPT == 'EPS':
         run_EDA_eps(data1_unique)
