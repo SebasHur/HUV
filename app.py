@@ -40,6 +40,9 @@ data1_unique['Hosp_Days'] = (data1_unique['fecha egreso'] - data1_unique['fecha 
 data1_unique['Age'] = round((data1_unique['fecha ingreso']-data1_unique['Fecha de nacimiento'])/ np.timedelta64(1, 'Y'),0)
 Mujeres = data1_unique.groupby('genero - sexo').get_group('F')
 Hombres = data1_unique.groupby('genero - sexo').get_group('M')
+data1_unique['WEEK_DAY'] = data1_unique['fecha ingreso'].dt.day_name()
+days = pd.api.types.CategoricalDtype(categories=['Monday','Tuesday','Wednesday','Thursday', 'Friday', 'Saturday','Sunday'], ordered=True)
+data1_unique['WEEK_DAY'] = data1_unique['WEEK_DAY'].astype(days)
 
 #Limpieza base de datos Columna Responsable EPS
 data1_unique.loc[data1_unique['codigo responsable'] == data1_unique['numero de identificacion del paciente'], 'responsable EPS'] = 'independiente'
@@ -355,6 +358,7 @@ elif choice == 'EDA':
         else:
             # st.write(Chose_Diag)
             Diag_5 = pd.concat([data1_unique.groupby('cie10 egrdin').get_group(name) for name in Chose_Diag])
+            
             # st.table(Diag_5)
             with row5_2:
                 stc.html('''<table style="border-collapse:collapse;border:none;">
@@ -435,6 +439,20 @@ elif choice == 'EDA':
                     <p><br></p>''',height=50)
                 Patients3 = Diag_5[Diag_5['genero - sexo']=='M']['numero de identificacion del paciente'].nunique()
                 st.subheader(f'{Patients3:,}')
+            with row6_1:
+                stc.html('''<table style="border-collapse:collapse;border:none;">
+                        <tbody>
+                            <tr>
+                                <td style="width: 1450.8pt; border-collapse: collapse; background: rgb(44, 130, 201); padding: 0cm 5.4pt; vertical-align: middle; text-align: justify;">
+                                    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style="color:white;">PATIENTS BY DAY</span></p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p><br></p>''',height=50)
+            fig_row_6_1 = plt.figure()
+            sns.histplot(Diag_5 , x='WEEK_DAY')
+            st.pyplot(fig_row_6_1)
 
     
     
