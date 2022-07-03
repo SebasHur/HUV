@@ -61,4 +61,4 @@ def run_EDA_eps(data1_unique,EPS):
                 <p><br></p>''',height=50)
     st.write('With this tool you can browse through the different activities and cups and see how their price has changed over the years, as well as compare it with other EPS.')
     st.write('Please select from the four options we will show you in order to analyze the costs. ')
-    row3_1,row3_2,row3_3,row3_4 = st.columns()
+    row3_1,row3_2,row3_3,row3_4 = st.columns(4)
