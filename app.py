@@ -398,7 +398,7 @@ elif choice == 'EDA':
                 fig_row_5_2 = plt.figure()
                 sns.histplot(Diag_5 , x='valor factura fiscal',kde=True, hue='genero - sexo')
                 st.pyplot(fig_row_5_2)
-            with 6_1:
+            with row6_1:
                 stc.html('''<table style="border-collapse:collapse;border:none;">
                         <tbody>
                             <tr>
@@ -409,8 +409,8 @@ elif choice == 'EDA':
                         </tbody>
                     </table>
                     <p><br></p>''',height=50)
-                # Patients1 = Diag_5['numero de identificacion del paciente'].nunique()
-                # st.subheader(f'{Patients1:,}')
+                Patients1 = Diag_5['numero de identificacion del paciente'].nunique()
+                st.subheader(f'{Patients1:,}')
                 stc.html('''<table style="border-collapse:collapse;border:none;">
                         <tbody>
                             <tr>
@@ -421,8 +421,8 @@ elif choice == 'EDA':
                         </tbody>
                     </table>
                     <p><br></p>''',height=50)
-                # Patients2 = Diag_5[Diag_5['genero - sexo']=='F']['numero de identificacion del paciente'].nunique()
-                # st.subheader(f'{Patients2:,}')
+                Patients2 = Diag_5[Diag_5['genero - sexo']=='F']['numero de identificacion del paciente'].nunique()
+                st.subheader(f'{Patients2:,}')
                 stc.html('''<table style="border-collapse:collapse;border:none;">
                         <tbody>
                             <tr>
@@ -433,8 +433,8 @@ elif choice == 'EDA':
                         </tbody>
                     </table>
                     <p><br></p>''',height=50)
-                # Patients3 = Diag_5[Diag_5['genero - sexo']=='M']['numero de identificacion del paciente'].nunique()
-                # st.subheader(f'{Patients3:,}')
+                Patients3 = Diag_5[Diag_5['genero - sexo']=='M']['numero de identificacion del paciente'].nunique()
+                st.subheader(f'{Patients3:,}')
 
     
     
