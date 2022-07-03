@@ -422,7 +422,7 @@ elif choice == 'EDA':
                         </tbody>
                     </table>
                     <p><br></p>''',height=50)
-        top_EPS = st.slider('TOP',1,33,1,value=10)
+        top_EPS = st.slider('TOP',min_value=3, max_value=33, value=10, step=1)
         row2_1, row2_2 = st.columns((2, 1))
         EPS_percent = data1_unique['responsable EPS'].value_counts().rename_axis('EPS').reset_index(name='PATIENTS')
         EPS_percent['PARTICIPATION'] = round((EPS_percent['PATIENTS']/EPS_percent['PATIENTS'].sum())*100,0)
