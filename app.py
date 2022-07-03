@@ -409,30 +409,30 @@ elif choice == 'EDA':
                         </tbody>
                     </table>
                     <p><br></p>''',height=50)
-                Patients1 = Diag_5['numero de identificacion del paciente'].nunique()
-                st.subheader(f'{Patients1:,}')
-                # stc.html('''<table style="border-collapse:collapse;border:none;">
-                #         <tbody>
-                #             <tr>
-                #                 <td style="width: 1450.8pt; border-collapse: collapse; background: rgb(235, 107, 86); padding: 0cm 5.4pt; vertical-align: middle; text-align: justify;">
-                #                     <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style="color:white;">FEMALE PATIENTS</span></p>
-                #                 </td>
-                #             </tr>
-                #         </tbody>
-                #     </table>
-                #     <p><br></p>''',height=50)
+                # Patients1 = Diag_5['numero de identificacion del paciente'].nunique()
+                # st.subheader(f'{Patients1:,}')
+                stc.html('''<table style="border-collapse:collapse;border:none;">
+                        <tbody>
+                            <tr>
+                                <td style="width: 1450.8pt; border-collapse: collapse; background: rgb(235, 107, 86); padding: 0cm 5.4pt; vertical-align: middle; text-align: justify;">
+                                    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style="color:white;">FEMALE PATIENTS</span></p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p><br></p>''',height=50)
                 # Patients2 = Diag_5[Diag_5['genero - sexo']=='F']['numero de identificacion del paciente'].nunique()
                 # st.subheader(f'{Patients2:,}')
-                # stc.html('''<table style="border-collapse:collapse;border:none;">
-                #         <tbody>
-                #             <tr>
-                #                 <td style="width: 1450.8pt; border-collapse: collapse; background: rgb(235, 107, 86); padding: 0cm 5.4pt; vertical-align: middle; text-align: justify;">
-                #                     <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style="color:white;">MALE PATIENTS</span></p>
-                #                 </td>
-                #             </tr>
-                #         </tbody>
-                #     </table>
-                #     <p><br></p>''',height=50)
+                stc.html('''<table style="border-collapse:collapse;border:none;">
+                        <tbody>
+                            <tr>
+                                <td style="width: 1450.8pt; border-collapse: collapse; background: rgb(235, 107, 86); padding: 0cm 5.4pt; vertical-align: middle; text-align: justify;">
+                                    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style="color:white;">MALE PATIENTS</span></p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p><br></p>''',height=50)
                 # Patients3 = Diag_5[Diag_5['genero - sexo']=='M']['numero de identificacion del paciente'].nunique()
                 # st.subheader(f'{Patients3:,}')
 
