@@ -434,7 +434,7 @@ elif choice == 'EDA':
                 margin=dict(l=5, r=5, t=5, b=5),
                 paper_bgcolor="LightSteelBlue")
             st.plotly_chart(fig_EPS_2_1, use_container_width=True)
-        with row2_1:
+        with row2_2:
             st.table(EPS_percent.head(top_EPS))
 
 
