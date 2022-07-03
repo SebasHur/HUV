@@ -347,8 +347,9 @@ elif choice == 'EDA':
             </table>''',height=50)
         #multiple selections
         diagnosticos = (data1_unique['cie10 egrdin'].unique())
-        Chose_Diag = st.multiselect('Select your diagnoses', diagnosticos)
+        Chose_Diag = st.multiselect('Select diagnose (you can choose more than one)', diagnosticos)
         row5_1,row5_2,row5_3 = st.columns(3)
+        row6_1,row6_2,row6_3 = st.columns(3)
         if Chose_Diag == []:
             pass
         else:
@@ -397,6 +398,44 @@ elif choice == 'EDA':
                 fig_row_5_2 = plt.figure()
                 sns.histplot(Diag_5 , x='valor factura fiscal',kde=True, hue='genero - sexo')
                 st.pyplot(fig_row_5_2)
+            with 6_1:
+                stc.html('''<table style="border-collapse:collapse;border:none;">
+                        <tbody>
+                            <tr>
+                                <td style="width: 1450.8pt; border-collapse: collapse; background: rgb(235, 107, 86); padding: 0cm 5.4pt; vertical-align: middle; text-align: justify;">
+                                    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style="color:white;">TOTAL PATIENTS</span></p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p><br></p>''',height=50)
+                Patients1 = Diag_5['numero de identificacion del paciente'].nunique()
+                st.subheader(f'{Patients1:,}')
+                stc.html('''<table style="border-collapse:collapse;border:none;">
+                        <tbody>
+                            <tr>
+                                <td style="width: 1450.8pt; border-collapse: collapse; background: rgb(235, 107, 86); padding: 0cm 5.4pt; vertical-align: middle; text-align: justify;">
+                                    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style="color:white;">FEMALE PATIENTS</span></p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p><br></p>''',height=50)
+                Patients2 = Diag_5[Diag_5['genero - sexo']=='F']['numero de identificacion del paciente'].nunique()
+                st.subheader(f'{Patients2:,}')
+                stc.html('''<table style="border-collapse:collapse;border:none;">
+                        <tbody>
+                            <tr>
+                                <td style="width: 1450.8pt; border-collapse: collapse; background: rgb(235, 107, 86); padding: 0cm 5.4pt; vertical-align: middle; text-align: justify;">
+                                    <p style='margin-top:0cm;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;line-height:normal;font-size:15px;font-family:"Calibri",sans-serif;text-align:center;'><span style="color:white;">MALE PATIENTS</span></p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p><br></p>''',height=50)
+                Patients3 = Diag_5[Diag_5['genero - sexo']=='M']['numero de identificacion del paciente'].nunique()
+                st.subheader(f'{Patients3:,}')
+
     
     
     elif EDA_OPT == 'EPS':
