@@ -23,16 +23,16 @@ def run_about():
     sp1, row3_1,sp2, row3_2,sp3, row3_3,sp4= st.columns((1,2,1,2,1,2,1))
     size_image_us = 200
     with row2_1:
-        st.image('arley.png')
+        st.image('Photos and Logos\arley.png')
         stc.html('''<p style="text-align: center;"><span style='font-family: "Comic Sans MS", sans-serif;'>ARLEY TORRES</span></p>
                 <p style="text-align: center;"><span style='font-family: "Comic Sans MS", sans-serif;'>MATHEMATICS</span></p>''')
     
     with row2_2:
-        st.image('sebs.png')
+        st.image('Photos and Logos\sebs.png')
         stc.html('''<p style="text-align: center;"><span style='font-family: "Comic Sans MS", sans-serif;'>SEBASTIAN HURTADO</span></p>
                 <p style="text-align: center;"><span style='font-family: "Comic Sans MS", sans-serif;'>INDUSTRIAL ENGINEER</span></p>''')
     with row2_3:
-        st.image('sebas.png')
+        st.image('Photos and Logos\sebas.png')
         stc.html('''<p style="text-align: center;"><span style='font-family: "Comic Sans MS", sans-serif;'>SEBASTIAN ESPINOSA</span></p>
                 <p style="text-align: center;"><span style='font-family: "Comic Sans MS", sans-serif;'></span></p>''')
     
@@ -43,12 +43,12 @@ def run_about():
         
     
     with row3_2:
-        st.image('manuel.png')
+        st.image('Photos and Logos\manuel.png')
         stc.html('''<p style="text-align: center;"><span style='font-family: "Comic Sans MS", sans-serif;'>MANUEL FIGUEREDO</span></p>
                 <p style="text-align: center;"><span style='font-family: "Comic Sans MS", sans-serif;'></span></p>''')
     
     with row3_3:
-        st.image('simon.png')
+        st.image('Photos and Logos\simon.png')
         stc.html('''<p style="text-align: center;"><span style='font-family: "Comic Sans MS", sans-serif;'>SIMON GALEANO</span></p>
                 <p style="text-align: center;"><span style='font-family: "Comic Sans MS", sans-serif;'>STATISTICIAN</span></p>''')
     
