@@ -30,7 +30,7 @@ from plotly import graph_objects as go
 def main():
 
     #Nombre de la Pagina
-    img1 = Image.open('logo2.png')
+    img1 = Image.open('Photos and Logos\logo2.png')
     st.set_page_config(page_title='Hospital Universitario',page_icon = img1, layout='wide',initial_sidebar_state='expanded')
 
     #import df
@@ -74,13 +74,13 @@ def main():
         return Grouped_Age_gender
 
     #Sidebar Menu
-    st.sidebar.image('logo-HU_Horizontal_Azul.png')
+    st.sidebar.image('Photos and Logos\logo-HU_Horizontal_Azul.png')
     menu = ['HOME','EDA','PREDICTION','ABOUT']
     choice = st.sidebar.selectbox('SELECT AN OPTION',menu)
     #Titulo 
     if choice == 'HOME':
         row1_1, row1_2 = st.columns((1, 6))
-        img2 = Image.open('logo.png')
+        img2 = Image.open('Photos and Logos\logo.png')
         with row1_1:
             st.image(img2, caption=None, width=None, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
         with row1_2:
