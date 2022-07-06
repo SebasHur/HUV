@@ -23,7 +23,7 @@ def run_about():
     sp1, row3_1,sp2, row3_2,sp3, row3_3,sp4= st.columns((1,2,1,2,1,2,1))
     size_image_us = 200
     with row2_1:
-        st.image('Photos and Logos\arley.png')
+        st.image('Photos and Logos/arley.png')
         stc.html('''<p style="text-align: center;"><span style='font-family: "Comic Sans MS", sans-serif;'>ARLEY TORRES</span></p>
                 <p style="text-align: center;"><span style='font-family: "Comic Sans MS", sans-serif;'>MATHEMATICS</span></p>''')
     
