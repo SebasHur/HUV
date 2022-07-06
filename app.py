@@ -74,7 +74,7 @@ def main():
         return Grouped_Age_gender
 
     #Sidebar Menu
-    st.sidebar.image('Photos and Logos\logo-HU_Horizontal_Azul.png')
+    st.sidebar.image('logo-HU_Horizontal_Azul.png')
     menu = ['HOME','EDA','PREDICTION','ABOUT']
     choice = st.sidebar.selectbox('SELECT AN OPTION',menu)
     #Titulo 
