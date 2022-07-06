@@ -5,7 +5,7 @@ from xml.dom.xmlbuilder import Options
 
 def run_about():
     row1_1, row1_2 = st.columns((1, 6))
-    img2 = Image.open('logo.png')
+    img2 = Image.open('Photos and Logos/logo.png')
     with row1_1:
         st.image(img2, caption=None, width=None, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
     with row1_2:
