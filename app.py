@@ -30,7 +30,7 @@ from plotly import graph_objects as go
 def main():
 
     #Nombre de la Pagina inicial
-    img1 = Image.open('Photos and Logos\logo2.png')
+    img1 = Image.open('logo2.png')
     st.set_page_config(page_title='Hospital Universitario',page_icon = img1, layout='wide',initial_sidebar_state='expanded')
 
     #import df
