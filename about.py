@@ -37,7 +37,7 @@ def run_about():
                 <p style="text-align: center;"><span style='font-family: "Comic Sans MS", sans-serif;'></span></p>''')
     
     with row3_1:
-        st.image('jose.png')
+        st.image('Photos and Logos\jose.png')
         stc.html('''<p style="text-align: center;"><span style='font-family: "Comic Sans MS", sans-serif;'>JOSE LUIS GOMEZ</span></p>
                 <p style="text-align: center;"><span style='font-family: "Comic Sans MS", sans-serif;'>PETROLEUM ENGINEER</span></p>''')
         
