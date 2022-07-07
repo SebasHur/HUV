@@ -26,9 +26,10 @@ from plotly import graph_objects as go
 # from scipy import stats
 # import scipy
 # import statsmodels.api as sm
+first = True
 
 def main():
-
+    global first
     #Nombre de la Pagina inicial
     img1 = Image.open('Photos and Logos/logo2.png')
     st.set_page_config(page_title='Hospital Universitario',page_icon = img1, layout='wide',initial_sidebar_state='expanded')
@@ -76,7 +77,7 @@ def main():
     #Sidebar Menu
     st.sidebar.image('Photos and Logos/logo-HU_Horizontal_Azul.png')
     menu = ['HOME','EDA','PREDICTION','ABOUT']
-    choice = st.sidebar.selectbox('SELECT AN OPTION',menu)
+    choice = st.sidebar.selectbox('',menu)
     #Titulo 
     if choice == 'HOME':
         row1_1, row1_2 = st.columns((1, 6))
@@ -120,13 +121,19 @@ def main():
     elif choice == 'EDA':
         EDA_OPT = st.sidebar.radio('Select what you want to explore',('Patients and Gender','EPS'))
         if EDA_OPT == 'Patients and Gender':
+            with open("eda.css") as f:
+                st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
             run_patients_gender(data1_unique, Mujeres, Hombres, Grouped_Age_gender)
         
         elif EDA_OPT == 'EPS':
             run_EDA_eps(data1_unique)
     
     elif choice == 'PREDICTION':
-        run_prediction()
+        first = False
+        pos = data1_unique["tipo POS"].dropna().unique(); pos.sort()
+        eps = data1_unique["responsable EPS"].dropna().unique(); eps.sort()
+        cie = data1_unique["cie10 egrdin"].dropna().unique(); cie.sort()
+        run_prediction(pos, eps, cie)
 
         
     elif choice == 'ABOUT':

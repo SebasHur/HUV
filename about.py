@@ -25,7 +25,7 @@ def run_about():
     with row2_1:
         st.image('Photos and Logos/arley.png')
         stc.html('''<p style="text-align: center;"><span style='font-family: "Comic Sans MS", sans-serif;'>ARLEY TORRES</span></p>
-                <p style="text-align: center;"><span style='font-family: "Comic Sans MS", sans-serif;'>MATHEMATICS</span></p>''')
+                <p style="text-align: center;"><span style='font-family: "Comic Sans MS", sans-serif;'>MATHEMATICIAN</span></p>''')
     
     with row2_2:
         st.image('Photos and Logos/sebs.png')
@@ -34,7 +34,7 @@ def run_about():
     with row2_3:
         st.image('Photos and Logos/sebas.png')
         stc.html('''<p style="text-align: center;"><span style='font-family: "Comic Sans MS", sans-serif;'>SEBASTIAN ESPINOSA</span></p>
-                <p style="text-align: center;"><span style='font-family: "Comic Sans MS", sans-serif;'></span></p>''')
+                <p style="text-align: center;"><span style='font-family: "Comic Sans MS", sans-serif;'>ECONOMIST</span></p>''')
     
     with row3_1:
         st.image('Photos and Logos/jose.png')
@@ -45,7 +45,7 @@ def run_about():
     with row3_2:
         st.image('Photos and Logos/manuel.png')
         stc.html('''<p style="text-align: center;"><span style='font-family: "Comic Sans MS", sans-serif;'>MANUEL FIGUEREDO</span></p>
-                <p style="text-align: center;"><span style='font-family: "Comic Sans MS", sans-serif;'></span></p>''')
+                <p style="text-align: center;"><span style='font-family: "Comic Sans MS", sans-serif;'>CHEMICAL ENGINEER</span></p>''')
     
     with row3_3:
         st.image('Photos and Logos/simon.png')
