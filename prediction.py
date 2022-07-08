@@ -10,7 +10,7 @@ from datetime import datetime as dt
 
 sampledf = pd.read_csv("Sampledf.csv")
 model = pickle.load(open("./model.sav", "rb"))
-# @st.cache
+
 def run_prediction(unique_pos, unique_eps, unique_cie): 
     with open("pred.css") as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
